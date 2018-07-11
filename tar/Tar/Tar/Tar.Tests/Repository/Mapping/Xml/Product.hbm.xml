@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Tar.Tests"
+                   namespace="Tar.Tests.Model">
+  <class name="Tar.Tests.Model.Product" table="Product">
+    <id name="Id" type="int" column="ProductId">
+      <generator class="identity" />
+    </id>
+    <property name="Name" column="ProductName"/>
+  </class>
+</hibernate-mapping>

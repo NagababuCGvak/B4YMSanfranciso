@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="D:\DEV\Apps\Better4You\Configuration\Components\1.nunit" total="3" errors="0" failures="3" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-07-07" time="15:34:38">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.7905" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="c:\Program Files\NUnit 2.6.3\bin" machine-name="DVLP-PC" user="DVLP" user-domain="dvlp-pc" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="D:\DEV\Apps\Better4You\Configuration\Components\1.nunit" executed="True" result="Failure" success="False" time="0.272" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="D:\DEV\Apps\Better4You\Tests\Better4You.Tests\Better4You.UnitTests\bin\Debug\Better4You.UnitTests.dll" executed="True" result="Failure" success="False" time="0.263" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Better4You" executed="True" result="Failure" success="False" time="0.263" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="UnitTests" executed="True" result="Failure" success="False" time="0.263" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Core" executed="True" result="Failure" success="False" time="0.262" asserts="0">
+                    <results>
+                      <test-suite type="Namespace" name="EntityModel" executed="True" result="Failure" success="False" time="0.262" asserts="0">
+                        <results>
+                          <test-suite type="TestFixture" name="CreateUserTestCase" executed="True" result="Error" success="False" time="0.260" asserts="0">
+                            <failure>
+                              <message><![CDATA[SetUp : Castle.Windsor.Configuration.Interpreters.ConfigurationProcessingException : Error processing node resource FileResource: [] []
+  ----> Castle.Core.Resource.ResourceException : File D:\DEV\Apps\Better4You\Configuration\Components\Windsor.config could not be found]]></message>
+                              <stack-trace><![CDATA[at Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessor.Process(IResource resource) in c:\BuildAgent\work\5b096cace0fecb1f\src\Castle.Windsor\Windsor\Configuration\Interpreters\XmlProcessor\XmlProcessor.cs:line 115
+at Castle.Windsor.Configuration.Interpreters.XmlInterpreter.ProcessResource(IResource source, IConfigurationStore store, IKernel kernel) in c:\BuildAgent\work\5b096cace0fecb1f\src\Castle.Windsor\Windsor\Configuration\Interpreters\XmlInterpreter.cs:line 83
+at Castle.Windsor.WindsorContainer..ctor(IConfigurationInterpreter interpreter) in c:\BuildAgent\work\5b096cace0fecb1f\src\Castle.Windsor\Windsor\WindsorContainer.cs:line 85
+at Tar.Core.ServiceLocator.Initialize(String configFile) in d:\zahir2\lp-src\Cloud9\Tar\Tar\Tar.Core\ServiceLocator.cs:line 24
+at Tar.Core.ServiceLocator.Initialize() in d:\zahir2\lp-src\Cloud9\Tar\Tar\Tar.Core\ServiceLocator.cs:line 32
+at Better4You.UnitTests.TestBase..ctor() in d:\DEV\Apps\Better4You\Tests\Better4You.Tests\Better4You.UnitTests\TestBase.cs:line 14
+at Better4You.UnitTests.Core.EntityModel.CreateUserTestCase..ctor()
+--ResourceException
+at Castle.Core.Resource.FileResource.CheckFileExists(String path) in d:\BuildAgent\work\8689a06309d1ab0b\src\Castle.Core\Core\Resource\FileResource.cs:line 115
+at Castle.Core.Resource.FileResource.CreateStreamFromPath(String resourcePath, String rootPath) in d:\BuildAgent\work\8689a06309d1ab0b\src\Castle.Core\Core\Resource\FileResource.cs:line 102
+at Castle.Core.Resource.FileResource.<>c__DisplayClassa.<.ctor>b__8() in d:\BuildAgent\work\8689a06309d1ab0b\src\Castle.Core\Core\Resource\FileResource.cs:line 49
+at Castle.Core.Resource.AbstractStreamResource.GetStreamReader() in d:\BuildAgent\work\8689a06309d1ab0b\src\Castle.Core\Core\Resource\AbstractStreamResource.cs:line 46
+at Castle.Windsor.Configuration.Interpreters.XmlProcessor.XmlProcessor.Process(IResource resource) in c:\BuildAgent\work\5b096cace0fecb1f\src\Castle.Windsor\Windsor\Configuration\Interpreters\XmlProcessor\XmlProcessor.cs:line 93
+]]></stack-trace>
+                            </failure>
+                            <results>
+                              <test-case name="Better4You.UnitTests.Core.EntityModel.CreateUserTestCase.CreateApplicationAndCompanySchoolUsers" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                                <failure>
+                                  <message><![CDATA[TestFixtureSetUp failed in CreateUserTestCase]]></message>
+                                  <stack-trace />
+                                </failure>
+                              </test-case>
+                              <test-case name="Better4You.UnitTests.Core.EntityModel.CreateUserTestCase.CreateSampleApplication" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                                <failure>
+                                  <message><![CDATA[TestFixtureSetUp failed in CreateUserTestCase]]></message>
+                                  <stack-trace />
+                                </failure>
+                              </test-case>
+                              <test-case name="Better4You.UnitTests.Core.EntityModel.CreateUserTestCase.CreateSampleUser" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                                <failure>
+                                  <message><![CDATA[TestFixtureSetUp failed in CreateUserTestCase]]></message>
+                                  <stack-trace />
+                                </failure>
+                              </test-case>
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

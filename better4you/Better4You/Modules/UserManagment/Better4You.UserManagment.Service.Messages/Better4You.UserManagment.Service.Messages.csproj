@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Better4You.UserManagment.Service.Messages</RootNamespace>
+    <AssemblyName>Better4You.UserManagment.Service.Messages</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Better4You.Core">
+      <HintPath>..\..\..\..\SharedLibs\Better4You\Common\Better4You.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Better4You.UserManagment.ViewModel">
+      <HintPath>..\..\..\..\SharedLibs\Better4You\UserManagment\Better4You.UserManagment.ViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Tar.Service">
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.ViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.ViewModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddRoleToUserRequest.cs" />
+    <Compile Include="AddRoleToUserResponse.cs" />
+    <Compile Include="AllAnnualAgreementsGetResponse.cs" />
+    <Compile Include="ChangePasswordRequest.cs" />
+    <Compile Include="ChangePasswordResponse.cs" />
+    <Compile Include="CreateContactInfoRequest.cs" />
+    <Compile Include="CreateUserRequest.cs" />
+    <Compile Include="CreateUserResponse.cs" />
+    <Compile Include="GetUserRolesRequest.cs" />
+    <Compile Include="GetUserRolesResponse.cs" />
+    <Compile Include="LockUserRequest.cs" />
+    <Compile Include="LockUserResponse.cs" />
+    <Compile Include="ForgotPasswordRequest.cs" />
+    <Compile Include="ForgotPasswordResponse.cs" />
+    <Compile Include="GetAllRolesRequest.cs" />
+    <Compile Include="GetAllRolesResponse.cs" />
+    <Compile Include="SchoolRouteResponse.cs" />
+    <Compile Include="SchoolAnnualAgreementGetResponse.cs" />
+    <Compile Include="SchoolRouteRequest.cs" />
+    <Compile Include="SchoolAnnualAgreementRequest.cs" />
+    <Compile Include="SchoolInfoRequest.cs" />
+    <Compile Include="SchoolUserFilterRequest.cs" />
+    <Compile Include="SchoolUserRequest.cs" />
+    <Compile Include="UnLockUserRequest.cs" />
+    <Compile Include="UpdateUserRequest.cs" />
+    <Compile Include="UpdateUserResponse.cs" />
+    <Compile Include="GetApplicationUsersRequest.cs" />
+    <Compile Include="GetApplicationUsersResponse.cs" />
+    <Compile Include="GetUserApplicationsResponse.cs" />
+    <Compile Include="GetUserRequest.cs" />
+    <Compile Include="GetUserResponse.cs" />
+    <Compile Include="GetUserApplicationsRequest.cs" />
+    <Compile Include="MembershipFilterRequest.cs" />
+    <Compile Include="ResetPasswordRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPasswordResponse.cs" />
+    <Compile Include="LoginRequest.cs" />
+    <Compile Include="LoginResponse.cs" />
+    <Compile Include="SchoolSaveRequest.cs" />
+    <Compile Include="SchoolSaveResponse.cs" />
+    <Compile Include="SchoolDeleteRequest.cs" />
+    <Compile Include="SchoolGetAllRequest.cs" />
+    <Compile Include="SchoolGetAllResponse.cs" />
+    <Compile Include="SchoolGetRequest.cs" />
+    <Compile Include="SchoolGetResponse.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetName).* ..\..\..\..\..\..\SharedLibs\Better4You\UserManagment\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

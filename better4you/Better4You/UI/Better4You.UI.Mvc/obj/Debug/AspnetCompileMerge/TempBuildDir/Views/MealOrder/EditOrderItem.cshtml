@@ -1,0 +1,378 @@
+﻿@model MealMenuOrderItemView
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_PopupLayout.cshtml";
+}
+
+<form id="popupForm" class="form-horizontal">
+    @*    <fieldset>
+        <legend>@Html.Partial("_PopupButtonsPartial")</legend>   *@
+    <div class="control-group">
+        <div class="controls pull-right">
+            @Html.Partial("_PopupButtonsPartial")
+        </div>
+    </div>
+        <div class="control-group">
+            <label class="control-label" for="MenuName">Meal</label>
+            <div class="controls">
+                <input id="MenuName" class="uneditable-input" readonly="readonly" value="@Model.MenuName - @Model.MealMenuValidDate.ToShortDateString()"/>
+            </div>
+        </div>     
+        <div class="control-group" >
+            <div class="controls">
+                @foreach (var food in Model.Foods)
+                {
+                    <span class="badge badge-info">@string.Format("{0}", food.DisplayName)</span>
+                }
+            </div>
+        </div> 
+        <div class="control-group">
+            <label class="control-label">Type</label>
+            <div class="controls">
+                <input class="uneditable-input" readonly="readonly" value="@Model.MenuType.Text"/>
+                <input type="hidden" name="MealType.Id" id="MealType_Id" value="@Model.MealType.Id" />
+            </div>
+        </div>      
+        <div class="control-group">
+            <label class="control-label">Meal Service Type</label>
+            <div class="controls">
+                @Html.DropDownListFor(m => m.MealServiceType.Id,
+                                                     ((List<Tar.ViewModel.GeneralItemView>)ViewBag.MealServiceTypes).Select(
+                                                     x => new SelectListItem
+                                                     {
+                                                         Text = x.Text,
+                                                         Value = x.Id.ToString(),
+                                                         Selected = (x.Id== Model.MealServiceType.Id),                                                         
+                                                     }).ToList(),
+                                              new
+                                                  {
+                                                      @class = "span3 selectpicker",
+                                                      required = true,
+                                                      name="ddlMealServiceType",
+                                                      id = "ddlMealServiceType"
+                                                  })               
+            </div>
+        </div>  
+            <div class="control-group">
+            <label class="control-label" for="TotalCount">Count</label>
+            <div class="controls">
+                <input type="number" name="TotalCount" id="TotalCount" value="@Model.TotalCount" placeholder="Count" autocomplete="off" title="Count" required="required"/>
+            </div>
+        </div>              
+        @if (Model.Id > 0)
+        {
+            if(ViewBag.UserTypeId==(int)UserTypes.Company)
+            {
+                <div class="control-group">
+                    <label class="control-label">Rate Of Item</label>
+                    <div class="controls">
+                        @Html.BootstrapTextBoxFor(m => m.Rate, new { @class = "span3", @type="number",@step="0.05",display = "Rate Of Item"})    
+                    </div>                                        
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Total Adjustment</label>
+                    <div class="controls">
+                        @Html.BootstrapTextBoxFor(m => m.AdjusmentCount, new { @class = "span3", @type="number",@step="5",display = "Total Adjustment"})    
+                    </div>                                        
+                </div>   
+                <input type="hidden" id="menuItemIndex" name="menuItemIndex" value="@Request["menuItemIndex"]"/>
+                <input type="hidden" id="SchoolId" value="@Request["SchoolId"]">
+            }
+        <div class="control-group">
+            <label class="control-label">Reason</label>
+            <div class="controls">
+                @Html.BootstrapTextBoxFor(m => m.ModifiedReason, new { @class = "span3", display = "Reason", required = "required" })    
+            </div>            
+                            
+        </div>
+        }
+    @*</fieldset>*@
+    @Html.HiddenFor(d => d.Id)
+    @Html.HiddenFor(d => d.MealMenuId)
+    
+    <script>
+        function checkSingularMenuCount() {
+            var menus = $('#calendar').fullCalendar('clientEvents', clickedMeal._id);
+            if (clickedMeal.orderItemData.MenuType.Id == tar.constants.menuTypes.Singular)
+            {
+                var totalCount = 0;
+                $.each(menus, function(index, menu) {
+                    if (menu.orderItemData.MenuType.Id != tar.constants.menuTypes.Singular)
+                        totalCount += IsNull(menu.orderItemData.TotalCount, 0);
+                });
+                if (clickedMeal.orderItemData.TotalCount * 1 > totalCount) {
+                    alert("Total number of milk orders cannot be greater than total number of food orders");
+                    return false;
+                }
+            }
+            return true;
+        }
+        function saveSingleItemMenu() {
+            var menus = $('#calendar').fullCalendar('clientEvents', clickedMeal._id);
+
+            var singleItemMenu = null;
+            if (clickedMeal.orderItemData.MenuType.Key != tar.constants.menuTypes.Singular) {
+                var totalCount = 0;
+                $.each(menus, function(index, menu) {
+                    if (menu.orderItemData.MenuType.Key == tar.constants.menuTypes.Singular)
+                        singleItemMenu = menu;
+                    else {
+                        if (menu.orderItemData.Id > 0 && menu.orderItemData.Id != clickedMeal.orderItemData.Id)
+                            totalCount += IsNull(menu.orderItemData.TotalCount, 0);
+                    }
+                });
+                if (singleItemMenu != null) {
+
+                    singleItemMenu.orderItemData.TotalCount = totalCount + clickedMeal.orderItemData.TotalCount;
+                    singleItemMenu.orderItemData.ModifiedReason = "System Auto Update";
+                    singleItemMenu.orderItemData.MealServiceTypeId = clickedMeal.orderItemData.MealServiceTypeId;
+                    //alert(3);
+                    //alert(JSON.stringify(singleItemMenu.orderItemData));
+                    return tar.callAction(
+                        "MealOrder",
+                        "EditOrderItem",
+                        {
+                            OrderItem: singleItemMenu.orderItemData,
+                            SchoolId: 0
+                        },
+                        {
+                            async: false,
+                            success: function(d) {
+                                if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                                else {                                    
+                                    singleItemMenu.title = d.OrderItem.MenuName + (IsNull(d.OrderItem.Id, 0) > 0 ? " (Count : " + IsNull(d.OrderItem.TotalCount, 0) + ")" : "");
+                                    singleItemMenu.orderItemData = d.OrderItem;
+                                    singleItemMenu.borderColor = "green";
+                                    if (IsNull(d.OrderItem.RefId, 0) > 0)
+                                        singleItemMenu.borderColor = "red";
+                                }
+                            },
+                            complete: function () {
+                                updateEvents(singleItemMenu);
+                                tar.closePopup();
+                                tar.hideLoading();
+                            }
+                        });
+                }
+            }
+
+
+            return saveSingleItemMenu;
+        };
+        function updateEvents(menuEvent) {
+            var menus = $('#calendar').fullCalendar('clientEvents', menuEvent._id);
+            $.each(menus, function (index, menu) {
+                if (menuEvent!=null && menu.orderItemData.MealMenuId == menuEvent.orderItemData.MealMenuId)
+                    menus[index] = menuEvent;
+            });
+            $('#calendar').fullCalendar('removeEvents', menuEvent._id);
+            $('#calendar').fullCalendar('addEventSource', menus);
+            
+        }
+        function saveAction() {
+            
+            clickedMeal.orderItemData.TotalCount = $("#TotalCount").val();
+            if ($("#Rate").length > 0 && $("#AdjusmentCount").length > 0 && $("#Rate").val() * 1 > 0 && $("#AdjusmentCount").val() * 1 > 0) {
+                clickedMeal.orderItemData.Rate = $("#Rate").val() * 1;
+                clickedMeal.orderItemData.AdjusmentCount = $("#AdjusmentCount").val() * 1;
+            }
+            
+            //clickedMeal.orderItemData.MealMenuValidDate = clickedMeal.start;
+            clickedMeal.orderItemData.ModifiedReason = $("#ModifiedReason").val();
+            clickedMeal.orderItemData.MealServiceTypeId = $("#ddlMealServiceType").val();
+            
+
+            if (!checkSingularMenuCount())
+                return;
+
+            $("#btnSave", $("#popupForm")).attr('disabled', 'disabled');
+            var itemMenu = null;
+            return tar.callAction(
+                "MealOrder",
+                "EditOrderItem",
+                {
+                    OrderItem: clickedMeal.orderItemData,
+                    SchoolId: 0,
+                    MealTypeId: $("#MealType_Key").val()
+                },
+                {
+                    success: function (d) {
+                        
+                        if (d.Result != tar.constants.responseResult.Success)
+                        {
+                            alert(d.Message);
+                        }
+                        else {
+                            clickedMeal.title = d.OrderItem.MenuName + (IsNull(d.OrderItem.Id, 0) > 0 ? " (Count : " + IsNull(d.OrderItem.TotalCount, 0) + ")" : "");
+                            clickedMeal.orderItemData = d.OrderItem;
+                            clickedMeal.borderColor = "green";
+                            if (IsNull(d.OrderItem.RefId, 0) > 0)
+                                clickedMeal.borderColor = "red";
+                            itemMenu = saveSingleItemMenu();
+
+                        }
+                        //tar.hideLoading();
+                    },
+                    complete: function () {
+                        updateEvents(clickedMeal);
+                        tar.closePopup();
+                        tar.hideLoading();
+                        $("#btnSave", $("#popupForm")).removeAttr('disabled');
+                    }
+                });
+        }
+        
+        function deleteAction() {
+            
+            clickedMeal.orderItemData.ModifiedReason = $("#ModifiedReason").val();            
+            return tar.callAction(
+                "MealOrder",
+                "DeleteOrderItem",
+                clickedMeal.orderItemData,
+                {
+                    success: function (d) {
+                        tar.hideLoading();
+                        if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                        else {
+                            
+                            clickedMeal.title = clickedMeal.orderItemData.MenuName;
+                            clickedMeal.orderItemData.Id = 0;
+                            clickedMeal.orderItemData.TotalCount = 0;
+                            clickedMeal.orderItemData.RefId = null;
+                            clickedMeal.borderColor = "black";
+                            $('#calendar').fullCalendar('updateEvent', clickedMeal);
+                            //updateEvents(clickedMeal);
+                            tar.closePopup();
+                        }
+
+                    }
+                });
+        }
+        function saveCompanyAction()
+        {
+            var orderItem = {
+                Id: $("#Id").val(),                
+                TotalCount:$("#TotalCount").val(),                
+                ModifiedReason: $("#ModifiedReason").val(),
+                MealServiceTypeId: $("#ddlMealServiceType").val()
+            };
+            if($("#Rate").val()!="") {
+                orderItem.Rate = $("#Rate").val() * 1;
+            }
+            if ($("#AdjusmentCount").val() != "") {
+                orderItem.AdjusmentCount = $("#AdjusmentCount").val() * 1;
+            }
+            //alert(2);
+            //alert(JSON.stringify(orderItem));
+            return tar.callAction(
+                "MealOrder",
+                "EditOrderItem",
+                {
+                    OrderItem: orderItem,
+                    SchoolId:$("#SchoolId").val()
+                },
+                {
+                    success: function(d) {
+
+                        if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                        else {
+                            
+                            var menuItemArray = $("#menuItemIndex").val().split('_');
+                            var rowIndex = menuItemArray[0];
+                            var colIndex = menuItemArray[1];
+                            var itemIndex = menuItemArray[2];
+                            var currentCell = $("table tbody tr:eq(" + rowIndex + ") td:eq(" + colIndex + ")");
+                            $(".controls:eq(" + itemIndex + ") input[type='hidden']:eq(0)", currentCell).val(d.OrderItem.Id);
+                            
+                            var small=$(".controls:eq(" + itemIndex + ") small", currentCell);
+                            small.toggleClass("badge-warning", true)
+                                .removeAttr('data-content')
+                                .html(d.OrderItem.TotalCount + "-" + d.OrderItem.MenuName);
+                            small.popover({
+                                html: true,
+                                trigger: 'hover',
+                                title: 'Order Item History',
+                                container:  $(this).attr('id'),
+                                placement: 'top',
+                                delay: { show: 500, hide: 100 },
+                                content: function () {
+                                    if ($(this).attr('data-content') == null) {
+                                        var orderItemId = $(this).parent().find('input[type="hidden"]').eq(0).val();
+                                        var popupContent = "";
+                                        tar.callAction(
+                                            "MealOrder",
+                                            "OrderItemHistory",
+                                            { OrderItemId: orderItemId },
+                                            {
+                                                async: false,
+                                                success: function (d) {
+                                                    tar.hideLoading();
+                                                    if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                                                    else {
+                                                        var trPart = "";
+                                                        $.each(d.OrderItems, function (index, orderItem) {
+                                                            trPart += '<tr>' +
+                                                                '<td><small class="muted">' + tar.toDateString(orderItem.ModifiedDate, 'YY/MM/DD') + '</small></td>' +
+                                                                '<td><small class="badge muted">' + orderItem.TotalCount + '</small></td>' +
+                                                                '<td><small class="muted">' + orderItem.ModifiedUser + '</small></td>' +
+                                                                //'<td>' + orderItem.ModifiedReason + '</td>' +
+                                                                '</tr>';
+                                                        });
+                                                        var table = '<table class="table table-condensed">' +
+                                                            //'<thead><th>Date</th><th>Count</th><th>User</th><th>Reason</th></thead>'+
+                                                            '<thead><th>Date</th><th>Count</th><th>User</th></thead>' +
+                                                            '<tbody>' +
+                                                            trPart +
+                                                            '</tbody>' +
+                                                            '</table>';
+                                                        popupContent = '<div class="hover-hovercard">' + table + '</div>';
+
+                                                        //return popupContent;
+                                                    }
+                                                    return false;
+                                                }
+                                            });
+                                        $(this).attr('data-content', popupContent);
+                                        return popupContent;
+                                    }
+                                    return $(this).attr('data-content');
+                                }
+
+                            });
+                        }
+                    },
+                    complete: function() {
+                        tar.closePopup();
+                        tar.hideLoading();
+                    }
+                });
+        }
+    </script>
+</form>
+    @section documentPopupReady
+    {
+        
+        if($("#Id").val()=="0")
+        {
+            tar.prepareModalActions("create","Create Menu Order");
+        }
+        else{
+            tar.prepareModalActions("edit","Edit Menu Order");
+        }
+        tar.removePopupSubmitBehaviour();
+        //$('button[type="submit"]',$("#popupForm")).attr('type','button');
+        //$("#ModifiedReason").removeAttr('disabled')
+        $("#btnSave",$("#popupForm")).click(function(){
+        
+        @if (ViewBag.UserTypeId == (int)UserTypes.Company)
+        {
+            @:saveCompanyAction();            
+        }
+        else
+        {
+            @:saveAction();
+        }
+                
+        });
+    }

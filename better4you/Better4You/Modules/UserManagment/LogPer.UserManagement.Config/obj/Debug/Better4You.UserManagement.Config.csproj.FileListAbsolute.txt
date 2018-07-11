@@ -1,0 +1,14 @@
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\bin\Debug\Better4You.UserManagement.Config.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\LogPer.UserManagement.Config\obj\Debug\Better4You.UserManagement.Config.pdb

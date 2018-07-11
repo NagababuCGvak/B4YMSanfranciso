@@ -1,0 +1,15 @@
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.csprojResolveAssemblyReference.cache
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\bin\Debug\Better4You.UserManagment.Business.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Business\obj\Debug\Better4You.UserManagment.Business.pdb

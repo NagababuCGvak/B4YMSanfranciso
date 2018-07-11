@@ -1,0 +1,93 @@
+﻿@model SchoolUserRequest
+<form class="form-horizontal" id="modalUser" method="POST" action="@Url.Action("EditUser", "School")">
+    <div class="modal-header">
+        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+        <h3>@ViewBag.Title</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label class="control-label" for="SelectUser">
+                            User
+                            <span class="symbol required"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                     @if (ViewBag.ActionParam.Equals("D"))
+                     {   
+                        <label class="control-label" for="SelectUser">
+                            @ViewBag.FullName
+                        </label>
+                     }
+                     else
+                     {
+                         <select id="SelectUser" class="form-control" name="SelectUser">
+                            <option value="0" selected="selected">Select User</option>
+                        </select>
+                     }
+                    </div>
+                </div>
+                @Html.HiddenFor(m => m.UserId)
+                @Html.HiddenFor(d => d.SchoolId)
+                @Html.Hidden("actionParam", (object)ViewBag.ActionParam)
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        @if (ViewBag.ActionParam.Equals("D"))
+        {
+             <a href="#" onclick="submitPopup('D');" class="btn btn-md btn-primary">
+                    <i class="fa fa-trash-o"></i> Delete
+                </a>   
+        }
+        else
+        {
+            <a href="#" onclick="submitPopup('C');" class="btn btn-md btn-primary">
+                <i class="fa fa-save"></i> Add
+            </a>
+        }
+    </div>
+</form>
+
+<script>
+    $("#SelectUser")
+        .on("select2:select", function(e) {
+            var selectedItem = $.extend({}, e.params.data);
+            $('#UserId').val(selectedItem.id);
+        })
+        .select2({
+            ajax: {
+                url: tar.getUrl("Users", "Lookup"),
+                dataType: 'json',
+                type: "POST",
+                delay: 250,
+                data: function(params) {
+                    return {
+                        Name: params.term
+                    };
+                },
+                processResults: function(data) {
+                    $.each(data.List, function() {
+                        this.text = this.Value;
+                        this.id = this.Key;
+                    });
+                    return {
+                        results: data.List
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function(markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 2
+        });
+    function submitPopup(actionParam) {
+        $("#actionParam").val(actionParam);
+        $("#modalUser")[0].submit();
+    }
+</script>
+
+

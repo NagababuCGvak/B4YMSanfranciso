@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "_CompanyLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var activeControllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var activeActionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+    
+    //Func<string, MvcHtmlString> isActive = (controllerName) => new MvcHtmlString(activeControllerName.Equals(controllerName, StringComparison.InvariantCultureIgnoreCase) || activeActionName.Equals(controllerName, StringComparison.InvariantCultureIgnoreCase) ? "class='active'" : "");
+    Func<string, string[], MvcHtmlString> isActive = (controllerName, actionNames) =>
+    {
+        var sameController = activeControllerName.Equals(controllerName, StringComparison.InvariantCultureIgnoreCase);
+        if (!sameController) return new MvcHtmlString("");
+
+        if (actionNames.Length == 0)
+        {
+            return new MvcHtmlString("class='active'");
+        }
+        if (actionNames.Any(x => (activeActionName.Equals(x, StringComparison.InvariantCultureIgnoreCase))))
+        {
+            return new MvcHtmlString("class='active'");
+        }
+        return new MvcHtmlString("");
+    };
+}
+<input id="activeControllerName" type="hidden" value="@activeControllerName"/>
+<input id="activeActionName" type="hidden" value="@activeActionName"/>
+<div class="container">
+
+    <!-- Docs nav ================================================== -->
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav affix">
+                <li @isActive("School", new string[] {}) ><a href="@Url.Action("Index", "School")"><i class="icon-chevron-right"></i>Manage Schools</a></li>
+                <li @isActive("User", new string[] {})><a href='@Url.Action("Index", "User")'><i class="icon-chevron-right"></i>Manage Users</a></li>
+                <li @isActive("Food", new string[] {})><a href='@Url.Action("Index", "Food")'><i class="icon-chevron-right"></i>Manage Items</a></li>
+                <li @isActive("Menu", new string[] {})><a href='@Url.Action("Index", "Menu")'><i class="icon-chevron-right"></i>Manage Meals</a></li>
+                <li @isActive("Meal", new string[] {})><a href='@Url.Action("Monthly", "Meal")'><i class="icon-chevron-right"></i>Build Monthly Menu</a></li>
+                @*<li @isActive("meal","daily")><a href='@Url.Action("Daily", "Meal",new RouteValueDictionary(new {year=DateTime.Today.Year,month=DateTime.Today.Month,day=DateTime.Today.Day,mealType=MealTypes.Breakfast.ToInt32()}))'><i class="icon-chevron-right"></i>Build Daily Menu</a></li>*@
+                <li @isActive("MealOrder", new[] {"OrderList"})><a href='@Url.Action("OrderList", "MealOrder")'><i class="icon-chevron-right"></i>View School Orders</a></li>
+                <li @isActive("Invoice", new[] {"Index"})><a href='@Url.Action("Index", "Invoice")'><i class="icon-chevron-right"></i>Manage Invoices</a></li>
+                <li @isActive("Invoice", new []{"InvoiceSummary"})><a href='@Url.Action("InvoiceSummary", "Invoice")'><i class="icon-chevron-right"></i>Accounting Summary</a></li>
+                <li @isActive("Invoice", new[] {"DateRangeBilling"})><a href='@Url.Action("DateRangeBilling", "Invoice")'><i class="icon-chevron-right"></i>Weekly Billing Report</a></li>                
+                <li>@Html.ActionLink("LogOut", "LogOut", "Account")</li>
+            </ul>
+        </div>
+        <div class="span9">
+            @RenderBody()
+        </div>
+    </div>
+
+</div>
+    @section scripts
+    {
+          @RenderSection("documentReady", false)
+    }

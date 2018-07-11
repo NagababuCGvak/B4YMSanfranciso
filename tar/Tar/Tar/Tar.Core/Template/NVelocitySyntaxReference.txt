@@ -1,0 +1,102 @@
+﻿NVelocity Syntax Reference
+
+Variable Substitution
+Variables are indicated by a dollar sign, and may be enclosed in curly braces.  Variables can appear anywhere within the scriptlet content.
+
+Standard Syntax: $variable_name
+Hello $User.FirstName!
+
+Explicit Syntax: ${variable_name}
+Hello ${User.FirstName}!
+
+Standard syntax cannot be used if your variable is part of a larger string where the variable name would not be clearly defined. Below shows an example of incorrect use of the standard syntax, where explicit syntax must be used instead:
+
+Incorrect with Standard syntax:
+some_text$variable_namesome_more_text
+
+Correct with Explicit syntax:
+some_text${variable_name}some_more_text
+
+.NET Syntax and Variable Formatting
+When you reference variables you are accessing the object through the .NET framework. You can use traditional .NET syntax to access properties and methods. A common example might be to provide string formats:
+
+$User.LastLoginDate.ToString("mm-ddd-yyyy")
+
+
+nVelocity Scripting
+With the nVelocity scripting language you can implement conditional logic and looping to create dynamic output.  Any line that begins with a # pound sign is interpreted as a line of script.
+
+Conditional Statements
+You can employ conditional logic in your email templates with the if-end statement. For example:
+
+#if($User.IsAnonymous)
+    You can register now to get the great benefits of membership!
+#else
+    Welcome back $User.UserName!
+#end
+
+Looping
+You can loop over collections of items with the foreach-end statement. For example:
+
+Current exchange rates for currencies:
+
+<table>
+<tr><th>Currency</th><th>Rate</th></tr>
+#foreach($currency in $Store.Currencies)
+	<tr><td>$currency.Name</td><td>$currency.ExchangeRate</td></tr>
+#end
+</table>
+
+Advanced Looping
+The foreach statement supports additional features to enable things like alternating rows, headers, and footers.
+
+#foreach($i in $items)
+#each
+	text which appears for each item
+#before
+	text which appears before each item
+#after
+	text which appears after each item
+#between
+	text which appears between each two items
+#odd
+	text which appears for every other item, including the first
+#even
+	text which appears for every other item, starting with the second
+#nodata
+	Content rendered if $items evaluated to null or empty
+#beforeall
+	text which appears before the loop, only if there are items matching condition
+#afterall
+	text which appears after the loop, only of there are items matching condition
+#end
+
+Set Statement
+You can create new nVelocity variables using the set statement.
+
+#set ($counter = 1)
+
+Currencies provided by $Store.Name:<br />
+#foreach($currency in $Store.Currencies)
+$counter. $currency.Name<br />
+#set ($counter = $counter + 1)
+#end
+<br />
+
+All transactions are conducted in $Store.PrimaryCurrency.Name.
+Including Comments
+You can include comments in your nVelcoity script.  Single line comments are created by starting a line with a ## double pound sign.
+
+## single line comment will not be output
+ 
+Multi line comments can also be included, by using the #* … *# syntax:
+ 
+#* This is a
+
+comment that spans
+
+multiple lines and will
+
+not be displayed
+
+*#

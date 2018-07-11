@@ -1,0 +1,45 @@
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.csprojResolveAssemblyReference.cache
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.dll
+D:\TFS\Better4You\Main\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Better4You.Meal.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Repository.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Globalization.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\bin\Debug\Tar.Model.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\Meal\Better4You.Meal.Service\obj\Debug\Better4You.Meal.Service.pdb

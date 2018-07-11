@@ -1,0 +1,207 @@
+﻿@using Tar.Core.Extensions
+@model Better4You.UI.Mvc.Models.MilkPercentagePageModel
+<script>
+    var m = null;
+    @Html.Raw("m = " + Model.ToJson() + ";")
+    function AppViewModel($, tar) {
+        "use strict";
+        var self = this;
+        this.Response = ko.observable({ List: ko.observableArray() });
+        this.Title = ko.observable(m.Title);
+        this.Breadcrumbs = ko.observableArray(m.Breadcrumbs);
+        this.Schools = ko.observableArray(m.Schools);
+        this.MealTypes = ko.observableArray(m.MealTypes);
+        this.Menus = ko.observableArray(m.Menus);
+        this.MealType = ko.observable(m.MealType);
+        this.SchoolId = ko.observable(m.SchoolId);
+        this.IsLoaded = ko.observable(false);
+        this.recordNotFound = ko.observable(true);
+        this.Save = function (/*m,e*/) {
+            //var $button = $(e.currentTarget);
+            //$button.button("loading");
+            var request =
+            {
+                "List": ko.toJS(self.Response().List())
+            };
+            tar.callAction(
+                "Milk",
+                "SaveSupplementaryList",
+                request,
+                {
+                    success: function (response) {
+                        tar.hideLoading();
+                        self.recordNotFound(!response || !response.List || response.List.length === 0);
+                        //setTimeout(function() { alert(response.Message); }, 300);
+
+                        if (response.Result !== 0) self.Load();
+                        //else
+                        alert(response.Message);
+                        //setTimeout(function() { $button.button('reset'); }, 500);
+                    }
+                });
+        };
+        this.Load = function () {
+            var request =
+            {
+                "Filter": {
+                    "SchoolId": self.SchoolId(),
+                    "MealTypeId": self.MealType()
+                }
+            };
+
+            tar.callAction(
+                "Milk",
+                "GetSupplementaryList",
+                request,
+                {
+                    success: function (response) {
+                        tar.hideLoading();
+
+                        self.recordNotFound(!response || !response.List || response.List.length === 0);
+                        if (response.Result === 0)
+                            alert(response.Message);
+                        else {
+                            self.Response().List(response.List);
+                        }
+
+                        if (!self.IsLoaded()) {
+                            self.IsLoaded(true);
+                            ko.applyBindings(self);
+                        }
+                    },
+                    error: function (a) { alert(ko.toJSON(a)); }
+                });
+        };
+        return this;
+    };
+
+</script>
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        @if (Model.Breadcrumbs != null && Model.Breadcrumbs.Any())
+        {
+            <ol class="breadcrumb">
+                @for (var bcIndex = 0; bcIndex < Model.Breadcrumbs.Count; bcIndex++)
+                {
+                    var bc = Model.Breadcrumbs[bcIndex];
+                    if (bcIndex == Model.Breadcrumbs.Count - 1)
+                    {
+                    <li class='active'>@bc.Title</li>
+                    }
+                    else
+                    {
+                    <li>
+                        <i class="@bc.IconClass"></i>
+                        <a href="@Url.Content(bc.Url)">@bc.Title</a>
+                    </li>
+                    }
+                }
+            </ol>
+        }
+
+
+        <div class="row page-header">
+            <div class="col-sm-6">
+                <h1>@Model.Title</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="buttons-widget pull-right">
+                    <button class="btn btn-danger" data-bind="click: Save" data-loading-text="Saving..." data-complete-text="Saving...">
+                        <i class="fa fa-save"></i>&nbsp; Save
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+
+<div class="">
+    <div class="col-sm-12">
+        <div>
+            <div class="btn-group btn-group-justified btn-group-sm">
+                @foreach (var mealType in Model.MealTypes)
+                {
+                    var actionUrl = Url.Action("Percentage", new { id = mealType.Id });
+                    @(TagBuilderCustom.Create("a")
+                      .MergeAttribute("onclick", "tar.redirect('" + actionUrl + "')")
+                      .MergeAttribute("id", "btn" + mealType.Id)
+                      .AddCssClass("btn btn-default")
+                      .SetInnerHtml(mealType.Text))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="clip-users-2"></i>
+                @Model.Title
+                <div class="panel-tools">
+                    <a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            @*<th>Id</th>
+                                <th>SchoolId</th>*@
+                            <th class="col-sm-4 center">Menu</th>
+                            @*<th class="col-md-2">Meal Type</th>*@
+                            <th class="center">Monday</th>
+                            <th class="center">Tuesday</th>
+                            <th class="center">Wednesday</th>
+                            <th class="center">Thursday</th>
+                            <th class="center">Friday</th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: $root.Response().List">
+                        <tr>
+                            <td>
+                                <select class="form-control" data-bind="options: $root.Menus, optionsText: 'Name', optionsValue: 'Id', value: MenuId" disabled="disabled">
+                                </select>
+                            </td>
+                            @*                            <td>
+                                <select class="form-control" data-bind="options: $root.MealTypes,
+    optionsText: 'Text', optionsValue: 'Id', value: MealType"
+                                    disabled="disabled">
+                                </select>
+                            </td>*@
+                            <td>
+                                <input class="form-control" type="number" min="0" data-bind="textInput: Monday"/></td>
+                            <td>
+                                <input class="form-control" type="number" min="0" data-bind="textInput: Tuesday"/></td>
+                            <td>
+                                <input class="form-control" type="number" min="0" data-bind="textInput: Wednesday"/></td>
+                            <td>
+                                <input class="form-control" type="number" min="0" data-bind="textInput: Thursday"/></td>
+                            <td>
+                                <input class="form-control" type="number" min="0" data-bind="textInput: Friday"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @*<div data-bind="style: { display: recordNotFound() ? '' : 'none' }">
+                    Record not found!
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('@("#btn" + Model.MealType)').addClass('active');
+
+    var model = new AppViewModel($, tar);
+    model.Load();
+</script>

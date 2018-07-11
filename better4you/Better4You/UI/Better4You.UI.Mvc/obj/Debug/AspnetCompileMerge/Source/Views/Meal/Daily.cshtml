@@ -1,0 +1,248 @@
+﻿@using Tar.Core.Extensions
+@model Better4You.UI.Mvc.Models.MealDailyViewModel
+@{
+    ViewBag.Title = "Daily Menu";
+}
+
+<script src='@Url.Content("~/Scripts/browser_detect.js")' type="text/javascript"></script>
+<script type="text/javascript">
+    //--variables
+    var model;
+    @Html.Raw("model =" + Model.ToJson());
+    //--variables
+    function loadMealMenus() {
+        tar.callAction(
+            "Meal",
+            "MealMenus",
+            {
+                request: {
+                    //Filter: { MealTypeId: model.MealType },
+                    Filter: { StartDate: model.StartDate, EndDate: model.EndDate, MealTypeId: model.MealType },
+                    OrderByField: "ValidDate",
+                    OrderByAsc: true
+                }
+            },
+            {
+                success: function (res) {
+                    tar.hideLoading();
+                    model.MealMenus = res.MealMenus;
+                    res.hasMenu = res.MealMenus.length > 0;
+                    if (res.Result !== tar.constants.responseResult.Success) {
+                        alert(d.Message);
+                    } else {
+                        $("#menus").empty();
+
+                        $.each(res.MealMenus, function () {
+                            this.IsNew = this.Id === 0;
+                            this.Editable = model.Editable;
+                        });
+
+                        var templateScript = $("#mealMenu-template").html();
+                        var template = Handlebars.compile(templateScript);
+                        res.mealTypeName = $('@("#btn" + Model.MealType)').text();
+                        res.date = tar.toDateString(model.StartDate, "YYYY-MM-DD");
+                        var html = template(res);
+                        $("#menus").append($("<div/>").html(html));
+                        Main.afterRender();
+                    }
+                }
+            });
+    }
+
+    $(function() {
+        $('#StartDate').datepicker({
+            format: "yyyy-mm-dd"
+        }).on('changeDate', function (ev) {
+            $('#StartDate').data("datepicker").hide();
+            model.StartDate = model.EndDate = ev.date;
+            goToPage(model.MealType);
+        });
+        model.StartDate = new Date(tar.toDateString(model.StartDate));
+        model.EndDate = new Date(tar.toDateString(model.EndDate));
+        $('@("#btn" + Model.MealType)').addClass('active');
+        loadMealMenus();
+    });
+</script>
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li>
+                <i class="clip-home-3"></i>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Build Monthly Menu", "Monthly")
+            </li>
+            <li class="active">@ViewBag.Title</li>
+        </ol>
+        <div class="row page-header">
+            <div class="col-sm-12">
+                <h1>@Html.Raw(Model.MealTypes.First(x => x.Id == Model.MealType).Text + " menus at &nbsp;" + Model.StartDate.ToString("dd MMMM yyyy"))</h1>
+            </div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<section class="view">
+    <div class="span8">
+        <div class="btn-group btn-group-justified btn-group-sm">
+            @foreach (var mealType in Model.MealTypes)
+            {
+                @(TagBuilderCustom.Create("a")
+                          .MergeAttribute("onclick", "goToPage(" + mealType.Id + ")")
+                          .MergeAttribute("id", "btn" + @mealType.Id)
+                          .AddCssClass("btn btn-default")
+                          .MergeAttribute("menutypeid", mealType.Id.ToString())
+                          .SetInnerHtml(mealType.Text))
+            }
+        </div>
+        @Html.HiddenFor(m => m.MealType)
+        <div class="table-responsive">
+            <table class="table table-condensed" style="margin-top: 2px;">
+                <tr>
+                    <td class="col-lg-3">Date</td>
+                    <td class="col-lg-5">
+                        <input type="text" id="StartDate" class="form-control" value="@Model.StartDate.ToString("yyyy-MM-dd")" placeholder="StartDate" title="Start Date"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td>Menu
+                    </td>
+                    <td>
+                        <select id="MealMenuListItemView_Name" class="form-control">
+                            <option value="0" selected="selected">Menu</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id="menus"></div>
+    </div>
+</section>
+<script id="mealMenu-template" type="text/x-handlebars-template">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{mealTypeName}} menus on {{date}}
+            <div class="panel-tools">
+                <a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="col-md-8 center">Menu Name</th>
+                            <th class="col-md-2 center">Menu Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each MealMenus}}
+                    <tr>
+                        <td>{{Menu.Name}}</td>
+                        <td>{{Menu.MenuType.Text}}</td>
+                        <td>{{#if Editable}}
+                                <button title="Delete" onclick="removeItem({{Id}})" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            {{else}}
+                                <button title="Delete" disabled="disabled" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            {{/if}}
+                        </td>
+                    </tr>
+                        {{/each}}
+                        {{#unless hasMenu}}
+                            <tr>
+                                <td colspan="3" class="warning">Record not found!</td>
+                            </tr>
+                        {{/unless}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    function addMenuItem(item) {
+        tar.callAction(
+            "Meal",
+            "SaveMealMenus2",
+            { request: { MealMenus: [{ Menu: item }] }, mealTypeId: model.MealType, year: model.Year, month: model.Month, day: model.Day },
+            {
+                success: function(d) {
+                    if (d.Result !== tar.constants.responseResult.Success) {
+                        tar.hideLoading();
+                        alert(d.Message);
+                    } else
+                        loadMealMenus();
+                }
+            }
+        );
+    }
+
+    function removeItem(id) {
+        tar.callAction(
+            "Meal",
+            "Delete",
+            { mealMenu: { Id: id } },
+            {
+                success: function(d) {
+                    if (d.Result !== tar.constants.responseResult.Success) {
+                        tar.hideLoading();
+                        alert(d.Message);
+                    } else
+                        loadMealMenus();
+                }
+            }
+        );
+    }
+
+    $("#MealMenuListItemView_Name").select2({
+        ajax: {
+            url: tar.getUrl("Menus", "Meal"),
+            dataType: 'json',
+            type: "POST",
+            delay: 250,
+            data: function(params) {
+                return {
+                    name: params.term, // search term
+                    mealTypeId: model.MealType,
+                    page: params.page
+                };
+            },
+            processResults: function(data, page) {
+                // parse the results into the format expected by Select2.
+                // since we are using custom formatting functions we do not need to
+                // alter the remote JSON data
+                $.each(data.Menus, function() {
+                    this.text = this.Name;
+                    this.id = this.Id;
+                });
+                return {
+                    results: data.Menus
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function(markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 2
+    });
+    $("#MealMenuListItemView_Name")
+        .on("select2:select", function(e) {
+            var selectedItem = $.extend({}, e.params.data);
+            delete selectedItem.id;
+            addMenuItem(selectedItem);
+        });
+
+    function goToPage(mealTypeId) {
+        tar.redirect(tar.appPath + 'Meal/Daily/' + tar.toDateString(model.StartDate, "YYYY/MM/DD") + '/' + mealTypeId);
+    }
+</script>

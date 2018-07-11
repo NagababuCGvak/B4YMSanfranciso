@@ -1,0 +1,89 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>..:: Better4You ::..</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/normalize")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript">
+        //Must Be First, IE mobile viewport fix
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+   
+     @Styles.Render("~/Content/bootstrap")
+     @Styles.Render("~/Content/fullcalendar")
+     @Styles.Render("~/Content/css")
+    <link href="@Href("~/Content/unseen.css")" rel="stylesheet">
+    <link href="@Href("~/Content/flip-scroll.css")" rel="stylesheet">
+    <link href="@Href("~/Content/no-more-tables.css")" rel="stylesheet">
+    <link href="@Href("~/Content/prettify.css")" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar" data-twttr-rendered="true" style="padding-top:0px;" >
+ 
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar-inner">
+            <div class="span4">
+                   @if (Request.IsAuthenticated)
+                   {
+                       <div>@Html.CurrentUser().FullName</div>
+                       <div>@Html.CurrentUser().Name</div>
+                       <div>@if (Html.CurrentUser().Data.ContainsKey("SchoolName"))
+                            {
+                                @Html.CurrentUser().Data["SchoolName"].ToString()
+                            }</div>
+                   }
+            </div>
+            <div class="span3">
+                 <a href="http://www.better4youmeals.com/"><img alt="Better 4 You" style="width: 120px; height: 100px" src="@Url.Content("~/Content/images/logo.png")"></a>
+            </div>           
+        </div>
+    </div>
+   
+            @Scripts.Render("~/bundles/jquery",
+                    //"~/bundles/jqueryui",
+                    //"~/bundles/gcal",
+                    "~/bundles/bootstrap",    
+                    "~/bundles/plugins",                    
+                    "~/bundles/site"                    
+                    )
+
+
+
+@RenderBody()
+
+
+
+    <script src='/Scripts/jquery-ui-1.10.2.custom.min.js'></script>
+    <script src='/Scripts/fullcalendar.min.js'></script>
+    <script src='/Scripts/gcal.js'></script>
+    <script src='/Scripts/moment.min.js'></script>
+ 
+        <script>
+
+            $(document).ready(function() {
+                @RenderSection("scripts", required: false)
+                tar.prepareMasks();
+                tar.preparePlaceHolders();
+                $('.selectpicker').selectpicker();
+            });
+        </script>
+   
+   
+    </body>
+</html>

@@ -1,0 +1,123 @@
+﻿@model List<InvoiceListItemView>
+
+@{
+    ViewBag.Title = "Edit Invoice";
+    Layout = null;// "~/Views/Shared/_PopupLayout.cshtml";
+}
+<div class="modal-header">
+    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+    <h3>Edit</h3>
+</div>
+
+<div class="modal-body">
+    <form method="post" id="invoiceEditForm" action="@Url.Action("Edit", "Invoice")" class="form-horizontal">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        @Model[0].SchoolName
+                    </div>
+                </div>
+                            <div class="tabbable">
+                <ul id="invoiceTab" class="nav nav-tabs tab-bricky">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <li @(i == 0 ? "class=active" : "")>
+                            <a href='@("#invoice_" + Model[i].Id)' data-toogle="tab">
+                                <i class="green fa fa-home"></i>
+                                @Model[i].MealType.Text
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="tab-content">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var index = i;
+                        <div class="tab-pane@(i == 0 ? " in active " : "")" id='@("invoice_" + Model[index].Id)' invoiceid="@Model[index].Id">
+                            @Html.HiddenFor(d => d[index].Id)
+                            <div class="row">
+                                <div class="col-sm-11">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">
+                                            Order Status
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" name="OrderStatus.Key_@Model[index].Id" id="OrderStatus_Key_@Model[index].Id" title="Select Order Status">
+                                                @foreach (var orderStatus in ((List<Tar.ViewModel.GeneralItemView>) ViewBag.OrderStatuses))
+                                                {
+                                                    <option value="@orderStatus.Id"
+                                                            @if (Model[index].OrderStatus.Id == orderStatus.Id)
+                                                            {
+                                                                @: selected="selected"
+                                                            }>
+                                                        @orderStatus.Text
+                                                    </option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">
+                                            Rate
+                                        </label>
+                                        <div class="col-sm-6">
+                                            @Html.BootstrapTextBoxFor(d => d[index].Rate, new {display = "Rate", type="number", @class="form-control"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">
+                                            Total Credit
+                                        </label>
+                                        <div class="col-sm-6">
+                                            @Html.BootstrapTextBoxFor(d => d[index].TotalCredit, new { display = "Total Credit",type="number", @class="form-control"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">
+                                            Debit Amount
+                                        </label>
+                                        <div class="col-sm-6">
+                                            @Html.BootstrapTextBoxFor(d => d[index].DebitAmount, new { display = "Debit Amount" ,type="number", @class="form-control"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">
+                                            Note
+                                        </label>
+                                        <div class="col-sm-6">
+                                            @Html.BootstrapTextBoxFor(d => d[index].Note, new { display = "Note", @class="form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" onclick="invoiceEdit_Save();">
+        <i class="fa fa-edit"></i>Save
+    </button>
+</div>
+
+<script>
+    //tar.prepareModalModalActions("edit", "Edit Invoice");
+    $('#invoiceTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    function invoiceEdit_Save() {
+        $('#invoiceEditForm')[0].submit();
+    }
+
+    Main.init();
+</script>

@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Reports";    
+
+
+
+    var orderStartDate = DateTime.Now.AddDays(-6);
+
+    var orderEndDate = DateTime.Now;
+    if (Request["OrderStartDate"] != null && !string.IsNullOrWhiteSpace(Request["OrderStartDate"]))
+    {
+        orderStartDate = DateTime.Parse(Request["OrderStartDate"]);
+    }
+    if (Request["OrderEndDate"] != null && !string.IsNullOrWhiteSpace(Request["OrderEndDate"]))
+    {
+        orderEndDate = DateTime.Parse(Request["OrderEndDate"]);
+    }
+
+    var reqYear = DateTime.Now.Year;
+    var reqMonth = DateTime.Now.Month;
+    
+    if (Request["OrderYear"] != null)
+    {
+        reqYear = Int32.Parse(Request["OrderYear"].ToString(CultureInfo.InvariantCulture));
+    }
+    if (Request["OrderMonth"] != null)
+    {
+        reqMonth = Int32.Parse(Request["OrderMonth"].ToString(CultureInfo.InvariantCulture));
+    }
+}
+<!-- start: PAGE HEADER -->
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">
+			        Home
+			    </a>
+			</li>
+			<li class="active">
+			    @ViewBag.Title
+			</li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @ViewBag.Title
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <tr>
+                    <td class="col-sm-2"><span class="pull-right">Date Range</span></td>
+                    <td class="col-sm-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control date-range">
+                            <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                            @Html.Hidden("OrderStartDate", orderStartDate.ToString("yyyy/MM/dd"), new {id = "OrderStartDate"})
+                            @Html.Hidden("OrderEndDate", orderEndDate.ToString("yyyy/MM/dd"), new {id = "OrderEndDate"})
+                        </div>
+                    </td>
+                    <td class="col-sm-2"><span class="pull-right">Meal Type</span></td>
+                    <td class="col-sm-2">@Html.DropDownList("MealTypeId", (List<SelectListItem>) ViewBag.MealTypes, new {id = "MealTypeId", @class = "form-control"})</td>
+                    <td class="col-sm-4">
+                        <a class="btn btn-md btn-danger" href="javascript:void()" onclick="tar.openNewForm('MilkExport', 'Reports', { url: { OrderStartDate: $('#OrderStartDate').val(), MealTypeId: $('#MealTypeId').val() }, label: 'Monthly Export' });">
+                            <i class="fa fa-file-excel-o"></i> Generate Milk Report
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2"><span class="pull-right">Month</span></td>
+                    <td class="col-sm-2">
+                        <div class="form-group">
+                            <div class="col-sm-7 pull-left">
+                                <select class="form-control" name="OrderMonth" id="OrderMonth" title="Order Month">
+                                    @foreach (var month in (List<KeyValuePair<long, string>>) ViewBag.Month)
+                                    {
+                                        <option value="@month.Key"
+                                                @if (reqMonth == month.Key)
+                                                {
+                                                    @: selected="selected"
+                                                }>
+                                            @month.Value
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-5 pull-right">
+                                <select class="form-control" name="OrderYear" id="OrderYear" title="Order Year">
+                                    @foreach (var year in (int[]) ViewBag.Year)
+                                    {
+                                        <option value="@year"
+                                                @if (reqYear == year)
+                                                {
+                                                    @: selected="selected"
+                                                }>
+                                            @year
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                            </div>
+                    </td>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="col-sm-4">
+                        <a class="btn btn-md btn-danger" href="javascript:void()" onclick="tar.openNewForm('FruitVegExport', 'Reports', { url: { OrderMonth: $('#OrderMonth').val(), OrderYear: $('#OrderYear').val() }, label: 'Fruit Vegetable Monthly Export' });">
+                            <i class="fa fa-file-excel-o"></i> Generate Fruit/Veg Report
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+@section documentReady {
+
+    $('.date-range').daterangepicker(
+    {
+    startDate: moment('@orderStartDate','MM/D/YYYY'),
+    endDate: moment('@orderEndDate','MM/D/YYYY'),
+    minDate: '2012/01/01',
+    maxDate: '2020/31/01',
+    dateLimit: { days: 30 },
+    showDropdowns: true,
+    showWeekNumbers: false,
+    timePicker: false,
+    timePickerIncrement: 1,
+    timePicker12Hour: true,
+    ranges: {
+    //'Today': [moment(), moment()],
+    //'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 Days': [moment().subtract('days', 6), moment()],
+    'Last 14 Days': [moment().subtract('days', 13), moment()],
+    'This Month': [moment().startOf('month'), moment().endOf('month')],
+    'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+    },
+    opens: 'left',
+    buttonClasses: ['btn btn-default'],
+    applyClass: 'btn-small btn-primary',
+    cancelClass: 'btn-small',
+    format: 'YYYY/MM/DD',
+    separator: ' - ',
+    locale: {
+    applyLabel: 'Apply',
+    fromLabel: 'From',
+    toLabel: 'To',
+    customRangeLabel: 'Custom Range',
+    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    firstDay: 1
+    }
+    },
+    function(start, end) {
+    $('#OrderStartDate').val(start.format('YYYY/MM/DD'));
+    $('#OrderEndDate').val(end.format('YYYY/MM/DD'));
+    $('.date-range').val(start.format('YYYY/MM/DD') + ' - ' + end.format('YYYY/MM/DD'));
+    }
+    );
+    $('.date-range').val(moment('@orderStartDate','MM/D/YYYY').format('YYYY/MM/DD') + ' - ' + moment('@orderEndDate','MM/D/YYYY').format('YYYY/MM/DD'));
+}

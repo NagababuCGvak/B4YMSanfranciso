@@ -1,0 +1,11 @@
+﻿<script>
+    @Html.Raw(string.Format("tar.appPath = '{0}';", Url.Content("~")))
+</script>
+
+@{
+    //Layout = ViewContext.ViewBag.Layout;
+    Layout = Html.CurrentUser().IsAuthenticated? "Shared/_AutorizedLayout.cshtml":"Shared/_LoginLayout.cshtml" ;
+}
+
+@Html.Mvc().Error()
+@Html.Mvc().Info()

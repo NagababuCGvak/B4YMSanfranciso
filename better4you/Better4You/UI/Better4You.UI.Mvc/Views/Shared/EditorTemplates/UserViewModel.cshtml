@@ -1,0 +1,63 @@
+﻿@model Better4You.UserManagment.ViewModel.UserViewModel
+
+@{
+    //var isCreate = this.ViewContext.Controller.ValueProvider.GetValue("action").AttemptedValue == "Create";
+    var userTypeSelectListItems = Enum.GetValues(typeof(Better4You.Core.UserTypes))
+        .Cast<Better4You.Core.UserTypes>().Select(
+    x => new SelectListItem
+    {
+        Text = x.ToString(),
+        Value = ((int)x).ToString(System.Globalization.CultureInfo.InvariantCulture),
+        Selected = ((int)x) == Model.UserTypeId
+    }).ToList();
+    userTypeSelectListItems.Insert(0, new SelectListItem { Text = "Select User Type", Value = "0" });
+
+    var message = Html.ValidationSummary().ToHtmlString();
+    if (!message.Contains(@"<li style=""display:none"">"))
+    {
+    <div class="alert alert-error">@Html.ValidationSummary()</div>
+    }
+}
+
+@Html.HiddenFor(m => m.UserId)
+
+<div class="controls controls-row">
+    @Html.BootstrapTextBoxFor(m => m.UserName, new { @class = "span3", type = "email", required = "required" })
+    <span class="span1" />
+    @Html.DropDownListFor(m => m.UserTypeId, userTypeSelectListItems,
+            new
+            {
+                @class = "span3 selectpicker",
+                required = true,
+                title = Html.DisplayNameFor(m => m.UserTypeId)
+            })
+</div>
+<div class="controls controls-row">
+    @Html.BootstrapTextBoxFor(m => m.FirstName, new { @class = "span3", required = "required" })
+    <span class="span1" />
+    @Html.BootstrapTextBoxFor(m => m.LastName, new { @class = "span3", required = "required" })
+</div>
+
+<div class="controls controls-row">
+    @Html.BootstrapTextBoxFor(m => m.Phone, new { @class = "span3", mask = "phone", required = "required" })
+</div>
+
+@*@if (isCreate)
+{
+    <div class="controls controls-row">
+        @Html.BootstrapPasswordFor(m => m.Password, new { @class = "span3", required = "required" })
+        <span class="span1" />
+        <input class="span3" 
+               data-toggle="tooltip" 
+               data-val="true" data-val-required="The Password field is required." id="ConfirmPassword" name="ConfirmPassword"
+            placeholder="Confirm Password" required="required" title="Confirm Password" type="password" />
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $('#User_Password').change(function () {
+                $("#ConfirmPassword").attr("pattern", $(this).val());
+            });
+            $("#ConfirmPassword").attr("pattern", $("#User_Password").val());
+        })
+    </script>
+}*@

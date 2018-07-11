@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tar.Logging</RootNamespace>
+    <AssemblyName>Tar.Logging</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ConfigurationElementCollectionBase.cs" />
+    <Compile Include="Configuration\ConstructorParameterElement.cs" />
+    <Compile Include="Configuration\ConstructorParameterElementCollection.cs" />
+    <Compile Include="Configuration\LoggerConfigurationElement.cs" />
+    <Compile Include="Configuration\LoggerConfigurationElementCollection.cs" />
+    <Compile Include="Configuration\RepositoryConfigurationElementCollection.cs" />
+    <Compile Include="Configuration\LoggingConfigurationSection.cs" />
+    <Compile Include="Configuration\RepositoryConfigurationElement.cs" />
+    <Compile Include="Configuration\TypeConfigurationElement.cs" />
+    <Compile Include="DefaultLogConfiguration.cs" />
+    <Compile Include="ObjectContainers\ObjectContainer.cs" />
+    <Compile Include="DbLogConfiguration.cs" />
+    <Compile Include="ObjectContainers\EnvironmentObjectContainer.cs" />
+    <Compile Include="ExceptionExtensions.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ILogConfiguration.cs" />
+    <Compile Include="ILogDbDataAccess.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFactory.cs" />
+    <Compile Include="ILoggerSyntax.cs" />
+    <Compile Include="ILogRepository.cs" />
+    <Compile Include="ILogScope.cs" />
+    <Compile Include="ObjectContainers\IObjectContainer.cs" />
+    <Compile Include="IWriteToLogParameter.cs" />
+    <Compile Include="JsDateTimeConverter.cs" />
+    <Compile Include="LevelConfig.cs" />
+    <Compile Include="LogDbDataAccess.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoggerFactory.cs" />
+    <Compile Include="LoggerSyntax.cs" />
+    <Compile Include="LoggingHelper.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="LogMan.cs" />
+    <Compile Include="LogScope.cs" />
+    <Compile Include="OldExtensions\ExtensionsOld.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConsoleLogRepository.cs" />
+    <Compile Include="Repositories\DbLogRepository.cs" />
+    <Compile Include="Repositories\FileLogRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
+    <Compile Include="Repositories\MultipleLogRepository.cs" />
+    <Compile Include="Serialization\DefaultMessageSerializer.cs" />
+    <Compile Include="Serialization\DictionaryXmlSerializer.cs" />
+    <Compile Include="Serialization\ExceptionSerializerFactory.cs" />
+    <Compile Include="Serialization\ExceptionSerializerType.cs" />
+    <Compile Include="Serialization\IExceptionSerializer.cs" />
+    <Compile Include="Serialization\IMessageSerializer.cs" />
+    <Compile Include="Serialization\JsonExceptionSerializer.cs" />
+    <Compile Include="Serialization\MessageSerializerEventArgs.cs" />
+    <Compile Include="Serialization\XmlExceptionSerializer.cs" />
+    <Compile Include="WriteToLogParameter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Logging.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\ReadMe.txt" />
+    <Content Include="Scripts.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if '$(TeamBuild)'=='True' exit 0
+copy $(TargetName).* ..\..\..\..\SharedLibs\Tar\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

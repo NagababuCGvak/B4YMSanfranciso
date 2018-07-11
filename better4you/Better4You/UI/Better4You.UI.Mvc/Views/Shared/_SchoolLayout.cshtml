@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "_CompanyLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var activeControllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    Func<string, MvcHtmlString> isActive = (controllerName) => new MvcHtmlString(activeControllerName.Equals(controllerName, StringComparison.InvariantCultureIgnoreCase) ? "class='active'" : "");
+
+}
+
+    <div class="container">
+
+        <!-- Docs nav
+    ================================================== -->
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul class="nav nav-list bs-docs-sidenav affix">
+                    <li @isActive("mealorder")><a href='@Url.Action("Index", "MealOrder")'><i class="icon-chevron-right"></i>Manage Orders</a></li>
+                    <li @isActive("contactInfo")><a href='@Url.Action("ContactInfo", "Account")'><i class="icon-chevron-right"></i>Contact B4YM</a></li>
+                    <li @isActive("schoolInvoice")><a href='@Url.Action("SchoolInvoice", "Invoice")'><i class="icon-chevron-right"></i>Invoices</a></li>                                       
+                    <li>
+                        @Html.ActionLink("LogOut", "LogOut", "Account")
+                    </li>
+                </ul>
+            </div>
+            <div class="span9">
+                    @RenderBody()
+            </div>
+        </div>
+
+    </div>
+    @section scripts
+    {
+          @RenderSection("documentReady", false)
+    }
+
+@*    @section pagescripts
+    {
+          @RenderSection("partialscript", false)
+    }*@

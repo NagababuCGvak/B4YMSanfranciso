@@ -1,0 +1,50 @@
+﻿@model List<Tar.ViewModel.GeneralItemView>
+<script>
+    
+    function updateMenuTypeHeader() {
+        $.each($("#divMealTypes button"), function (i, e) {
+            $(e).removeClass("active");
+        });
+        $("button[menutypeid=" + $("#MealTypeId").val() + "]").addClass("active");
+        $("#lblMealType").text($("button[menutypeid=" + $("#MealTypeId").val() + "]").text() + " Menu Selected");
+    }
+
+    function _changeMealType(obj, resetForm) {
+        $("#MealTypeId").val($(obj).attr("menutypeid"));
+        updateMenuTypeHeader();
+        if (typeof (changeMealType) != "undefined") {
+            changeMealType();
+        }
+        if (resetForm==true && $("#tblSearchResult")) {
+            $("#tblSearchResult tbody").html("");
+            $("#clone tbody").html("");
+        }
+    }
+    function selectDefaultMealType() {
+        _changeMealType($("button[menutypeid=" + $("#MealTypeId").val() + "]"), false);
+    }
+    function reClickSelectedMealTypeButton() {
+        $("button[menutypeid=" + $("#MealTypeId").val() + "]").click();
+    }
+        
+</script>
+@{
+    int mealTypeId = 0;
+    if (Request["MealTypeId"] != null && !string.IsNullOrWhiteSpace(Request["MealTypeId"]))
+    {
+        mealTypeId = int.Parse(Request["MealTypeId"]);
+    }
+    else { 
+        mealTypeId = (int)Model[0].Id;
+    }
+}
+
+<div style="text-align:center" id="divMealTypes">
+    @foreach (var itemMealType in Model)
+    {
+        @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Edit, itemMealType.Text, "button", new { @menuTypeId = itemMealType.Id, @id = "btn" + itemMealType.Id, @onclick = "_changeMealType(this, true);" })
+    }
+    <br />
+    <label class="label" id="lblMealType"></label>
+    <input type="hidden" name="MealTypeId" id="MealTypeId" value="@mealTypeId" />
+</div>

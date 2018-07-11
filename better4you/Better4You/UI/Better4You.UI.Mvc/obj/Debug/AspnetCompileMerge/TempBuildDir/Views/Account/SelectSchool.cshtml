@@ -1,0 +1,70 @@
+﻿@model Better4You.UI.Mvc.ViewModels.SelectSchoolViewModel
+@using Better4You.UI.Mvc.Core
+@{
+    ViewBag.Title = "Select School";
+}
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li>
+                <i class="clip-home-3"></i>
+                @Html.ActionLink("Home","Index","Home")
+            </li>
+            <li class="active">@ViewBag.Title</li>
+        </ol>
+        <div class="page-header">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+
+<form method="POST" class="form-horizontal">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @Html.HiddenFor(model => model.ReturnUrl)
+            <div class="form-group">
+                @Html.LabelFor(m => m.ApplicationId, new {@class = "col-sm-3 control-label"})
+                <div class="col-sm-9">
+                    @if (Model.ApplicationList.Count() == 1)
+                    {
+                        @Html.DropDownListFor(m => m.ApplicationId, Model.ApplicationList, new {disabled = "disabled", @class = "form-control"})
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(m => m.ApplicationId, Model.ApplicationList, new {@class = "form-control"})
+                    }
+                    @Html.ValidationMessageFor(m => m.ApplicationId)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.SchoolId, new {@class = "col-sm-3 control-label"})
+                <div class="col-sm-9">
+                    @if (Model.SchoolList.Count() == 1)
+                    {
+                        @Html.DropDownListFor(m => m.SchoolId, Model.SchoolList, new {disabled = "disabled", @class = "form-control"})
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(m => m.SchoolId, Model.SchoolList, new {@class = "form-control"})
+                    }
+                    @Html.ValidationMessageFor(m => m.SchoolId)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-11">
+                    <div class="pull-right">
+                        @Html.Mvc().SubmitButton("Next", "Next")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</form>

@@ -1,0 +1,164 @@
+﻿
+@model FoodView
+@{
+    ViewBag.Title = string.Format("{0} Item", Model.Id == 0 ? "Create" : "Edit");
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">
+			        Home
+			    </a>
+			</li>
+		    <li>
+			    <a href="@Url.Action("Index", "Food")">
+			        Items
+			    </a>
+		    </li>
+		    <li class="active">
+		        @ViewBag.Title
+		    </li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @Model.Name
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	            <div class="buttons-widget pull-right">
+	                <a class="btn btn-md btn-danger" href="#" onclick="resetForm();">
+	                    <i class="fa fa-times"></i> Cancel
+	                </a>
+	                <a href="#" onclick="submitForm();" class="btn btn-md btn-primary">
+	                    <i class="fa fa-save"></i> @string.Format("{0}", Model.Id == 0 ? "Create" : "Save")
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" method="POST">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    @ViewBag.Title
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5>Item Info</h5>
+                                    <p/>
+                                    <hr/>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="Name">
+                                            Item Name
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBox("Name", Model.Name, new {@class = "form-control", placeholder = "Item Name", id = "Name"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="FoodTypeId">
+                                            Item Type
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.DropDownList("FoodTypeId", (List<SelectListItem>) ViewBag.FoodTypes, new {id = "FoodTypeId", @class = "form-control"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="DisplayName">
+                                            Display Name
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBox("DisplayName", Model.DisplayName, new {@class = "form-control", placeholder = "Display Name", id = "DisplayName"})
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="PortionSize">
+                                            Portion Size
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            @Html.TextBox("PortionSize", Model.PortionSize, new {@class = "form-control", placeholder = "Portion Size", id = "PortionSize"})
+                                        </div>
+                                    </div>
+                                    @if (Model.Id > 0)
+                                    {
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label" for="ModifiedReason">
+                                                Modified Reason
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control limited" id="ModifiedReason" maxlength="150" name="ModifiedReason">@Model.ModifiedReason</textarea>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5>Ingredients</h5>
+                                    <p/>
+                                    <hr/>
+                                </div>
+
+
+                                @for (var i = 0; i < Model.FoodIngredients.Count; i++)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label class="col-sm-6 control-label" for="@string.Format("FoodIngredients_{0}__Value", i)">
+                                                @Model.FoodIngredients[i].IngredientType.Text
+                                            </label>
+                                            <div class="col-sm-4">
+
+                                                @Html.TextBox(string.Format("FoodIngredients[{0}].Value", i), Model.FoodIngredients[i].Value, new {id = string.Format("FoodIngredients_{0}__Value", i), @class = "form-control currency", placeholder = "Value"})
+                                                @Html.Hidden(string.Format("FoodIngredients[{0}].IngredientType", i), Model.FoodIngredients[i].IngredientType.Id, new {id = string.Format("FoodIngredients_{0}__IngredientType", i)})
+                                                @Html.Hidden(string.Format("FoodIngredients[{0}].Id", i), Model.FoodIngredients[i].Id, new {id = string.Format("FoodIngredients_{0}__Id", i)})
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(k => k.Id)
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script>
+    function submitForm() {
+        $('form')[0].submit();
+    }
+    function resetForm() {
+        $('form')[0].reset();
+    }
+</script>

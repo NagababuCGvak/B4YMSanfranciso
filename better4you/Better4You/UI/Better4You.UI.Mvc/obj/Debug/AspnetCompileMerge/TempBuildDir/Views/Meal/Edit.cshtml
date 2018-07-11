@@ -1,0 +1,30 @@
+﻿@model MealMenuView
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_PopupLayout.cshtml";
+}
+
+<form id="popupForm">
+    <fieldset>
+        <legend>@Html.Partial("_PopupButtonsPartial")</legend>         
+        <div class="controls controls-row">
+            Meal : @Model.Menu.Name - @Model.ValidDate.ToShortDateString()
+        </div>
+        <div class="controls controls-row">
+            @Html.BootstrapTextBoxFor(m=>m.ModifiedReason,new {@class="span3",display="Delete Reason"})
+        </div>
+    </fieldset>
+    @Html.HiddenFor(d=>d.Id)
+    @Html.HiddenFor(d=>d.ValidDate)
+    @Html.HiddenFor(d=>d.Menu.Id)
+
+</form>
+    @section documentPopupReady
+    {
+
+        tar.prepareModalActions("view","Edit Menu");
+        $('input[type!="button"]').removeAttr('disabled');
+        $("#btnEdit").hide();
+    }
+

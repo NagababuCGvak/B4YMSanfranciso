@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Tar.Core.LoggingNew.DbLogConfiguration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAIACAAkAAAgAAAAAAIAAQAgAABAAgAAAA=</HashCode>
+      <FileName>LoggingNew\DbLogConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.DbLogRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAQAAAAAAAAABABAABBA=</HashCode>
+      <FileName>LoggingNew\DbLogRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.EnvironmentObjectContainer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAABBADEBAAAAAAAAAAAAAACEAAAAAAAAAABA=</HashCode>
+      <FileName>LoggingNew\EnvironmentObjectContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.ExceptionExtensions" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ExceptionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Extensions" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYACAAAAAAAAIAAJABEAAIAAAEAEAgA=</HashCode>
+      <FileName>LoggingNew\Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.JsDateTimeConverter" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\JsDateTimeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LevelConfig" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\LevelConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LogDbDataAccess" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAEAAAAEAACCAAAAAAAAAAACAAAABAA=</HashCode>
+      <FileName>LoggingNew\LogDbDataAccess.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Logger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACAIAAAAAAAAAAgCAAAAAAIAAAAAAgAEEAIEBABA=</HashCode>
+      <FileName>LoggingNew\Logger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LoggerFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\LoggerFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LoggerSyntax" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAIAAABAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\LoggerSyntax.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LogMan" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAABAAAAAEAAAAAAAAAAgAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>LoggingNew\LogMan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.LogScope" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACQAAAAAAAAAAAAAIAAAAABAAAAAAIAAAAA=</HashCode>
+      <FileName>LoggingNew\LogScope.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.WriteToLogParameter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAiAAAAACAAAAAAoAAAAACAAAAAAQBAAABAEABEAA=</HashCode>
+      <FileName>LoggingNew\WriteToLogParameter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.DefaultMessageSerializer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACCAAAAAAAAAABCAACAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\DefaultMessageSerializer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.DictionaryXmlSerializer" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\DictionaryXmlSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.ExceptionSerializerFactory" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\ExceptionSerializerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.JsonExceptionSerializer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAICAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\JsonExceptionSerializer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.MessageSerializerEventArgs" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\MessageSerializerEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tar.Core.LoggingNew.Serialization.XmlExceptionSerializer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEIAAAAAAAAAAAICAAAABAAAAAAAAAEAA=</HashCode>
+      <FileName>LoggingNew\Serialization\XmlExceptionSerializer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Tar.Core.LoggingNew.ILogConfiguration" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ILogConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILogDbDataAccess" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAEAACCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ILogDbDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILogger" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAIAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAEBAAA=</HashCode>
+      <FileName>LoggingNew\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILoggerFactory" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ILoggerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILoggerSyntax" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ILoggerSyntax.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILogRepository" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>LoggingNew\ILogRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.ILogScope" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\ILogScope.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.IObjectContainer" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\IObjectContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.IWriteToLogParameter" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAiAAAAACAAAAAAoAAAAACAAAAAAQBAAABAEABEAA=</HashCode>
+      <FileName>LoggingNew\IWriteToLogParameter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.Serialization.IExceptionSerializer" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\IExceptionSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tar.Core.LoggingNew.Serialization.IMessageSerializer" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoggingNew\Serialization\IMessageSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Tar.Core.LoggingNew.LogLevel" Collapsed="true">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAAAAAAAAAAABEAAAAAAEEEAAA=</HashCode>
+      <FileName>LoggingNew\LogLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Tar.Core.LoggingNew.Serialization.ExceptionSerializerType" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>LoggingNew\Serialization\ExceptionSerializerType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

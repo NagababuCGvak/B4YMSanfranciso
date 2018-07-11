@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]D:\DEV\Apps\Better4You\Configuration\Components\1.nunit</TopNode>
+  <SelectedNode>[0-1000]D:\DEV\Apps\Better4You\Configuration\Components\1.nunit</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]D:\DEV\Apps\Better4You\Configuration\Components\1.nunit" Expanded="true" />
+    <Node UniqueName="[0-1032]D:\DEV\Apps\Better4You\Tests\Better4You.Tests\Better4You.UnitTests\bin\Debug\Better4You.UnitTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1033]Better4You" Expanded="true" />
+    <Node UniqueName="[0-1034]Better4You.UnitTests" Expanded="true" />
+    <Node UniqueName="[0-1035]Better4You.UnitTests.Core" Expanded="true" />
+    <Node UniqueName="[0-1036]Better4You.UnitTests.Core.EntityModel" Expanded="true" />
+    <Node UniqueName="[0-1001]Better4You.UnitTests.Core.EntityModel.CreateUserTestCase" Expanded="true" />
+    <Node UniqueName="[0-1005]Better4You.UnitTests.Core.EntityModel.LookupTestFixture" Expanded="true" />
+    <Node UniqueName="[0-1007]Better4You.UnitTests.Core.EntityModel.SchoolTestFixture" Expanded="true" />
+    <Node UniqueName="[0-1011]Better4You.UnitTests.InitialTestCase" Expanded="true" />
+    <Node UniqueName="[0-1018]Better4You.UnitTests.MailSendTestCase" Expanded="true" />
+    <Node UniqueName="[0-1037]Better4You.UnitTests.Meal" Expanded="true" />
+    <Node UniqueName="[0-1020]Better4You.UnitTests.Meal.MealMenuOrderFacadeTestFixture" Expanded="true" />
+    <Node UniqueName="[0-1038]Better4You.UnitTests.UserManagement" Expanded="true" />
+    <Node UniqueName="[0-1022]Better4You.UnitTests.UserManagement.AuthenticationTestCase" Expanded="true" />
+    <Node UniqueName="[0-1024]Better4You.UnitTests.UserManagement.CurrentUserTestCase" Expanded="true" />
+    <Node UniqueName="[0-1039]Better4You.UnitTests.UserManagement.PasswordValidation" Expanded="true" />
+    <Node UniqueName="[0-1028]Better4You.UnitTests.UserManagement.PasswordValidation.PasswordValidationTestCase" Expanded="true" />
+  </Nodes>
+</VisualState>

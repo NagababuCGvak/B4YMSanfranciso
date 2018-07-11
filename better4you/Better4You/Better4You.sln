@@ -1,0 +1,532 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{63099CA7-32BD-437A-A784-FFB3B47DA8E1}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\Repository.Nh.config = Configuration\Repository.Nh.config
+		Configuration\Windsor.Better4You.Web.config = Configuration\Windsor.Better4You.Web.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{A2C49654-97B3-4E49-9A36-594F3099F353}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{8DC72C08-791C-490B-966E-3A35A2A061C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{8C180E2D-CD0B-40E2-B91D-7A718F5B3DB1}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\Components\Windsor.Cache.config = Configuration\Components\Windsor.Cache.config
+		Configuration\Components\Windsor.Common.config = Configuration\Components\Windsor.Common.config
+		Configuration\Components\Windsor.Cryptography.config = Configuration\Components\Windsor.Cryptography.config
+		Configuration\Components\Windsor.Mail.config = Configuration\Components\Windsor.Mail.config
+		Configuration\Components\Windsor.Mail.Template.config = Configuration\Components\Windsor.Mail.Template.config
+		Configuration\Components\Windsor.Repository.config = Configuration\Components\Windsor.Repository.config
+		Configuration\Components\Windsor.Repository.Ef.config = Configuration\Components\Windsor.Repository.Ef.config
+		Configuration\Components\Windsor.Repository.Nh.config = Configuration\Components\Windsor.Repository.Nh.config
+		Configuration\Components\Windsor.Repository.Nh.ConfigRepository.config = Configuration\Components\Windsor.Repository.Nh.ConfigRepository.config
+		Configuration\Components\Windsor.Repository.Nh.UnitOfWork.config = Configuration\Components\Windsor.Repository.Nh.UnitOfWork.config
+		Configuration\Components\Windsor.Security.config = Configuration\Components\Windsor.Security.config
+		Configuration\Components\Windsor.Service.Api.config = Configuration\Components\Windsor.Service.Api.config
+		Configuration\Components\Windsor.Settings.config = Configuration\Components\Windsor.Settings.config
+		Configuration\Components\Windsor.Template.config = Configuration\Components\Windsor.Template.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{F0140255-D56C-4DC5-8DF2-21544D1433FB}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\DbScripts\001_Country.sql = Configuration\DbScripts\001_Country.sql
+		Configuration\DbScripts\002_FirstAdminDivision.batch = Configuration\DbScripts\002_FirstAdminDivision.batch
+		Configuration\DbScripts\002_FirstAdminDivision.sql = Configuration\DbScripts\002_FirstAdminDivision.sql
+		Configuration\DbScripts\003_City.batch = Configuration\DbScripts\003_City.batch
+		Configuration\DbScripts\003_City.sql = Configuration\DbScripts\003_City.sql
+		Configuration\DbScripts\050_Roles.sql = Configuration\DbScripts\050_Roles.sql
+		Configuration\DbScripts\099_100_CommunicationType.sql = Configuration\DbScripts\099_100_CommunicationType.sql
+		Configuration\DbScripts\099_101_Address Type.sql = Configuration\DbScripts\099_101_Address Type.sql
+		Configuration\DbScripts\099_102_RecordStatus.sql = Configuration\DbScripts\099_102_RecordStatus.sql
+		Configuration\DbScripts\099_103_PasswordFormatType.sql = Configuration\DbScripts\099_103_PasswordFormatType.sql
+		Configuration\DbScripts\099_104_MeasurementType.sql = Configuration\DbScripts\099_104_MeasurementType.sql
+		Configuration\DbScripts\099_105_AlgorithmType.sql = Configuration\DbScripts\099_105_AlgorithmType.sql
+		Configuration\DbScripts\099_106_FoodType.sql = Configuration\DbScripts\099_106_FoodType.sql
+		Configuration\DbScripts\099_107_OrderStatus.sql = Configuration\DbScripts\099_107_OrderStatus.sql
+		Configuration\DbScripts\099_108_MenuTypes.sql = Configuration\DbScripts\099_108_MenuTypes.sql
+		Configuration\DbScripts\099_109_IngredientType.sql = Configuration\DbScripts\099_109_IngredientType.sql
+		Configuration\DbScripts\099_110_MealType.sql = Configuration\DbScripts\099_110_MealType.sql
+		Configuration\DbScripts\099_111_UserType.sql = Configuration\DbScripts\099_111_UserType.sql
+		Configuration\DbScripts\099_112_ContactRegard.sql = Configuration\DbScripts\099_112_ContactRegard.sql
+		Configuration\DbScripts\installed.sql = Configuration\DbScripts\installed.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Better4You", "Better4You", "{C2C013A8-6560-448C-B196-D68897A4D6F1}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\Better4You\Windsor.BusinessFacade.config = Configuration\Better4You\Windsor.BusinessFacade.config
+		Configuration\Better4You\Windsor.Service.Api.config = Configuration\Better4You\Windsor.Service.Api.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagment", "UserManagment", "{C8AEE59F-E802-4006-8D01-A3E6D70F6F4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meal", "Meal", "{AEA715BC-5346-40E1-9C68-2DF254D99CA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{1455C9C0-C4B4-46CA-A9EA-7F8570EB365E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mapping", "Mapping", "{EB231212-3692-4D8F-8ED4-DD7C7DCEA45F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{98FF9A34-C580-4257-A449-801F6306F7A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{D213C358-8146-400F-B132-858CA01F0211}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{19C531CC-2B40-4C30-B28F-DDE40DD539EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mapping", "Mapping", "{67864A77-61D8-46DA-96D2-DC31B5AA00B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{7583AFD2-3310-4EA1-BF83-D7FFF1F90A9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{69576603-3583-4557-BA98-E33BDFC7F31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.EntityModel", "Common\Better4You.EntityModel\Better4You.EntityModel.csproj", "{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.EntityModel", "Modules\Meal\Better4You.Meal.EntityModel\Better4You.Meal.EntityModel.csproj", "{FDA5AEE1-A825-4276-819D-CBF2251930E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.EntityModel", "Modules\UserManagment\Better4You.UserManagment.EntityModel\Better4You.UserManagment.EntityModel.csproj", "{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.NhCodeMapping", "Common\Better4You.NhCodeMapping\Better4You.NhCodeMapping.csproj", "{AF08519E-99F5-46CB-BE5B-52E814497059}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Core", "Common\Better4You.Core\Better4You.Core.csproj", "{2EF92932-AC3F-46F1-9868-2455DAC5F1B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.NhCodeMapping", "Modules\Meal\Better4You.Meal.NhCodeMapping\Better4You.Meal.NhCodeMapping.csproj", "{BB0B07F1-160B-4B3A-8673-95004A208E88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{AF08519E-99F5-46CB-BE5B-52E814497059} = {AF08519E-99F5-46CB-BE5B-52E814497059}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2} = {FDA5AEE1-A825-4276-819D-CBF2251930E2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.NhCodeMapping", "Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\Better4You.UserManagment.NhCodeMapping.csproj", "{75BFDD5B-53BE-4A87-AECC-F51F60B663DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{AF08519E-99F5-46CB-BE5B-52E814497059} = {AF08519E-99F5-46CB-BE5B-52E814497059}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.Business", "Modules\UserManagment\Better4You.UserManagment.Business\Better4You.UserManagment.Business.csproj", "{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA} = {401B5483-8662-4C5E-AEF9-4249C81CF8FA}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.Business.Implementation", "Modules\UserManagment\Better4You.UserManagment.Business.Implementation\Better4You.UserManagment.Business.Implementation.csproj", "{374AAA22-ACF7-4482-85FF-48D7EE91037A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA} = {401B5483-8662-4C5E-AEF9-4249C81CF8FA}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614} = {3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.ViewModel", "Modules\UserManagment\Better4You.UserManagment.ViewModel\Better4You.UserManagment.ViewModel.csproj", "{73949E07-E6AC-4DE5-B8D1-C804AB5A027A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.Service", "Modules\UserManagment\Better4You.UserManagment.Service\Better4You.UserManagment.Service.csproj", "{84794062-C7B2-45F1-AF35-BA7AA347C303}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F} = {08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.Service.Implementation", "Modules\UserManagment\Better4You.UserManagment.Service.Implementation\Better4You.UserManagment.Service.Implementation.csproj", "{86C3962B-E59B-462E-A19F-F0E167FF1793}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{84794062-C7B2-45F1-AF35-BA7AA347C303} = {84794062-C7B2-45F1-AF35-BA7AA347C303}
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F} = {08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614} = {3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagment.Service.Messages", "Modules\UserManagment\Better4You.UserManagment.Service.Messages\Better4You.UserManagment.Service.Messages.csproj", "{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.Service", "Modules\Meal\Better4You.Meal.Service\Better4You.Meal.Service.csproj", "{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.Service.Implementation", "Modules\Meal\Better4You.Meal.Service.Implementation\Better4You.Meal.Service.Implementation.csproj", "{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A} = {536FF423-03D2-49E1-A67D-D14867C8EC0A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A} = {8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614} = {3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.ViewModel", "Modules\Meal\Better4You.Meal.ViewModel\Better4You.Meal.ViewModel.csproj", "{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E} = {D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.Business", "Modules\Meal\Better4You.Meal.Business\Better4You.Meal.Business.csproj", "{536FF423-03D2-49E1-A67D-D14867C8EC0A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09845B3A-E127-4D05-94A5-38C114A391EF} = {09845B3A-E127-4D05-94A5-38C114A391EF}
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2} = {FDA5AEE1-A825-4276-819D-CBF2251930E2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.Business.Implementation", "Modules\Meal\Better4You.Meal.Business.Implementation\Better4You.Meal.Business.Implementation.csproj", "{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A} = {536FF423-03D2-49E1-A67D-D14867C8EC0A}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{09845B3A-E127-4D05-94A5-38C114A391EF} = {09845B3A-E127-4D05-94A5-38C114A391EF}
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E} = {D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA} = {401B5483-8662-4C5E-AEF9-4249C81CF8FA}
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2} = {FDA5AEE1-A825-4276-819D-CBF2251930E2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UI.Mvc", "UI\Better4You.UI.Mvc\Better4You.UI.Mvc.csproj", "{51A04F17-CD39-4B99-A337-6BCD62AF4FDE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {73949E07-E6AC-4DE5-B8D1-C804AB5A027A}
+		{B8D35810-EA51-489B-9A62-423DAB7690C7} = {B8D35810-EA51-489B-9A62-423DAB7690C7}
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A} = {374AAA22-ACF7-4482-85FF-48D7EE91037A}
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A} = {536FF423-03D2-49E1-A67D-D14867C8EC0A}
+		{86C3962B-E59B-462E-A19F-F0E167FF1793} = {86C3962B-E59B-462E-A19F-F0E167FF1793}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE} = {75BFDD5B-53BE-4A87-AECC-F51F60B663DE}
+		{84794062-C7B2-45F1-AF35-BA7AA347C303} = {84794062-C7B2-45F1-AF35-BA7AA347C303}
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E} = {56CC2B66-FF72-4F66-B75B-1A370935EE4E}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}
+		{8B766482-73C0-4A15-A3BF-2224471D82C9} = {8B766482-73C0-4A15-A3BF-2224471D82C9}
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA} = {401B5483-8662-4C5E-AEF9-4249C81CF8FA}
+		{AF08519E-99F5-46CB-BE5B-52E814497059} = {AF08519E-99F5-46CB-BE5B-52E814497059}
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B} = {12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A} = {8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59} = {81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F} = {08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA} = {C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2} = {FDA5AEE1-A825-4276-819D-CBF2251930E2}
+		{BB0B07F1-160B-4B3A-8673-95004A208E88} = {BB0B07F1-160B-4B3A-8673-95004A208E88}
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614} = {3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Business", "Common\Better4You.Business\Better4You.Business.csproj", "{8B766482-73C0-4A15-A3BF-2224471D82C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E} = {D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Business.Implementation", "Common\Better4You.Business.Implementation\Better4You.Business.Implementation.csproj", "{56CC2B66-FF72-4F66-B75B-1A370935EE4E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {2EF92932-AC3F-46F1-9868-2455DAC5F1B3}
+		{8B766482-73C0-4A15-A3BF-2224471D82C9} = {8B766482-73C0-4A15-A3BF-2224471D82C9}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Service", "Common\Better4You.Service\Better4You.Service.csproj", "{B8D35810-EA51-489B-9A62-423DAB7690C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Service.Implementation", "Common\Better4You.Service.Implementation\Better4You.Service.Implementation.csproj", "{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8D35810-EA51-489B-9A62-423DAB7690C7} = {B8D35810-EA51-489B-9A62-423DAB7690C7}
+		{8B766482-73C0-4A15-A3BF-2224471D82C9} = {8B766482-73C0-4A15-A3BF-2224471D82C9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.ViewModel", "Common\Better4You.ViewModel\Better4You.ViewModel.csproj", "{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.Meal.Config", "Modules\Meal\Better4You.Meal.Config\Better4You.Meal.Config.csproj", "{09845B3A-E127-4D05-94A5-38C114A391EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better4You.UserManagement.Config", "Modules\UserManagment\LogPer.UserManagement.Config\Better4You.UserManagement.Config.csproj", "{401B5483-8662-4C5E-AEF9-4249C81CF8FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF08519E-99F5-46CB-BE5B-52E814497059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF08519E-99F5-46CB-BE5B-52E814497059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF08519E-99F5-46CB-BE5B-52E814497059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF08519E-99F5-46CB-BE5B-52E814497059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0B07F1-160B-4B3A-8673-95004A208E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0B07F1-160B-4B3A-8673-95004A208E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0B07F1-160B-4B3A-8673-95004A208E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0B07F1-160B-4B3A-8673-95004A208E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84794062-C7B2-45F1-AF35-BA7AA347C303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84794062-C7B2-45F1-AF35-BA7AA347C303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84794062-C7B2-45F1-AF35-BA7AA347C303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84794062-C7B2-45F1-AF35-BA7AA347C303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C3962B-E59B-462E-A19F-F0E167FF1793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C3962B-E59B-462E-A19F-F0E167FF1793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C3962B-E59B-462E-A19F-F0E167FF1793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C3962B-E59B-462E-A19F-F0E167FF1793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A04F17-CD39-4B99-A337-6BCD62AF4FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A04F17-CD39-4B99-A337-6BCD62AF4FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A04F17-CD39-4B99-A337-6BCD62AF4FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A04F17-CD39-4B99-A337-6BCD62AF4FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B766482-73C0-4A15-A3BF-2224471D82C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B766482-73C0-4A15-A3BF-2224471D82C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B766482-73C0-4A15-A3BF-2224471D82C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B766482-73C0-4A15-A3BF-2224471D82C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D35810-EA51-489B-9A62-423DAB7690C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D35810-EA51-489B-9A62-423DAB7690C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D35810-EA51-489B-9A62-423DAB7690C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D35810-EA51-489B-9A62-423DAB7690C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09845B3A-E127-4D05-94A5-38C114A391EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09845B3A-E127-4D05-94A5-38C114A391EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09845B3A-E127-4D05-94A5-38C114A391EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09845B3A-E127-4D05-94A5-38C114A391EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C180E2D-CD0B-40E2-B91D-7A718F5B3DB1} = {63099CA7-32BD-437A-A784-FFB3B47DA8E1}
+		{F0140255-D56C-4DC5-8DF2-21544D1433FB} = {63099CA7-32BD-437A-A784-FFB3B47DA8E1}
+		{C2C013A8-6560-448C-B196-D68897A4D6F1} = {63099CA7-32BD-437A-A784-FFB3B47DA8E1}
+		{C8AEE59F-E802-4006-8D01-A3E6D70F6F4A} = {A2C49654-97B3-4E49-9A36-594F3099F353}
+		{AEA715BC-5346-40E1-9C68-2DF254D99CA1} = {A2C49654-97B3-4E49-9A36-594F3099F353}
+		{1455C9C0-C4B4-46CA-A9EA-7F8570EB365E} = {AEA715BC-5346-40E1-9C68-2DF254D99CA1}
+		{EB231212-3692-4D8F-8ED4-DD7C7DCEA45F} = {AEA715BC-5346-40E1-9C68-2DF254D99CA1}
+		{98FF9A34-C580-4257-A449-801F6306F7A6} = {AEA715BC-5346-40E1-9C68-2DF254D99CA1}
+		{D213C358-8146-400F-B132-858CA01F0211} = {AEA715BC-5346-40E1-9C68-2DF254D99CA1}
+		{19C531CC-2B40-4C30-B28F-DDE40DD539EF} = {C8AEE59F-E802-4006-8D01-A3E6D70F6F4A}
+		{67864A77-61D8-46DA-96D2-DC31B5AA00B2} = {C8AEE59F-E802-4006-8D01-A3E6D70F6F4A}
+		{7583AFD2-3310-4EA1-BF83-D7FFF1F90A9F} = {C8AEE59F-E802-4006-8D01-A3E6D70F6F4A}
+		{69576603-3583-4557-BA98-E33BDFC7F31B} = {C8AEE59F-E802-4006-8D01-A3E6D70F6F4A}
+		{3CEF7BC8-0617-4FFD-9810-0BC8B1F3C930} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{FDA5AEE1-A825-4276-819D-CBF2251930E2} = {98FF9A34-C580-4257-A449-801F6306F7A6}
+		{FB4C8673-4EE5-45E6-A3DD-F60A42CB02CB} = {7583AFD2-3310-4EA1-BF83-D7FFF1F90A9F}
+		{AF08519E-99F5-46CB-BE5B-52E814497059} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{2EF92932-AC3F-46F1-9868-2455DAC5F1B3} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{BB0B07F1-160B-4B3A-8673-95004A208E88} = {EB231212-3692-4D8F-8ED4-DD7C7DCEA45F}
+		{75BFDD5B-53BE-4A87-AECC-F51F60B663DE} = {67864A77-61D8-46DA-96D2-DC31B5AA00B2}
+		{3D1EEFF6-1BF3-41A2-B3EB-F5A984CF8614} = {19C531CC-2B40-4C30-B28F-DDE40DD539EF}
+		{374AAA22-ACF7-4482-85FF-48D7EE91037A} = {19C531CC-2B40-4C30-B28F-DDE40DD539EF}
+		{73949E07-E6AC-4DE5-B8D1-C804AB5A027A} = {7583AFD2-3310-4EA1-BF83-D7FFF1F90A9F}
+		{84794062-C7B2-45F1-AF35-BA7AA347C303} = {69576603-3583-4557-BA98-E33BDFC7F31B}
+		{86C3962B-E59B-462E-A19F-F0E167FF1793} = {69576603-3583-4557-BA98-E33BDFC7F31B}
+		{08F0D7C9-8A84-4FA8-8EBC-A3D9EA58813F} = {69576603-3583-4557-BA98-E33BDFC7F31B}
+		{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A} = {D213C358-8146-400F-B132-858CA01F0211}
+		{12A5379F-6C08-4C63-AA1A-8D1D3877CC5B} = {D213C358-8146-400F-B132-858CA01F0211}
+		{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667} = {98FF9A34-C580-4257-A449-801F6306F7A6}
+		{536FF423-03D2-49E1-A67D-D14867C8EC0A} = {1455C9C0-C4B4-46CA-A9EA-7F8570EB365E}
+		{C0AA86CA-403E-44B2-9EB8-F0EAA7138AAA} = {1455C9C0-C4B4-46CA-A9EA-7F8570EB365E}
+		{51A04F17-CD39-4B99-A337-6BCD62AF4FDE} = {8DC72C08-791C-490B-966E-3A35A2A061C3}
+		{8B766482-73C0-4A15-A3BF-2224471D82C9} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{56CC2B66-FF72-4F66-B75B-1A370935EE4E} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{B8D35810-EA51-489B-9A62-423DAB7690C7} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{81DD1BB3-2A28-424A-885E-E4D7BD6E7B59} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{D3E34C3C-6153-4D54-94B8-DE0323FB0B5E} = {D2248F9C-E8FB-4FD8-9E14-940CAF3ED950}
+		{09845B3A-E127-4D05-94A5-38C114A391EF} = {98FF9A34-C580-4257-A449-801F6306F7A6}
+		{401B5483-8662-4C5E-AEF9-4249C81CF8FA} = {7583AFD2-3310-4EA1-BF83-D7FFF1F90A9F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 27
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://logper.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Common\\Better4You.Core\\Better4You.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = Better4You.sln
+		SccProjectName1 = Common/Better4You.Core
+		SccLocalPath1 = Common\\Better4You.Core
+		SccProjectUniqueName2 = Common\\Better4You.EntityModel\\Better4You.EntityModel.csproj
+		SccProjectTopLevelParentUniqueName2 = Better4You.sln
+		SccProjectName2 = Common/Better4You.EntityModel
+		SccLocalPath2 = Common\\Better4You.EntityModel
+		SccProjectUniqueName3 = Modules\\UserManagment\\Better4You.UserManagment.EntityModel\\Better4You.UserManagment.EntityModel.csproj
+		SccProjectTopLevelParentUniqueName3 = Better4You.sln
+		SccProjectName3 = Modules/UserManagment/Better4You.UserManagment.EntityModel
+		SccLocalPath3 = Modules\\UserManagment\\Better4You.UserManagment.EntityModel
+		SccProjectUniqueName4 = Modules\\Meal\\Better4You.Meal.EntityModel\\Better4You.Meal.EntityModel.csproj
+		SccProjectTopLevelParentUniqueName4 = Better4You.sln
+		SccProjectName4 = Modules/Meal/Better4You.Meal.EntityModel
+		SccLocalPath4 = Modules\\Meal\\Better4You.Meal.EntityModel
+		SccProjectUniqueName5 = Modules\\UserManagment\\Better4You.UserManagment.ViewModel\\Better4You.UserManagment.ViewModel.csproj
+		SccProjectTopLevelParentUniqueName5 = Better4You.sln
+		SccProjectName5 = Modules/UserManagment/Better4You.UserManagment.ViewModel
+		SccLocalPath5 = Modules\\UserManagment\\Better4You.UserManagment.ViewModel
+		SccProjectUniqueName6 = Modules\\UserManagment\\Better4You.UserManagment.Service.Messages\\Better4You.UserManagment.Service.Messages.csproj
+		SccProjectTopLevelParentUniqueName6 = Better4You.sln
+		SccProjectName6 = Modules/UserManagment/Better4You.UserManagment.Service.Messages
+		SccLocalPath6 = Modules\\UserManagment\\Better4You.UserManagment.Service.Messages
+		SccProjectUniqueName7 = Modules\\UserManagment\\Better4You.UserManagment.Business\\Better4You.UserManagment.Business.csproj
+		SccProjectTopLevelParentUniqueName7 = Better4You.sln
+		SccProjectName7 = Modules/UserManagment/Better4You.UserManagment.Business
+		SccLocalPath7 = Modules\\UserManagment\\Better4You.UserManagment.Business
+		SccProjectUniqueName8 = Modules\\UserManagment\\Better4You.UserManagment.Business.Implementation\\Better4You.UserManagment.Business.Implementation.csproj
+		SccProjectTopLevelParentUniqueName8 = Better4You.sln
+		SccProjectName8 = Modules/UserManagment/Better4You.UserManagment.Business.Implementation
+		SccLocalPath8 = Modules\\UserManagment\\Better4You.UserManagment.Business.Implementation
+		SccProjectUniqueName9 = Modules\\Meal\\Better4You.Meal.ViewModel\\Better4You.Meal.ViewModel.csproj
+		SccProjectTopLevelParentUniqueName9 = Better4You.sln
+		SccProjectName9 = Modules/Meal/Better4You.Meal.ViewModel
+		SccLocalPath9 = Modules\\Meal\\Better4You.Meal.ViewModel
+		SccProjectUniqueName10 = Modules\\Meal\\Better4You.Meal.Business\\Better4You.Meal.Business.csproj
+		SccProjectTopLevelParentUniqueName10 = Better4You.sln
+		SccProjectName10 = Modules/Meal/Better4You.Meal.Business
+		SccLocalPath10 = Modules\\Meal\\Better4You.Meal.Business
+		SccProjectUniqueName11 = Modules\\UserManagment\\Better4You.UserManagment.Service\\Better4You.UserManagment.Service.csproj
+		SccProjectTopLevelParentUniqueName11 = Better4You.sln
+		SccProjectName11 = Modules/UserManagment/Better4You.UserManagment.Service
+		SccLocalPath11 = Modules\\UserManagment\\Better4You.UserManagment.Service
+		SccProjectUniqueName12 = Modules\\UserManagment\\Better4You.UserManagment.Service.Implementation\\Better4You.UserManagment.Service.Implementation.csproj
+		SccProjectTopLevelParentUniqueName12 = Better4You.sln
+		SccProjectName12 = Modules/UserManagment/Better4You.UserManagment.Service.Implementation
+		SccLocalPath12 = Modules\\UserManagment\\Better4You.UserManagment.Service.Implementation
+		SccProjectUniqueName13 = Modules\\UserManagment\\Better4You.UserManagment.NhCodeMapping\\Better4You.UserManagment.NhCodeMapping.csproj
+		SccProjectTopLevelParentUniqueName13 = Better4You.sln
+		SccProjectName13 = Modules/UserManagment/Better4You.UserManagment.NhCodeMapping
+		SccLocalPath13 = Modules\\UserManagment\\Better4You.UserManagment.NhCodeMapping
+		SccProjectUniqueName14 = Common\\Better4You.NhCodeMapping\\Better4You.NhCodeMapping.csproj
+		SccProjectTopLevelParentUniqueName14 = Better4You.sln
+		SccProjectName14 = Common/Better4You.NhCodeMapping
+		SccLocalPath14 = Common\\Better4You.NhCodeMapping
+		SccProjectUniqueName15 = Modules\\Meal\\Better4You.Meal.Service\\Better4You.Meal.Service.csproj
+		SccProjectTopLevelParentUniqueName15 = Better4You.sln
+		SccProjectName15 = Modules/Meal/Better4You.Meal.Service
+		SccLocalPath15 = Modules\\Meal\\Better4You.Meal.Service
+		SccProjectUniqueName16 = Modules\\Meal\\Better4You.Meal.Service.Implementation\\Better4You.Meal.Service.Implementation.csproj
+		SccProjectTopLevelParentUniqueName16 = Better4You.sln
+		SccProjectName16 = Modules/Meal/Better4You.Meal.Service.Implementation
+		SccLocalPath16 = Modules\\Meal\\Better4You.Meal.Service.Implementation
+		SccProjectUniqueName17 = Common\\Better4You.ViewModel\\Better4You.ViewModel.csproj
+		SccProjectTopLevelParentUniqueName17 = Better4You.sln
+		SccProjectName17 = Common/Better4You.ViewModel
+		SccLocalPath17 = Common\\Better4You.ViewModel
+		SccProjectUniqueName18 = Modules\\Meal\\Better4You.Meal.Business.Implementation\\Better4You.Meal.Business.Implementation.csproj
+		SccProjectTopLevelParentUniqueName18 = Better4You.sln
+		SccProjectName18 = Modules/Meal/Better4You.Meal.Business.Implementation
+		SccLocalPath18 = Modules\\Meal\\Better4You.Meal.Business.Implementation
+		SccProjectUniqueName19 = Modules\\Meal\\Better4You.Meal.NhCodeMapping\\Better4You.Meal.NhCodeMapping.csproj
+		SccProjectTopLevelParentUniqueName19 = Better4You.sln
+		SccProjectName19 = Modules/Meal/Better4You.Meal.NhCodeMapping
+		SccLocalPath19 = Modules\\Meal\\Better4You.Meal.NhCodeMapping
+		SccProjectUniqueName20 = UI\\Better4You.UI.Mvc\\Better4You.UI.Mvc.csproj
+		SccProjectTopLevelParentUniqueName20 = Better4You.sln
+		SccProjectName20 = UI/Better4You.UI.Mvc
+		SccLocalPath20 = UI\\Better4You.UI.Mvc
+		SccProjectUniqueName21 = Common\\Better4You.Business\\Better4You.Business.csproj
+		SccProjectTopLevelParentUniqueName21 = Better4You.sln
+		SccProjectName21 = Common/Better4You.Business
+		SccLocalPath21 = Common\\Better4You.Business
+		SccProjectUniqueName22 = Common\\Better4You.Business.Implementation\\Better4You.Business.Implementation.csproj
+		SccProjectTopLevelParentUniqueName22 = Better4You.sln
+		SccProjectName22 = Common/Better4You.Business.Implementation
+		SccLocalPath22 = Common\\Better4You.Business.Implementation
+		SccProjectUniqueName23 = Common\\Better4You.Service\\Better4You.Service.csproj
+		SccProjectTopLevelParentUniqueName23 = Better4You.sln
+		SccProjectName23 = Common/Better4You.Service
+		SccLocalPath23 = Common\\Better4You.Service
+		SccProjectUniqueName24 = Common\\Better4You.Service.Implementation\\Better4You.Service.Implementation.csproj
+		SccProjectTopLevelParentUniqueName24 = Better4You.sln
+		SccProjectName24 = Common/Better4You.Service.Implementation
+		SccLocalPath24 = Common\\Better4You.Service.Implementation
+		SccProjectUniqueName25 = Modules\\Meal\\Better4You.Meal.Config\\Better4You.Meal.Config.csproj
+		SccProjectTopLevelParentUniqueName25 = Better4You.sln
+		SccProjectName25 = Modules/Meal/Better4You.Meal.Config
+		SccLocalPath25 = Modules\\Meal\\Better4You.Meal.Config
+		SccProjectUniqueName26 = Modules\\UserManagment\\LogPer.UserManagement.Config\\Better4You.UserManagement.Config.csproj
+		SccProjectTopLevelParentUniqueName26 = Better4You.sln
+		SccProjectName26 = Modules/UserManagment/LogPer.UserManagement.Config
+		SccLocalPath26 = Modules\\UserManagment\\LogPer.UserManagement.Config
+	EndGlobalSection
+EndGlobal

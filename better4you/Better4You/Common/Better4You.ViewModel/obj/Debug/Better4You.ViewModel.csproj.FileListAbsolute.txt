@@ -1,0 +1,13 @@
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\bin\Debug\Better4You.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.ViewModel\obj\Debug\Better4You.ViewModel.pdb

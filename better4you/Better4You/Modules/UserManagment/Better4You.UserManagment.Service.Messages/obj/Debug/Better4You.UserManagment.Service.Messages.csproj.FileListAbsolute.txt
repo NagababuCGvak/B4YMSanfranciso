@@ -1,0 +1,69 @@
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.csprojResolveAssemblyReference.cache
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.Service.Messages.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Model.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Repository.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\bin\Debug\Tar.Globalization.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.Service.Messages\obj\Debug\Better4You.UserManagment.Service.Messages.pdb

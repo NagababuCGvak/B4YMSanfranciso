@@ -1,0 +1,155 @@
+﻿
+@model MenuView
+@{
+    ViewBag.Title = string.Format("..:: {0} Meal ::..", Model.Id == 0 ? "Create" : "Edit");
+}
+<form method="post">
+    <section id="MenuCreate">
+        <div class="page-header">
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink("Meals", "Index", "Menu")<span class="divider">/</span></li>
+                <li><span class="active">@string.Format("{0} Meal", Model.Id == 0 ? "Create" : "Edit")</span></li>
+                <li class="pull-right">
+
+                    @if (Model.Id == 0)
+                    {
+                        @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Add, "Create", "submit", new {@title = "Create Meal"})
+                    }
+                    else
+                    {
+                        @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Save, "Save", "submit", new {@title = "Save Meal"})
+                        @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Remove, "Delete", "submit", new {@title = "Delete Meal", onclick="deleteAction();"})
+                    }
+                    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Cancel, "Cancel","reset",new {@title="Cancel"})
+                </li>
+            </ul>            
+        </div>
+        <div class="view">
+            <div class="control-group">
+                <div class="controls">
+                    <select class="selectpicker" name="MenuType.Key" id="MenuType_Key" title="Select Meal Type" >                                                      
+                        @foreach (var menuType in ((List<Tar.ViewModel.GeneralItemView>)ViewBag.MenuTypes))
+                        {
+                            <option value = "@menuType.Id" 
+                                @if (Model.MenuType.Id == menuType.Id)
+                                {
+                                    @:selected="selected"
+                                }
+                                > @menuType.Text </option>
+                        }
+                    </select>
+                    @Html.BootstrapTextBoxFor(m => m.Name, new { @class = "span3", display = "Meal Name" })
+                </div>
+            </div>
+            @if (Model.Id > 0){
+                <div class="control-group">
+                    <div class="controls">                        
+                        @Html.BootstrapTextBoxFor(m => m.ModifiedReason, new { @class = "span5", display = "Modified Reason" })
+                    </div>
+                </div>
+            }
+            <div class="span4">
+                <fieldset>
+                    <legend>Food Items</legend>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="Food.Name" id="Food_Name" type="text" class="span3" title="Type Food Name, Select To Add" placeholder="Type Food Name, Select To Add" data-toggle="tooltip" autocomplete="off"/>                    
+                            <input name="Food.Id" id="Food_Id" type="hidden" />
+                        </div>                
+                    </div>
+                    <div id="menuFoods">                
+                        @for (var i = 0; i < Model.Foods.Count; i++)
+                        {                    
+                            <div class="control-group" >                        
+                                <span class="badge badge-info">@string.Format("{0} - {1}",Model.Foods[i].FoodType.Text,Model.Foods[i].Name) <i class="icon-remove icon-white" style="cursor: pointer; cursor: hand;"></i></span>
+                                <input id="@string.Format("Foods_{0}__Id", i)" name="@string.Format("Foods[{0}].Id", i)" value="@Model.Foods[i].Id" type="hidden"/>                            
+                            </div>                    
+                        }   
+                    </div>
+                </fieldset>
+            </div>
+            <div class="span4">
+                <fieldset>
+                    <legend>Schools</legend>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input name="School.Name" id="School_Name" type="text" class="span3" title="Type School Name, Select To Add" placeholder="Type School Name, Select To Add" data-toggle="tooltip" autocomplete="off"/>                    
+                            <input name="School.Id" id="School_Id" type="hidden" />
+                        </div>                
+                    </div>
+                    <div id="menuSchools">                
+                        @for (var i = 0; i < Model.Schools.Count; i++)
+                        {                    
+                            <div class="control-group" >                        
+                                <span class="badge badge-info">@string.Format("{0}",Model.Schools[i].Text) <i style="cursor: pointer; cursor: hand;" class="icon-remove icon-white"></i></span>
+                                <input id="@string.Format("Schools_{0}__Id", i)" name="@string.Format("Schools[{0}].Id", i)" value="@Model.Schools[i].Id" type="hidden"/>                            
+                            </div>                    
+                        }   
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+    @Html.HiddenFor(k => k.Id)
+</form>
+
+@section documentReady {
+    $('#Food_Name').typeahead(
+        tarControls.autoComplete({
+        action: "List",
+        controller: "Food",
+        filter: {
+            query: { varName: "Name" },
+        },
+        model:{primaryKey:"Id",listName:"Foods",columns:["FoodType.Text","Name"]},
+        id: "Food_Name",
+        idHidden: "Food_Id",
+        updaterCallBack:function(foodName){addFood(foodName);}
+        })
+    );
+    $('#School_Name').typeahead(
+        tarControls.autoComplete({
+        action: "List",
+        controller: "School",
+        filter: {
+        query: { varName: "Name" }
+        },
+        model:{primaryKey:"Id",listName:"Schools",columns:["Name", "SchoolType"]},
+        id: "School_Name",
+        idHidden: "School_Id",
+        updaterCallBack:function(schoolName){addSchool(schoolName);}
+        })
+    );
+    $(".badge.badge-info > i").on('click',{type:'Food'},removeItem);
+}
+    <script>
+        
+        function deleteAction() {
+            $('form').get(0).setAttribute('action', '/Menu/Delete');
+        }
+
+        function addFood(itemName) {
+            var foodsCount = $(".control-group", $("#menuFoods")).length;
+            var input = "<div class='control-group'>" +                        
+                "<label class='badge badge-info'>" + itemName + " <i class='icon-remove icon-white' style='cursor: pointer; cursor: hand;' onclick='return removeItem();'></i>" + "</label>" +
+                "<input id='Foods_" + foodsCount + "__Id' name='Foods[" + foodsCount + "].Id' value='" + $('#Food_Id').val() + "' type='hidden'/>" +
+                "</div>";
+            $("#menuFoods").append($(input));
+            $('#Food_Name').val("");
+        }
+        function addSchool(itemName) {
+
+            var schoolsCount = $(".control-group", $("#menuSchools")).length;
+            var input = "<div class='control-group'>" +
+                "<label class='badge badge-info'>" + itemName + " <i class='icon-remove icon-white' style='cursor: pointer; cursor: hand;' onclick='return removeItem();'></i>" + "</label>" +
+                "<input id='Schools_" + schoolsCount + "__Id' name='Schools[" + schoolsCount + "].Id' value='" + $('#School_Id').val() + "' type='hidden'/>" +
+                "</div>";
+            $("#menuSchools").append($(input));
+            $('#School_Name').val("");
+        }
+        function removeItem(event) {
+            var target = event ? event.target : window.event.srcElement;
+            var parentDiv = $(target).closest('div.control-group');
+            $(target).closest('div.control-group').remove();
+        }
+    </script>

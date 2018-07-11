@@ -1,0 +1,57 @@
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.xml
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.pdb
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.xml
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.csprojResolveAssemblyReference.cache
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\TFS\Better4You\Main\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.xml
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.xml
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.NhCodeMapping.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.EntityModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.NhCodeMapping.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Better4You.UserManagment.EntityModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\NHibernate.xml
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Tar.Model.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\bin\Debug\Iesi.Collections.xml
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Modules\UserManagment\Better4You.UserManagment.NhCodeMapping\obj\Debug\Better4You.UserManagment.NhCodeMapping.pdb

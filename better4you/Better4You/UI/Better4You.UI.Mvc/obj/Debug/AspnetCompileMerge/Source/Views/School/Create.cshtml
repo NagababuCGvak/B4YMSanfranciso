@@ -1,0 +1,96 @@
+﻿
+@model Better4You.UserManagment.ViewModel.SchoolListItemView
+@{
+    ViewBag.Title = "..:: Create School ::..";
+}
+<form method="post">
+    <section id="SchoolCreate">
+        <div class="page-header">
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink("Schools", "Index", "School")<span class="divider">/</span></li>
+                <li><span class="active">Create School</span></li>
+                <li class="pull-right">
+                    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Save,"Create","submit")
+                    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Cancel,"Cancel","reset")
+                </li>
+            </ul>
+            <h3>Create School</h3>
+        </div>
+        <div class="controls">
+            <span>
+            School Type: 
+            @Html.DropDownListFor(m => m.SchoolTypeId,
+                                                              ((IList<KeyValuePair<long, string>>)ViewBag.SchoolTypes).Select(
+                                                     x => new SelectListItem
+                                                     {
+                                                         Text = x.Value,
+                                                         Value = x.Key.ToString(),
+                                                         Selected = (x.Key == Model.SchoolTypeId),
+                                                     }).ToList(),
+                                              new
+                                                  {
+                                                      @class = "span3 selectpicker",
+                                                      required = true,
+                                                      name = "ddlSchoolType",
+                                                      id = "ddlSchoolType",
+                                                      display = "School Type"
+                                                  })
+                </span>
+        </div>
+        <div class="controls">
+            @Html.BootstrapTextBoxFor(m=>m.Name,new {@class="span6",display="School Name"})
+        </div>
+        <div class="controls">
+            @Html.BootstrapTextBoxFor(m=>m.Code,new {@class="span6",display="School Code"})
+        </div>
+        <div class="controls">
+            @Html.BootstrapTextBoxFor(m=>m.Address1,new {@class="span6",display="Address Line 1"})
+        </div>
+        <div class="controls">
+            @Html.BootstrapTextBoxFor(m=>m.Address2,new {@class="span6",display="Address Line 2"})
+        </div>
+        @*<div class="controls controls-row">
+            @Html.BootstrapTextBoxFor(m=>m.Route,new {@class="span3",display="Route",maxLength="4"})
+            <span class="span1"/>
+            @Html.BootstrapTextBoxFor(m=>m.PostalCode,new {@class="span3",display="Zip Code",mask="zipcode"})
+        </div>*@
+        <div class="controls controls-row">
+            @Html.BootstrapTextBoxFor(m=>m.State,new {@class="span3",display="State"})
+            @Html.HiddenFor(m=>m.StateId)
+            <span class="span1"/>
+            @Html.BootstrapTextBoxFor(m=>m.City,new {@class="span3",display="City"})
+            @Html.HiddenFor(m=>m.CityId)
+        </div>
+        <div class="controls controls-row">
+            @Html.BootstrapTextBoxFor(m=>m.BusinessPhone,new {@class="span3",display="Business Phone",mask="phone"})
+            @Html.BootstrapTextBoxFor(m=>m.CellPhone,new {@class="span3",display="Cell Phone",mask="phone"})
+
+        </div>
+        <div class="controls controls-row">
+            @*@Html.BootstrapTextBoxFor(m=>m.Email,new {@class="span3",display="Email",type="email"})*@
+            @Html.BootstrapTextBoxFor(m=>m.Fax,new {@class="span3",mask="phone",display="Fax"})                            
+        </div>
+    </section>
+</form>
+
+@section documentReady {
+
+    $('#State').typeahead(tarControls.autoComplete({
+        action:"States",
+        controller:"Lookup",
+        filter:{
+            query:{varName:"stateName"}
+        },
+        id:"State"
+    }));
+
+    $('#City').typeahead(tarControls.autoComplete({
+        action:"Cities",
+        controller:"Lookup",
+        filter:{
+            query:{varName:"cityName"},
+            cascade:[{varName:"stateId",varControl:"StateId"}]
+        },
+        id:"City"
+    }));
+}

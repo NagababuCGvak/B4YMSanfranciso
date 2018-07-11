@@ -1,0 +1,15 @@
+﻿@model Int32
+@using Better4You.Core
+@using System.Linq
+@{
+    var userTypeSelectListItems = Enum.GetValues(typeof(UserTypes)).Cast<UserTypes>().Select(
+        x => new SelectListItem
+                 {
+                     Text = x.ToString(),
+                     Value = ((int) x).ToString(System.Globalization.CultureInfo.InvariantCulture),
+                     Selected = ((int) x) == Model
+                 });
+}
+@Html.DropDownList("", userTypeSelectListItems,new {title=ViewData.ModelMetadata.PropertyName,@class="selectpicker"})
+@Html.ValidationMessage("")
+zahir

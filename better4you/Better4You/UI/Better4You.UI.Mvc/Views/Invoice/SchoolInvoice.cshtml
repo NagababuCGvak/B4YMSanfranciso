@@ -1,0 +1,109 @@
+﻿@using Tar.Core.Extensions
+@model List<KeyValuePair<long, List<InvoiceSummaryView>>>
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+
+            <li>
+                <i class="clip-home-3"></i>
+                <a href="#">
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Invoice List
+            </li>
+        </ol>
+        <div class="row page-header">
+            <div class="col-sm-6">
+                <h1>Invoice List</h1>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+
+<div class="">
+    <div class="col-sm-12">
+        <div>
+            <div class="btn-group btn-group-justified btn-group-sm">
+                @foreach (var mealType in ViewBag.MealTypes)
+                {
+                    var actionUrl = Url.Action("SchoolInvoice", new { id = mealType.Id });
+                    @(TagBuilderCustom.Create("a")
+                      .MergeAttribute("onclick", "tar.redirect('" + actionUrl + "')")
+                      .MergeAttribute("id", "btn" + mealType.Id)
+                      .AddCssClass("btn btn-default")
+                      .SetInnerHtml(mealType.Text))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-condensed table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th class="col-sm-1 center">Year</th>
+                            @{
+                                foreach (var month in (List<KeyValuePair<long, string>>)ViewBag.Month)
+                                {
+                                    <th class="center">@month.Value</th>
+                                }
+
+                            }
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: $root.Response().List">
+                        @{
+                            foreach (var year in Model)
+                            {
+                                <tr>
+                                    <td class="center">@year.Key</td>
+                                    @foreach (var month in (List<KeyValuePair<long, string>>) ViewBag.Month)
+                                    {
+                                        var monthInvoice = year.Value.Select(d => d.InvoiceItems.FirstOrDefault(k => k.Month == month.Key)).FirstOrDefault();
+
+                                        <td class="numeric" data-title="month">
+                                            @if (monthInvoice != null)
+                                            {
+                                                <small class="badge badge-info muted">@monthInvoice.OrderStatus.Text</small>
+                                                if (monthInvoice.SchoolInvoiceDocumentGuid != Guid.Empty)
+                                                {
+                                                    <a href="@(Url.Action("DownloadDocument", "Invoice") + "?id=" + monthInvoice.SchoolInvoiceDocumentGuid)" target="_blank">&nbsp;<i class="icon-download" title="Download Invoice"></i></a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @:&nbsp;
+                                            }
+                                        </td>
+
+                                    }
+                                </tr>
+
+                            }
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('@("#btn" + ViewBag.MealTypeId)').addClass('active');
+</script>

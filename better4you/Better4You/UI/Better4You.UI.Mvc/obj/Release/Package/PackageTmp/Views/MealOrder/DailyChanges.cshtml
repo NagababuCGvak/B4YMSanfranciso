@@ -1,0 +1,39 @@
+﻿@model List<DailyChangesItemView>
+@{
+    ViewBag.Title = "View Orders";    
+}
+
+<form method="post">
+    
+    <section id="Invoice.Index" class="view">
+        <div class="row-fluid">
+            <div class="span12">
+                @{
+                    Html.RenderPartial("_SearchDailyChangesHeaderPartial");
+                }
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Partial("_ListDailyChangesItemPartial", Model)    
+            </div>
+        </div>
+    </section>
+</form>
+@section documentReady {
+    selectDefaultMealType();
+    $(".selectpicker").selectpicker();  
+    prepareDatePicker();
+    
+}
+<script>
+
+    function prepareDatePicker() {
+        var checkin = $('#OrderItemDate').datepicker({
+            format: "yyyy-mm-dd"
+        }).on('changeDate', function (ev) {
+            checkin.hide();
+        }).data('datepicker');
+        
+    }
+</script>

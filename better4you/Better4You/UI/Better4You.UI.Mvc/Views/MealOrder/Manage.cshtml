@@ -1,0 +1,410 @@
+﻿@using Tar.Core.Extensions
+@{
+    ViewBag.Title = "Manage Orders";
+}
+@model MealOrderManageView
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li>
+                <i class="clip-home-3"></i>
+                <a href="/">Home</a>
+            </li>
+            <li class="active">@ViewBag.Title</li>
+        </ol>
+        <div class="row page-header">
+            <div class="col-sm-6">
+                <h1>
+                    @ViewBag.Title
+                </h1><h3>@Model.SchoolName</h3>
+            </div>
+            <div class="col-sm-6">
+                <div class="buttons-widget pull-right">
+                    @if (Model.OrderIsSubmitted)
+                    {
+                        <span class="label label-success" data-bind="" style="margin-right: 20px;">Order Submitted</span>
+                        <button class="btn btn-md btn-danger" data-bind="click: GenerateMenu">
+                            Generate Menu &nbsp; <i class="clip-arrow-right"></i>
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-md btn-danger" data-bind="click: SubmitOrder">
+                            Submit Order &nbsp; <i class="clip-arrow-right"></i>
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<script type="text/javascript">
+    //--variables
+    var model;
+    @Html.Raw("model =" + Model.ToJson());
+
+    //--variables
+    function PrepareDayModel(app, day, index) {
+
+        day.Date = ko.observable(tar.toDateString(day.Date));
+        day.SaveOrderForDayIsEnable = ko.observable(false);
+        day.IsEditable = ko.observable(day.IsEditable);
+        day.DayName = ko.observable(day.DayName);
+
+        $.each(day.Items, function () {
+            this.MealServiceTypeId = this.MealServiceTypeId.toString();
+            this.Count = ko.observable(this.Count);
+            this.DistributeIsActive = ko.observable(false);
+        });
+        $.each(day.Items.filter(function (item) { return item.IsMilk; }),
+            function () {
+                var item = this;
+                var notFound = true;
+                $.each(model.SupplementaryList, function () {
+                    if (item.MenuId === this.MenuId) {
+                        notFound = false;
+                        item.ratio = this;
+                    }
+                });
+                if (notFound)
+                    item.ratio = {
+                        Monday: 0,
+                        Tuesday: 0,
+                        Wednesday: 0,
+                        Thursday: 0,
+                        Friday: 0
+                    };
+                item.dayRatio = parseFloat(item.ratio[day.DayName()]);
+                //item.MenuName = item.MenuName + " - " + "%" + item.ratio[day.DayName()];
+            });
+
+
+
+        day.Items = ko.observableArray(day.Items);
+        day.HasAdditionalFruit = ko.observable(day.Items().filter(function (item) { return item.HasAdditionalFruit; }).length > 0);
+        day.HasAdditionalVegetable = ko.observable(day.Items().filter(function (item) { return item.HasAdditionalVegetable; }).length > 0);
+        day.FruitCount = ko.observable(day.FruitCount);
+        day.VegetableCount = ko.observable(day.VegetableCount);
+
+        day.Day = ko.observable(day.Day);
+        day.DeliveryTypeId = ko.observable(day.DeliveryTypeId.toString());
+        day.index = ko.observable(index);
+
+        //! computed fields
+        day.DeliveryTypeIdIsVisible = ko.computed(function() {
+            return model.MealTypeId === 4;
+        }, day);
+        day.Title = ko.computed(function () {
+            return this.Day() + " | " + this.DayName();
+        }, day);
+
+
+        day.MilkItems = function () {
+            return day.Items().filter(function (item) { return item.IsMilk; });
+        };
+
+        day.HasFruitItems = function () {
+            return day.Items().filter(function (item) { return item.HasAdditionalFruit; });
+        };
+        day.HasVegetableItems = function () {
+            return day.Items().filter(function (item) { return item.HasAdditionalVegetable; });
+        };
+        day.OtherItems = function () {
+            return day.Items().filter(function (item) { return !(item.IsMilk || item.IsSoyMilk); });
+        };
+
+        day.Distribute = function () {
+            var totalCount = 0;
+            $.each(day.OtherItems(), function () {
+                if (this.Count() === "")
+                    this.Count(0);
+                totalCount += parseInt(this.Count());
+            });
+            var supItems = day.MilkItems();
+            if (supItems.length !== 0) {
+                var dayName = day.DayName();
+                var tmpTotal = 0;
+                $.each(supItems, function() {
+                    var count = 0,
+                        dayRatio = parseFloat(this.ratio[dayName]);
+                    if (dayRatio !== 0) {
+                        var ratio = dayRatio / parseFloat(100);
+                        count = ratio * totalCount;
+                        count = Math.round(count);
+                    }
+                    if ((tmpTotal + count) > totalCount) {
+                        count = totalCount - tmpTotal;
+                        if (count < 0) count = 0;
+                    }
+                    tmpTotal += count;
+                    this.Count(count);
+                });
+            }
+            if (day.HasAdditionalFruit() || day.HasAdditionalVegetable()) {
+                debugger;
+                var foodPercentage = model.FoodPercentage;
+                var fruitMenuCount = 0;
+                var vegetableMenuCount = 0;
+                if (day.HasAdditionalVegetable()) {
+
+                    $.each(day.HasVegetableItems(), function () {
+                        vegetableMenuCount = vegetableMenuCount +(this.Count() * 1);
+                    });
+                }
+                if (day.HasAdditionalFruit()){
+                    $.each(day.HasFruitItems(), function () {
+                        fruitMenuCount = fruitMenuCount + (this.Count() * 1);
+                    });
+                }
+                day.FruitCount(parseInt((fruitMenuCount * foodPercentage.Fruit) / 100));
+                day.VegetableCount(parseInt((vegetableMenuCount * foodPercentage.Vegetable) / 100));
+
+            }
+
+            day.SaveOrderForDayIsEnable(true);
+        };
+        var otherItems = day.OtherItems();
+
+        if (otherItems.length !== 0) otherItems[0].DistributeIsActive(true);
+
+        day.SaveOrderForDay = function () {
+            var milkTotalCount = 0;
+            $.each(day.MilkItems(), function () {
+                milkTotalCount += parseInt(this.Count());
+            });
+            var otherTotalCount = 0;
+            $.each(day.OtherItems(), function () {
+                otherTotalCount += parseInt(this.Count());
+            });
+            //console.log("milkTotalCount:" + milkTotalCount + " / otherTotalCount:" + otherTotalCount);
+            if (milkTotalCount > otherTotalCount) {
+                alert("Count of milk products cannot be from other. You can auto distribution or edit count of milk products.");
+                return;
+            }
+            debugger;
+            var menuCount = day.Items();
+            var VegCount = day.VegetableCount();
+            var VegCount = 0;
+            var TotalVegCount = $.each(day.HasVegetableItems(), function () {
+                if (this.Count() === "")
+                    this.Count(0);
+                VegCount += parseInt(this.Count());
+            });
+            var totalCount = VegCount;
+
+            //if (day.HasAdditionalVegetable()) {
+            //    debugger;
+            //    var foodPercentage = model.FoodPercentage;
+            //    var fruitMenuCount = 0;
+            //    var vegetableMenuCount = 0;
+            //    if (day.HasAdditionalVegetable()) {
+
+            //        $.each(day.HasVegetableItems(), function () {
+            //            vegetableMenuCount = vegetableMenuCount + (this.Count() * 1);
+            //        });
+            //    }
+            //}
+
+            //var totalCount = vegetableMenuCount;
+
+            if ((totalCount != 0 && day.VegetableCount() == 0)) {
+                alert("Vegetable value count should be more then 0");
+            }
+            else{
+                    var req = { Day: ko.toJS(day) };
+                    tar.callAction(
+                        "MealOrder",
+                        "SaveOrderForDay",
+                        req,
+                        {
+                            success: function (res) {
+                                tar.hideLoading();
+                                alert(res.Message);
+                                res.Day.SaveOrderForDayIsEnable = day.SaveOrderForDayIsEnable;
+                                PrepareDayModel(app, res.Day, day.index());
+                                app.Days()[day.index()] = res.Day;
+                                app.Days(app.Days());
+                            }
+                        });
+            }
+
+                }
+
+        // Actions
+    }
+    function AppModelView(response, orderDate) {
+        this.GenerateMenu = function () {
+            tar.openNewForm('SchoolMenuExport', 'MealOrder', { url: { orderDate: tar.toDateString(model.StartDate, "YYYY-MM-DD"), MealTypeId: model.MealTypeId, SchoolId: model.SchoolId, SchoolType: model.SchoolType }, label: 'School Monthly Menu' });
+        };
+        this.SubmitOrder = function () {
+            return tar.callAction(
+                "MealOrder",
+                "SubmitOrder",
+                { filter: { OrderDate: model.StartDate, MealTypeId: model.MealTypeId, SchoolId: model.SchoolId } },
+                {
+                    success: function (d) {
+                        tar.hideLoading();
+                        if (d.Result !== tar.constants.responseResult.Success) alert(d.Message);
+                        else {
+                            if (d.IsOrderSubmitted) {
+                                alert("Order Submitted Successfully");
+                                window.location.reload();
+                            } else {
+                                alert("Please Order Menu in month");
+                            }
+                        }
+                    }
+                });
+        };
+        this.OrderDate = ko.observable(orderDate);
+        var self = this;
+        var index = 0;
+        $.each(response.Days, function () {
+            PrepareDayModel(self, this, index);
+            index++;
+        });
+        self.Days = ko.observableArray(response.Days);
+        self.DeliveryTypes = ko.observableArray(response.DeliveryTypes);
+    }
+
+    /*
+    function load($, tar) {
+        "use strict";
+        var request = {
+            filter: {
+                OrderDate: model.StartDate,
+                SchoolId: model.SchoolId,
+                MealTypeId: model.MealTypeId,
+                SchoolType: model.SchoolType
+            }
+        };
+        tar.callAction(
+            "MealOrder",
+            "MealMenuOrderList?fromOutSide=" + model.FromOutSide,
+            request,
+            {
+                success: function (response) {
+                    $('#days').fadeIn();
+                    tar.hideLoading();
+                    if (response.Result === 0) alert(response.Message);
+                    if (!response || !response.Days || response.Days.length === 0)
+                        $('#recordNotFound').fadeIn();
+                    ko.applyBindings(new AppModelView(response));
+                }
+            });
+    }
+    */
+    $(function () {
+        $('@("#btn" + Model.MealTypeId)').addClass('active');
+        model.StartDate = tar.toDateString(model.StartDate);
+        model.EndDate = tar.toDateString(model.EndDate);
+        console.log(model);
+        $('#days').fadeIn();
+        if (!model || !model.Days || model.Days.length === 0)
+            $('#recordNotFound').fadeIn();
+        ko.applyBindings(new AppModelView(model));
+
+        //load($, tar);
+    });
+</script>
+<section class="view">
+    <div class="span8">
+        <div>
+            <div class="btn-group btn-group-justified btn-group-sm">
+                @foreach (var mealType in Model.MealTypes)
+                {
+
+                    string actionUrl;
+                    if (Model.FromOutSide)
+                    {
+                        actionUrl = Url.Action("Manage", new { year = Model.Year, month = Model.Month, mealTypeId = mealType.Id, schoolId = Model.SchoolId });
+                    }
+                    else
+                    {
+                        actionUrl = Url.Action("Manage", new { year = Model.Year, month = Model.Month, mealTypeId = mealType.Id });
+                    }
+                    @(TagBuilderCustom.Create("a")
+                          .MergeAttribute("onclick", "tar.redirect('" + actionUrl + "')")
+                          .MergeAttribute("id", "btn" + @mealType.Id)
+                          .AddCssClass("btn btn-default")
+                          .SetInnerHtml(mealType.Text))
+                }
+            </div>
+            <div class="btn-group btn-group-justified btn-group-sm">
+                <a class="btn btn-default" onclick='@(string.Format("tar.redirect('{0}')", Url.Action("Manage", new { year = Model.PreviousMonth.Year, month = Model.PreviousMonth.Month, mealTypeId = Model.MealTypeId, schoolId = Model.SchoolId })))'><i class="fa fa-arrow-circle-left"></i>&nbsp; @Model.PreviousMonthTitle </a>
+                <a class="btn btn-default active">@Model.Title </a>
+                <a class="btn btn-default" onclick='@(string.Format("tar.redirect('{0}')", Url.Action("Manage", new { year = Model.NextMonth.Year, month = Model.NextMonth.Month, mealTypeId = Model.MealTypeId, schoolId = Model.SchoolId })))'>@Model.NextMonthTitle &nbsp; <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div id="days" class="panel-group" style="display: none;" data-bind="foreach: Days">
+            <div class="panel panel-default" style="margin-bottom: 10px">
+                <div class="panel-heading">
+                    <strong data-bind="text: Title"></strong>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive ">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="col-sm-8 center">Menu</th>
+                                    <th class="col-sm-2 center">Count</th>
+                                    <th class="center"></th>
+                                </tr>
+
+                            </thead>
+                            <tbody data-bind="foreach: Items">
+
+                                <tr>
+                                    <td data-bind="text: MenuName"></td>
+                                    <td>
+                                        <input class="form-control" type="number" min="0" data-bind="enable: $parent.IsEditable, textInput: Count" />
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-default btn-block" data-bind="click: $parent.Distribute, enable: $parent.IsEditable, visible: DistributeIsActive">Distribute</button>
+                                        <select class="form-control hidden" data-bind="enable: $parent.IsEditable, options: model.MealServiceTypes,optionsText: 'Text',optionsValue: 'Id',value: MealServiceTypeId"></select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr data-bind="visible: HasAdditionalFruit, enable: IsEditable">
+                                    <td>Fruit</td>
+                                    <td><input class="form-control" type="number" min="0" data-bind="textInput: FruitCount, enable: IsEditable" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr data-bind="visible: HasAdditionalVegetable">
+                                    <td>Vegetable</td>
+                                    <td><input class="form-control" type="number" min="0" data-bind="textInput: VegetableCount, enable: IsEditable" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div data-bind="visible: DeliveryTypeIdIsVisible">
+                                            <strong>Delivery Type</strong>
+                                            <label>
+                                                <input type="radio" value="1" data-bind="checked: DeliveryTypeId, visible: DeliveryTypeIdIsVisible, enable: IsEditable" />Breakfast
+                                            </label>
+                                            <label>
+                                                <input type="radio" value="2" data-bind="checked: DeliveryTypeId, visible: DeliveryTypeIdIsVisible, enable: IsEditable" />Lunch
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-block" data-bind="click: SaveOrderForDay, enable: SaveOrderForDayIsEnable">Save</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="recordNotFound" style="display: none" class=" center">
+            Record not found!
+        </div>
+    </div>
+</section>

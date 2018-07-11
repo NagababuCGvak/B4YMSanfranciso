@@ -1,0 +1,1 @@
+call Build.Tar.cmd Release

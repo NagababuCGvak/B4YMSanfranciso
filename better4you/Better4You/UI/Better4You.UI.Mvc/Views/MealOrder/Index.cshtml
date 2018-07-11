@@ -1,0 +1,182 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Manage Orders";
+}
+<style>
+
+	#wrap {
+		/*width: 1100px;*/
+		margin: 0 auto;
+		}		
+    /*#loading
+    {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }*/
+</style>
+
+<section id="Meal.Index" class="view">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div>
+                    @Html.Partial("_MealTypePartial", (List<Tar.ViewModel.GeneralItemView>)ViewBag.MealTypes)
+                    <div id='calendar'></div>
+                </div>
+@*                <div class="span3">
+                    <div>
+                        <button onclick="SaveMounthlyMenu()" type="button" class="btn-primary">Save Mounthly Menu</button>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+</section>
+@section documentReady {
+    $(".selectpicker").selectpicker();
+    selectDefaultMealType();
+}
+<script>
+    var clicks = 0;
+
+    function changeMealType() {
+        if ($('#calendar').html() == "") {
+            $('#calendar').fullCalendar({
+                weekends: false,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: ''
+                },
+                editable: false,
+                disableDragging: true,
+                droppable: false, // this allows things to be dropped onto the calendar !!!
+                loading: function (bool) {
+                    if (bool) tar.showLoading();//$('#loading').show();
+                    else tar.hideLoading(); //$('#loading').hide();
+                },
+                eventClick: function (calEvent, jsEvent, view) {
+                    node = $(this);
+                    clicks++;
+                    if (clicks == 1) {
+                        setTimeout(function () {
+                            if (clicks == 1) {
+                                console.log('single click!');
+                            } else {
+                                if (calEvent.editable) {
+                                    clickedMeal = calEvent;
+                                    tar.openPopup('EditOrderItem', 'MealOrder', { url: { Id: calEvent.orderItemData.Id, mealMenuId: calEvent.orderItemData.MealMenuId }, label: 'Create Menu Order' });
+                                }
+                            }
+                            clicks = 0;
+                        }, 300);
+                    }
+
+                },
+                events: function (start, end, callback) {
+                    var currentDate = $('#calendar').fullCalendar('getDate');
+                    var editableDate = new Date();
+                    editableDate.setDate((new Date()).getDate() + 3);
+
+                    var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+                    var endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+                    endDate.setDate(endDate.getDate() - 1);
+                    var callback1 = callback;
+                    return tar.callAction(
+                        "MealOrder",
+                        "MealMenuOrder",
+                        { filter: { OrderDate: tar.toDateString(startDate, "YYYY-MM-DD"), MealTypeId: $("#MealTypeId").val() } },
+                        {
+                            success: function (d) {
+                                tar.hideLoading();
+                                if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                                else {
+                                    $('#calendar').fullCalendar('removeEvents');
+                                    order = d.Order;
+                                    var orderItems = [];
+                                    $.each(order.OrderItems, function (index, orderItem) {
+                                        var editable = true;
+                                        //if (editableDate.getTime() > new Date(tar.toDate(orderItem.MealMenuValidDate)).getTime() && IsNull(orderItem.TotalCount, 0) > 0)
+                                        if (editableDate.getTime() > new Date(tar.toDate(orderItem.MealMenuValidDate)).getTime())
+                                            editable = false;
+                                        var orderEvent = {
+                                            _id: tar.toDateString(orderItem.MealMenuValidDate, "YYYYMMDD"),
+                                            title: orderItem.MenuName,
+                                            start: tar.toDateString(orderItem.MealMenuValidDate, "YYYY-MM-DD"),
+                                            orderItemData: orderItem,
+                                            editable: editable,
+                                            //className:"btn btn-small btn-warning"
+                                        };
+                                        if (IsNull(orderItem.Id, 0) > 0) {
+                                            orderEvent.title = orderItem.MenuName + (IsNull(orderItem.Id, 0) > 0 ? " (Count : " + IsNull(orderItem.TotalCount, 0) + ")" : "");
+                                            //orderEvent.className="btn btn-small btn-info";
+                                            orderEvent.borderColor = "green";
+                                            if (IsNull(orderItem.RefId, 0) > 0)
+                                                //orderEvent.className="btn btn-small btn-success";
+                                                orderEvent.borderColor = "red";
+                                        }
+                                        else {
+                                            orderEvent.title = orderItem.MenuName + " (Count : 0)";
+                                            //orderEvent.borderColor = "green";
+                                            if (IsNull(orderItem.RefId, 0) > 0)
+                                                //orderEvent.className="btn btn-small btn-success";
+                                                orderEvent.borderColor = "red";
+                                        }
+                                        orderItems.push(orderEvent);
+                                    });
+                                    callback1(orderItems);
+                                    //callback(orderItems);
+                                }
+                            },
+                            complete: function () {
+                                var rightHtml = "";
+                                if (order.OrderStatus == null || order.OrderStatus.Id == tar.constants.orderStatuses.InitialState || order.OrderStatus.Id == 0) {
+                                    rightHtml = "<input type='button'class='btn btn-danger' value='Submit Order' onclick='return SubmitOrder();'>";
+                                }
+                                else {
+                                    rightHtml = "<span class='label label-success' style='margin-right:20px;'>Order Submitted</span>";
+                                    rightHtml += "<input type='button'class='btn btn-primary' value='Generate Menu' onclick='return GenerateMenu();'>";
+                                }
+                                $(".fc-header-right").html(rightHtml);
+                            }
+                        });
+                }
+            });
+        }
+        else {
+            $('#calendar').fullCalendar('refetchEvents');
+        }
+    }
+
+    var order;
+    var clickedMeal;
+    function GenerateMenu() {
+        debugger;
+        var currentDate = $('#calendar').fullCalendar('getDate');
+        var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        tar.openNewForm('SchoolMenuExport', 'MealOrder', { url: { orderDate: tar.toDateString(startDate, 'YYYY-MM-DD'), MealTypeId: $("#MealTypeId").val() }, label: 'School Monthly Menu' });
+    }
+    function SubmitOrder() {
+        var currentDate = $('#calendar').fullCalendar('getDate');
+        var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        return tar.callAction(
+            "MealOrder",
+            "SubmitOrder",
+            { filter: { OrderDate: tar.toDateString(startDate, "YYYY-MM-DD")/*startDate*/, MealTypeId: $("#MealTypeId").val() } },
+            {
+                success: function (d) {
+                    tar.hideLoading();
+                    if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                    else {
+                        if (d.IsOrderSubmitted == true) {
+                            alert("Order Submitted Successfully");
+                            reClickSelectedMealTypeButton();
+                        }
+                        else {
+                            alert("Please Order Menu in month");
+                        }
+                    }
+                }
+            });
+    }
+
+</script>

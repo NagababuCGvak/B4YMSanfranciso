@@ -1,0 +1,38 @@
+﻿@using Better4You.UI.Mvc.Core
+@model LoginRequest
+
+<!-- start: LOGIN BOX -->
+<div class="box-login" style="display: block;">
+	<h3>Sign in to your account</h3>
+	<p>
+		Please enter your name and password to log in.
+	</p>
+	<form class="form-login" method="POST" action="@Url.Action("Login","Account")">
+		<div class="errorHandler alert alert-danger no-display">
+			<i class="fa fa-remove-sign"></i> You have some form errors. Please check below.
+            @TempData["ErrorMessage"]
+		</div>
+		<fieldset>
+			<div class="form-group">
+				<span class="input-icon">
+                    @Html.BootstrapTextBoxFor(model => model.UserName, new{@class="form-control"})
+					<i class="fa fa-user"></i> </span>
+			</div>
+			<div class="form-group form-actions">
+				<span class="input-icon">
+					@Html.BootstrapPasswordFor(model => model.Password, new{@class="form-control password"})
+                    <i class="fa fa-lock"></i>
+					<a class="forgot" href="#" onclick="tar.goTo('ForgotPassword','Account',{})">
+						I forgot my password
+					</a> </span>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-bricky pull-right">
+					Login <i class="fa fa-arrow-circle-right"></i>
+				</button>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+<!-- end: LOGIN BOX -->

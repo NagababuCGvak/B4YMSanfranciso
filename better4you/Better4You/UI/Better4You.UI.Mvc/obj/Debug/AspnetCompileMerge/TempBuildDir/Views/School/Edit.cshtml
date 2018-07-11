@@ -1,0 +1,528 @@
+﻿@model Better4You.UserManagment.ViewModel.SchoolView
+
+@{
+    ViewBag.Title = string.Format("{0} School", @Model.Id == 0 ? "Create" : "Detail");
+    var pageTitle = Model.Id == 0 ? "Create School" : string.Format("{0}", Model.Name);
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li>
+                <i class="clip-home-3"></i>
+                <a href="#">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "School")">
+                    Schools
+                </a>
+            </li>
+            <li class="active">
+                @ViewBag.Title
+            </li>
+        </ol>
+        <div class="row page-header">
+            <div class="col-sm-6">
+                <h1>
+                    <span class="tooltips" data-original-title="@pageTitle">@(pageTitle.Length > 25 ? pageTitle.Substring(0, 25) : pageTitle)</span>
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="buttons-widget pull-right">
+                    <a href="#" onclick="submitForm();" class="btn btn-md btn-primary">
+                        <i class="fa fa-save"></i> @string.Format("{0}", Model.Id == 0 ? "Create" : "Save")
+                    </a>
+                    <a class="btn btn-md btn-danger" href="#" onclick="resetForm();">
+                        <i class="fa fa-eraser"></i> Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" method="POST">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    @ViewBag.Title
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4>
+                                School Info
+                            </h4>
+                            <hr />
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Code">
+                                    School Code
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("Code", Model.Code, new { @class = "form-control limited", maxlength = 5, placeholder = "School Code", id = "Code" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="SchoolType">
+                                    School Type
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("SchoolType", (List<SelectListItem>)ViewBag.SchoolTypes, new { id = "SchoolType", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Name">
+                                    School Name
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("Name", Model.Name, new { @class = "form-control limited", maxlength = 100, placeholder = "School Name", id = "Name" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="FoodServiceType">
+                                    Service Type
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("FoodServiceType", (List<SelectListItem>)ViewBag.FoodServiceTypes, new { id = "FoodServiceType", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="OVSTypes">
+                                    OVS
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("OVSType", (List<SelectListItem>)ViewBag.OVSTypes, new { id = "OVSType", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="RecordStatusId">
+                                    Status
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("RecordStatusId", (List<SelectListItem>)ViewBag.RecordStatuses, new { id = "RecordStatusId", @class = "form-control", disabled = "disabled" })
+                                </div>
+                                @Html.HiddenFor(m => m.RecordStatus)
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>
+                                Address
+                            </h4>
+                            <hr />
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Address1">
+                                    Address Line 1
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("Address1", Model.Address1, new { @class = "form-control limited", maxlength = 128, placeholder = "Address Line 1", id = "Address1" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Address2">
+                                    Address Line 2
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("Address2", Model.Address2, new { @class = "form-control limited", maxlength = 64, placeholder = "Address Line 2", id = "Address2" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="FirstAdminDivisionId">
+                                    State
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    <select id="FirstAdminDivisionId" name="FirstAdminDivisionId" class="form-control">
+                                        <option value="@Model.FirstAdminDivisionId" selected="selected">@Model.FirstAdminDivision</option>
+                                    </select>
+                                </div>
+                                @Html.HiddenFor(m => m.FirstAdminDivision)
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="CityId">
+                                    City
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    <select id="CityId" class="form-control" name="CityId">
+                                        <option value="@Model.CityId" selected="selected">@Model.City</option>
+                                    </select>
+                                </div>
+                                @Html.HiddenFor(m => m.City)
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>
+                                Communication
+                            </h4>
+                            <hr />
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="BusinessPhone">
+                                    Business Phone
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> <i class="fa fa-phone"></i> </span>
+                                        @Html.TextBox("BusinessPhone", Model.BusinessPhone, new { @class = "form-control input-mask-phone", placeholder = "Business Phone", id = "BusinessPhone" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="CellPhone">
+                                    Cell Phone
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> <i class="fa fa-phone"></i> </span>
+                                        @Html.TextBox("CellPhone", Model.CellPhone, new { @class = "form-control input-mask-phone", placeholder = "Cell Phone", id = "CellPhone" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Fax">
+                                    Fax
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> <i class="fa fa-phone"></i> </span>
+                                        @Html.TextBox("Fax", Model.Fax, new { @class = "form-control input-mask-phone", placeholder = "Fax", id = "Fax" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Email">
+                                    Email
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+                                        @Html.TextBox("Email", Model.Email, new { @class = "form-control", placeholder = "Email", type = "email", id = "Email" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(k => k.Id)
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@if (Model.Id > 0)
+{
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-money"></i>
+                    Annual Agreements
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-primary" href="#" href="#" onclick="showModal('AnnualAgreement','C', @Model.Id, 0);">
+                            <i class="fa fa-plus"></i> Add
+                        </a>
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+
+                                    <th class="center">Items</th>
+                                    <th class="center">Year</th>
+                                    <th class="center">Price</th>
+                                    <th class="center">Status</th>
+                                    <th class="center">...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var annualAgreement in Model.SchoolAnnualAgreements)
+                                {
+                                    <tr>
+                                        <td>
+                                            @annualAgreement.ItemType.Text
+                                        </td>
+
+                                        <td class="center">
+                                            @annualAgreement.Year
+                                        </td>
+                                        <td>
+                                            <span class="pull-right">
+                                                @annualAgreement.Price.ToString("C")
+                                            </span>
+                                        </td>
+
+                                        <td class="center">
+                                            @annualAgreement.RecordStatus.Text
+                                        </td>
+                                        <td>
+                                            <div class="buttons-widget pull-right">
+                                                <a href="#" onclick="showModal('AnnualAgreement','E', @Model.Id, @annualAgreement.Id);" class="btn btn-sm">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="#" onclick="showModal('AnnualAgreement','D', @Model.Id, @annualAgreement.Id);" class="btn btn-sm">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-road"></i>
+                    Routes
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-primary" href="#" onclick="showModal('Route', 'C', @Model.Id, 0);">
+                            <i class="fa fa-plus"></i> Add
+                        </a>
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+
+                                    <th class="center">Meal</th>
+                                    <th class="center">Route</th>
+                                    <th class="center">Status</th>
+                                    <th class="col-sm-3 center">...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var route in Model.SchoolRoutes)
+                                {
+                                    <tr>
+                                        <td>
+                                            @route.MealType.Text
+                                        </td>
+
+                                        <td>
+                                            @route.Route
+                                        </td>
+                                        <td class="center">
+                                            @route.RecordStatus.Text
+                                        </td>
+                                        <td>
+                                            <div class="buttons-widget pull-right">
+                                                <a href="#" onclick="showModal('Route', 'E', @Model.Id, @route.Id);" class="btn btn-sm">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="#" onclick="showModal('Route', 'D', @Model.Id, @route.Id);" class="btn btn-sm">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-users"></i>
+                    Users
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-primary" onclick="return showUserModal('C', 0, @Model.Id);">
+                            <i class="fa fa-plus"></i> Add
+                        </a>
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="center">Name</th>
+                                    <th class="center">Mail</th>
+                                    <th>...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var user in Model.Users)
+                                {
+                                    <tr>
+                                        <td>
+                                            @string.Format("{0}, {1}", user.LastName.ToUpperInvariant(), user.FirstName)
+                                        </td>
+                                        <td class="center">
+                                            @user.UserName
+                                        </td>
+                                        <td>
+                                            <a onclick="return showUserModal('D', @user.Id, @Model.Id);" class="btn btn-sm">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div id="ajax-modal" class="modal fade" style="display: none;"></div>
+<script>
+    function submitForm() {
+        //$("#RecordStatus").val($("#RecordStatus").val());
+        $('form')[0].submit();
+    }
+    function resetForm() {
+        $('form')[0].reset();
+    }
+    function showUserModal(actionParam, userId, schoolId) {
+        var pageUrl = '@Url.Action("EditUser","School")'
+            + "?SchoolId=" + schoolId
+            + "&userId=" + userId
+            + "&actionParam=" + actionParam;
+        var $modal = $('#ajax-modal');
+        $('body').modalmanager('loading');
+        setTimeout(function () {
+            $modal.load(pageUrl, '', function () {
+                $modal.modal();
+            });
+        }, 1000);
+    }
+    function showModal(page, action, schoolId, refId) {
+        var pageUrl = "";
+        switch (page) {
+            case "AnnualAgreement":
+                pageUrl = "@Url.Action("EditAnnualAgreement","School")" + "/" + schoolId + "?annualAgreementId=" + refId;
+                break;
+            case "Route":
+                pageUrl = "@Url.Action("EditRoute","School")" + "/" + schoolId + "?schoolRouteId=" + refId;
+                break;
+            case "User":
+                pageUrl = "@Url.Action("EditUser","School")" + "?id=" + schoolId + "?userId=" + refId;
+                break;
+        }
+        pageUrl = pageUrl + "&actionParam=" + action;
+
+        var $modal = $('#ajax-modal');
+        // create the backdrop and wait for next modal to be triggered
+        $('body').modalmanager('loading');
+        setTimeout(function () {
+            $modal.load(pageUrl, '', function () {
+                $modal.modal();
+            });
+        }, 1000);
+    }
+
+    // City
+    $("#CityId")
+    .on("select2:select", function (e) {
+        var selectedItem = $.extend({}, e.params.data);
+        $('#CityId').val(selectedItem.id);
+        $('#City').val(selectedItem.text);
+    })
+    .select2({
+        ajax: {
+            url: tar.getUrl("Cities", "Lookup"),
+            dataType: 'json',
+            type: "POST",
+            delay: 250,
+            data: function (params) {
+                return {
+                    CityName: params.term,
+                    stateId: $('#FirstAdminDivisionId').val()
+                };
+            },
+            processResults: function (data) {
+                $.each(data.List, function () {
+                    this.text = this.Value;
+                    this.id = this.Key;
+                });
+                return {
+                    results: data.List
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 2
+    });
+
+    $("#FirstAdminDivisionId")
+        .on("select2:select", function (e) {
+            var selectedItem = $.extend({}, e.params.data);
+            if ($('#FirstAdminDivisionId').val() !== selectedItem.id) {
+                $('#FirstAdminDivisionId').val(selectedItem.id);
+                $('#FirstAdminDivision').val(selectedItem.text);
+                $('#CityId').val(0).trigger("change");
+                $('#City').val("");
+            }
+        })
+        .select2({
+            ajax: {
+                url: tar.getUrl("States", "Lookup"),
+                dataType: 'json',
+                type: "POST",
+                delay: 250,
+                data: function (params) {
+                    return {
+                        stateName: params.term,
+                        page: params.page
+                    };
+                },
+                processResults: function (data, page) {
+                    $.each(data.List, function () {
+                        this.text = this.Value;
+                        this.id = this.Key;
+                    });
+                    return {
+                        results: data.List
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 2
+        });
+</script>

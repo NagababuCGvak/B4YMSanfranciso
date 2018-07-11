@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <components>
+    <component
+       service="Tar.Core.Caching.ICacheManager,Tar.Core"
+       type="Tar.Core.Caching.CacheManager,Tar.Core"
+       lifestyle="singleton"/>
+
+    <component service="Tar.Core.IBootStrapper,Tar.Core"
+               type="Tar.Core.Caching.CacheManagerBootStrapper,Tar.Core" 
+               lifestyle="singleton">
+      <parameters>
+        <periodAsMinutes>1</periodAsMinutes>
+      </parameters>
+    </component>
+  </components>
+</configuration>

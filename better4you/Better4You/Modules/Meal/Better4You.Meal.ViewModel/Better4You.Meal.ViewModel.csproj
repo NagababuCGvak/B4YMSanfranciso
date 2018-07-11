@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6EA008A0-50F1-4A91-B5C8-47ED8C2F1667}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Better4You.Meal.ViewModel</RootNamespace>
+    <AssemblyName>Better4You.Meal.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Better4You.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SharedLibs\Better4You\Common\Better4You.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Better4You.Meal.Config">
+      <HintPath>..\..\..\..\SharedLibs\Better4You\Meal\Better4You.Meal.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Better4You.ViewModel">
+      <HintPath>..\..\..\..\SharedLibs\Better4You\Common\Better4You.ViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Tar.Core">
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.ViewModel">
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.ViewModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DailyItemsReportView.cs" />
+    <Compile Include="DateRangeReportOrderItemMealMenuView.cs" />
+    <Compile Include="DateRangeReportOrderItemMealView.cs" />
+    <Compile Include="DateRangeReportOrderItemView.cs" />
+    <Compile Include="DateRangeOrderItemFilterView.cs" />
+    <Compile Include="FoodPercentageView.cs" />
+    <Compile Include="GetSupplementaryListFilterView.cs" />
+    <Compile Include="MealMenuOrderMenuView.cs" />
+    <Compile Include="DailyChangesItemView.cs" />
+    <Compile Include="DailyChangesFilterView.cs" />
+    <Compile Include="MealMenuOrderItemHistoricalView.cs" />
+    <Compile Include="InvoiceSummaryMonthView.cs" />
+    <Compile Include="InvoiceSummaryView.cs" />
+    <Compile Include="MealOrderManageDayItemView.cs" />
+    <Compile Include="MealOrderManageDayView.cs" />
+    <Compile Include="MealOrderManageView.cs" />
+    <Compile Include="OrderReportFilterView.cs" />
+    <Compile Include="InvoiceFilterView.cs" />
+    <Compile Include="InvoiceListItemView.cs" />
+    <Compile Include="MealMenuOrderItemFilterView.cs" />
+    <Compile Include="MealMenuOrderItemView.cs" />
+    <Compile Include="MealMenuOrderFilterView.cs" />
+    <Compile Include="MealMenuOrderView.cs" />
+    <Compile Include="MealMenuFilterView.cs" />
+    <Compile Include="MealMenuListItemView.cs" />
+    <Compile Include="MealMenuView.cs" />
+    <Compile Include="MenuFilterView.cs" />
+    <Compile Include="MenuListItemView.cs" />
+    <Compile Include="MenuView.cs" />
+    <Compile Include="FoodIngredientView.cs" />
+    <Compile Include="FoodView.cs" />
+    <Compile Include="FoodListItemView.cs" />
+    <Compile Include="OrderReportfvItemView.cs" />
+    <Compile Include="OrderReportItemView.cs" />
+    <Compile Include="OrderReportMenuView.cs" />
+    <Compile Include="OrderReportView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FoodFilterView.cs" />
+    <Compile Include="SchoolInvoiceListItemView.cs" />
+    <Compile Include="SchoolInvoiceDocumentView.cs" />
+    <Compile Include="MealMenuSupplementaryView.cs" />
+    <Compile Include="SchoolMenuExportFilterView.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetName).* ..\..\..\..\..\..\SharedLibs\Better4You\Meal\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

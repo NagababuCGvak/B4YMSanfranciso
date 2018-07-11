@@ -1,0 +1,230 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Core", "Tar.Core\Tar.Core.csproj", "{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB} = {D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}
+		{1E6C2055-2026-4FED-B969-8812D06D6859} = {1E6C2055-2026-4FED-B969-8812D06D6859}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Model", "Tar.Model\Tar.Model.csproj", "{5B841104-F6D2-4975-9D7A-32E7276C1B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Repository", "Tar.Repository\Tar.Repository.csproj", "{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55} = {5B841104-F6D2-4975-9D7A-32E7276C1B55}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Repository.Ef", "Tar.Repository.Ef\Tar.Repository.Ef.csproj", "{D63928D7-90AE-4FF1-9264-9D5489750D3E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55} = {5B841104-F6D2-4975-9D7A-32E7276C1B55}
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128} = {84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD} = {AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Repository.General", "Tar.Repository.General\Tar.Repository.General.csproj", "{BBB0321E-AEF8-49FD-BE94-7143118D3FCE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55} = {5B841104-F6D2-4975-9D7A-32E7276C1B55}
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128} = {84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD} = {AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Repository.Nh", "Tar.Repository.Nh\Tar.Repository.Nh.csproj", "{724D8ADD-5B13-4982-AD9B-9A83A04D662B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55} = {5B841104-F6D2-4975-9D7A-32E7276C1B55}
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128} = {84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD} = {AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Service", "Tar.Service\Tar.Service.csproj", "{E42B637E-EBD6-4A87-8635-A1FF16AA4814}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128} = {84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD} = {AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Service.Proxy", "Tar.Service.Proxy\Tar.Service.Proxy.csproj", "{DF18AB95-9862-4835-85E1-D72AAD2F9225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Tests", "Tar.Tests\Tar.Tests.csproj", "{8D6A0BBC-9081-4F29-8119-86D453624E7F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55} = {5B841104-F6D2-4975-9D7A-32E7276C1B55}
+		{BBB0321E-AEF8-49FD-BE94-7143118D3FCE} = {BBB0321E-AEF8-49FD-BE94-7143118D3FCE}
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB} = {D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}
+		{1E6C2055-2026-4FED-B969-8812D06D6859} = {1E6C2055-2026-4FED-B969-8812D06D6859}
+		{E42B637E-EBD6-4A87-8635-A1FF16AA4814} = {E42B637E-EBD6-4A87-8635-A1FF16AA4814}
+		{DF18AB95-9862-4835-85E1-D72AAD2F9225} = {DF18AB95-9862-4835-85E1-D72AAD2F9225}
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128} = {84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}
+		{D63928D7-90AE-4FF1-9264-9D5489750D3E} = {D63928D7-90AE-4FF1-9264-9D5489750D3E}
+		{724D8ADD-5B13-4982-AD9B-9A83A04D662B} = {724D8ADD-5B13-4982-AD9B-9A83A04D662B}
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575} = {85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD} = {AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{61663B95-D8DE-495E-9A94-20F4A4F555B1}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\Repository.Nh.config = Configuration\Repository.Nh.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{710EB1D6-393B-4D10-AD9C-97EE903C2D9F}"
+	ProjectSection(SolutionItems) = preProject
+		Configuration\DbScripts\installed.sql = Configuration\DbScripts\installed.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Logging", "Tar.Logging\Tar.Logging.csproj", "{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Logging.Tests", "Tar.Logging.Tests\Tar.Logging.Tests.csproj", "{FCC65AEE-8B16-4BF4-983B-7F74DA28C20F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575} = {85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Configuration.Tests", "Tar.Configuration.Tests\Tar.Configuration.Tests.csproj", "{2ACFBB77-9635-4008-9309-DE7A2FD97F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Security", "Tar.Security\Tar.Security.csproj", "{CBCC633A-D0EB-43A2-9F09-84490B289FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Security.Tests", "Tar.Security.Tests\Tar.Security.Tests.csproj", "{886700C7-DF9D-4251-AD81-DA886058EED8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CBCC633A-D0EB-43A2-9F09-84490B289FFD} = {CBCC633A-D0EB-43A2-9F09-84490B289FFD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Globalization", "Tar.Globalization\Tar.Globalization.csproj", "{1E6C2055-2026-4FED-B969-8812D06D6859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.Business", "Tar.Business\Tar.Business.csproj", "{A6E7BA16-9095-496F-B4A9-0961EEDED144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tar.ViewModel", "Tar.ViewModel\Tar.ViewModel.csproj", "{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 18
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://logper.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tar.Core\\Tar.Core.csproj
+		SccProjectName1 = Tar.Core
+		SccLocalPath1 = Tar.Core
+		SccProjectUniqueName2 = Tar.Model\\Tar.Model.csproj
+		SccProjectName2 = Tar.Model
+		SccLocalPath2 = Tar.Model
+		SccProjectUniqueName3 = Tar.Repository.Ef\\Tar.Repository.Ef.csproj
+		SccProjectName3 = Tar.Repository.Ef
+		SccLocalPath3 = Tar.Repository.Ef
+		SccProjectUniqueName4 = Tar.Repository.General\\Tar.Repository.General.csproj
+		SccProjectName4 = Tar.Repository.General
+		SccLocalPath4 = Tar.Repository.General
+		SccProjectUniqueName5 = Tar.Repository.Nh\\Tar.Repository.Nh.csproj
+		SccProjectName5 = Tar.Repository.Nh
+		SccLocalPath5 = Tar.Repository.Nh
+		SccProjectUniqueName6 = Tar.Repository\\Tar.Repository.csproj
+		SccProjectName6 = Tar.Repository
+		SccLocalPath6 = Tar.Repository
+		SccProjectUniqueName7 = Tar.Service.Proxy\\Tar.Service.Proxy.csproj
+		SccProjectName7 = Tar.Service.Proxy
+		SccLocalPath7 = Tar.Service.Proxy
+		SccProjectUniqueName8 = Tar.Service\\Tar.Service.csproj
+		SccProjectName8 = Tar.Service
+		SccLocalPath8 = Tar.Service
+		SccProjectUniqueName9 = Tar.Tests\\Tar.Tests.csproj
+		SccProjectName9 = Tar.Tests
+		SccLocalPath9 = Tar.Tests
+		SccProjectUniqueName10 = Tar.Logging\\Tar.Logging.csproj
+		SccProjectName10 = Tar.Logging
+		SccLocalPath10 = Tar.Logging
+		SccProjectUniqueName11 = Tar.Logging.Tests\\Tar.Logging.Tests.csproj
+		SccProjectName11 = Tar.Logging.Tests
+		SccLocalPath11 = Tar.Logging.Tests
+		SccProjectUniqueName12 = Tar.Configuration.Tests\\Tar.Configuration.Tests.csproj
+		SccProjectName12 = Tar.Configuration.Tests
+		SccLocalPath12 = Tar.Configuration.Tests
+		SccProjectUniqueName13 = Tar.Security\\Tar.Security.csproj
+		SccProjectName13 = Tar.Security
+		SccLocalPath13 = Tar.Security
+		SccProjectUniqueName14 = Tar.Security.Tests\\Tar.Security.Tests.csproj
+		SccProjectName14 = Tar.Security.Tests
+		SccLocalPath14 = Tar.Security.Tests
+		SccProjectUniqueName15 = Tar.Globalization\\Tar.Globalization.csproj
+		SccProjectName15 = Tar.Globalization
+		SccLocalPath15 = Tar.Globalization
+		SccProjectUniqueName16 = Tar.Business\\Tar.Business.csproj
+		SccProjectName16 = Tar.Business
+		SccLocalPath16 = Tar.Business
+		SccProjectUniqueName17 = Tar.ViewModel\\Tar.ViewModel.csproj
+		SccProjectName17 = Tar.ViewModel
+		SccLocalPath17 = Tar.ViewModel
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B841104-F6D2-4975-9D7A-32E7276C1B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB2A99F8-59B7-4700-9DD8-6F6429B26FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63928D7-90AE-4FF1-9264-9D5489750D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63928D7-90AE-4FF1-9264-9D5489750D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63928D7-90AE-4FF1-9264-9D5489750D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63928D7-90AE-4FF1-9264-9D5489750D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB0321E-AEF8-49FD-BE94-7143118D3FCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB0321E-AEF8-49FD-BE94-7143118D3FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB0321E-AEF8-49FD-BE94-7143118D3FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB0321E-AEF8-49FD-BE94-7143118D3FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724D8ADD-5B13-4982-AD9B-9A83A04D662B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724D8ADD-5B13-4982-AD9B-9A83A04D662B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724D8ADD-5B13-4982-AD9B-9A83A04D662B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724D8ADD-5B13-4982-AD9B-9A83A04D662B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E42B637E-EBD6-4A87-8635-A1FF16AA4814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E42B637E-EBD6-4A87-8635-A1FF16AA4814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E42B637E-EBD6-4A87-8635-A1FF16AA4814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E42B637E-EBD6-4A87-8635-A1FF16AA4814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF18AB95-9862-4835-85E1-D72AAD2F9225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF18AB95-9862-4835-85E1-D72AAD2F9225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF18AB95-9862-4835-85E1-D72AAD2F9225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF18AB95-9862-4835-85E1-D72AAD2F9225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6A0BBC-9081-4F29-8119-86D453624E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6A0BBC-9081-4F29-8119-86D453624E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6A0BBC-9081-4F29-8119-86D453624E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6A0BBC-9081-4F29-8119-86D453624E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C0E5DF-46F5-4D10-B5B7-86AEE1A34575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC65AEE-8B16-4BF4-983B-7F74DA28C20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC65AEE-8B16-4BF4-983B-7F74DA28C20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC65AEE-8B16-4BF4-983B-7F74DA28C20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC65AEE-8B16-4BF4-983B-7F74DA28C20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACFBB77-9635-4008-9309-DE7A2FD97F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACFBB77-9635-4008-9309-DE7A2FD97F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACFBB77-9635-4008-9309-DE7A2FD97F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACFBB77-9635-4008-9309-DE7A2FD97F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCC633A-D0EB-43A2-9F09-84490B289FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCC633A-D0EB-43A2-9F09-84490B289FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCC633A-D0EB-43A2-9F09-84490B289FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCC633A-D0EB-43A2-9F09-84490B289FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886700C7-DF9D-4251-AD81-DA886058EED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886700C7-DF9D-4251-AD81-DA886058EED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886700C7-DF9D-4251-AD81-DA886058EED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886700C7-DF9D-4251-AD81-DA886058EED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6C2055-2026-4FED-B969-8812D06D6859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6C2055-2026-4FED-B969-8812D06D6859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6C2055-2026-4FED-B969-8812D06D6859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6C2055-2026-4FED-B969-8812D06D6859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6E7BA16-9095-496F-B4A9-0961EEDED144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E7BA16-9095-496F-B4A9-0961EEDED144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E7BA16-9095-496F-B4A9-0961EEDED144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E7BA16-9095-496F-B4A9-0961EEDED144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{710EB1D6-393B-4D10-AD9C-97EE903C2D9F} = {61663B95-D8DE-495E-9A94-20F4A4F555B1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,347 @@
+﻿
+@model MenuView
+@{
+    ViewBag.Title = string.Format("{0} Meal", Model.Id == 0 ? "Create" : "Edit");
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">
+			        Home
+			    </a>
+			</li>
+		    <li>
+			    <a href="@Url.Action("Index", "Menu")">
+			        Meals
+			    </a>
+		    </li>
+		    <li class="active">
+		        @ViewBag.Title
+		    </li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @Model.Name
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	            <div class="buttons-widget pull-right">
+	                <a class="btn btn-md btn-danger" href="#" onclick="resetForm();">
+	                    <i class="fa fa-times"></i> Cancel
+	                </a>
+                    @if (Model.Id > 0 && Model.RecordStatus.Id == (long)Better4You.Meal.Config.RecordStatuses.Active)
+                    {
+                        <a href="#" onclick="submitForm('D');" class="btn btn-md btn-primary">
+                            <i class="fa fa-trash-o"></i> Delete
+                        </a>
+                    }
+	                <a href="#" onclick="submitForm('S');" class="btn btn-md btn-primary">
+	                    <i class="fa fa-save"></i> @string.Format("{0}", Model.Id == 0 ? "Create" : "Save")
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" method="POST">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    @ViewBag.Title
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5>Meal Info</h5>
+                            <p/>
+                            <hr/>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">
+                                    Name
+                                </label>
+                                <div class="col-sm-8">
+                                    @Html.TextBox("Name", Model.Name, new {@class = "form-control", placeholder = "Meal Name", id = "Name"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="MenuTypeId">
+                                    Menu Type
+                                </label>
+                                <div class="col-sm-8">
+                                    @Html.DropDownList("MenuTypeId", (List<SelectListItem>) ViewBag.MenuTypes, new {id = "MenuTypeId", @class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-8 control-label">&nbsp;</label>
+                                <div class="col-sm-2">
+                                    @Html.CheckBox("AdditionalFruit",Model.AdditionalFruit,new{id="AdditionalFruit"})
+                                    Fruit
+                                </div>
+                                <div class="col-sm-2">
+                                    @Html.CheckBox("AdditionalVeg",Model.AdditionalVeg,new{id="AdditionalVeg"})
+                                    Vegetable
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="SchoolTypeId">
+                                    School Type
+                                </label>
+                                <div class="col-sm-8">
+                                    @Html.DropDownList("SchoolTypeId", (List<SelectListItem>) ViewBag.MenuSchoolTypes, new {id = "SchoolTypeId", @class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th class="col-sm-2">
+                                            Foods
+                                        </th>
+                                        <th>
+                                            <select id="SelectFood" class="form-control">
+                                                <option value="0" selected="selected">Food</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="FoodTable">
+                                            @for (var i = 0; i < Model.Foods.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td class="center">
+                                                        <a href="javascript:void(0)" onclick="return removeItem(this);" class="btn btn-sm">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                        @Html.Hidden(string.Format("Foods[{0}].Id", i), Model.Foods[i].Id, new {id = string.Format("Foods_{0}__Id", i)})
+                                                    </td>
+                                                    <td>
+                                                        @Model.Foods[i].Name
+                                                    </td>
+                                                </tr>
+                                            }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th class="col-sm-2">
+                                            Schools
+                                        </th>
+                                        <th>
+                                            <select id="SelectSchool" class="form-control">
+                                                <option value="0" selected="selected">School</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="SchoolTable">
+                                        @for (var i = 0; i < Model.Schools.Count; i++)
+                                        {
+                                            <tr>
+                                                <td class="center">
+                                                    <a href="javascript:void(0)" onclick="return removeItem(this);" class="btn btn-sm">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
+                                                    @Html.Hidden(string.Format("Schools[{0}].Id", i), Model.Schools[i].Id, new {id = string.Format("Schools_{0}__Id", i)})
+                                                </td>
+                                                <td>
+                                                    @Model.Schools[i].Text
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(k => k.Id)
+                
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+@section documentReady {
+    $('#SelectFood').select2({
+    ajax: {
+    url: tar.getUrl("List", "Food"),
+    dataType: 'json',
+    type: "POST",
+    delay: 250,
+    data: function(params) {
+    return {
+    name: params.term, // search term
+    page: params.page
+    };
+    },
+    processResults: function(data, page) {
+    $.each(data.Foods, function() {
+    this.text = this.Name;
+    this.id = this.Id;
+    });
+    return {
+    results: data.Foods
+    };
+    },
+    cache: true
+    },
+    escapeMarkup: function(markup) { return markup; }, // let our custom formatter work
+    minimumInputLength: 2
+    });
+    $('#SelectFood').on("select2:select", function(e) {
+    var selectedItem = $.extend({}, e.params.data);
+    delete selectedItem.id;
+    addFood(selectedItem);
+    });
+
+    $('#SelectSchool').select2({
+    ajax: {
+    url: tar.getUrl("List", "School"),
+    dataType: 'json',
+    type: "POST",
+    delay: 250,
+    data: function(params) {
+    return {
+    name: params.term, // search term
+    page: params.page
+    };
+    },
+    processResults: function(data, page) {
+    $.each(data.Schools, function() {
+    this.text = this.Name;
+    this.id = this.Id;
+    });
+    return {
+    results: data.Schools
+    };
+    },
+    cache: true
+    },
+    escapeMarkup: function(markup) { return markup; }, // let our custom formatter work
+    minimumInputLength: 2
+    });
+    $('#SelectSchool').on("select2:select", function(e) {
+    var selectedItem = $.extend({}, e.params.data);
+    delete selectedItem.id;
+    addSchool(selectedItem);
+    });
+    $('#Food_Name').typeahead(
+    tarControls.autoComplete({
+    action: "List",
+    controller: "Food",
+    filter: {
+    query: { varName: "Name" },
+    },
+    model:{primaryKey:"Id",listName:"Foods",columns:["FoodType.Text","Name"]},
+    id: "Food_Name",
+    idHidden: "Food_Id",
+    updaterCallBack:function(foodName){addFood(foodName);}
+    })
+    );
+    $('#School_Name').typeahead(
+    tarControls.autoComplete({
+    action: "List",
+    controller: "School",
+    filter: {
+    query: { varName: "Name" }
+    },
+    model:{primaryKey:"Id",listName:"Schools",columns:["Name", "SchoolType"]},
+    id: "School_Name",
+    idHidden: "School_Id",
+    updaterCallBack:function(schoolName){addSchool(schoolName);}
+    })
+    );
+
+    $("#SchoolTypeId").on("change",function(){
+        var selectedValue=$("#SchoolTypeId option:selected").val();
+        if(selectedValue!==0)
+        {
+            $('#SchoolTable').html("");
+        }
+    });
+    $(".badge.badge-info > i").on('click',{type:'Food'},removeItem);
+}
+    <script>
+        function submitForm(param1) {
+            var form = $('form')[0];
+            if (param1 === "D")
+                form.setAttribute('action', '/Menu/Delete');
+            else {                           
+                form.setAttribute('action', '/Menu/Edit');
+            }
+            form.submit();
+        }
+        function resetForm() {
+            $('form')[0].reset();
+        }
+
+        function addSchool(item) {
+            var tbody = $('#SchoolTable');
+            var schoolCount = tbody.children().length;
+            var tr = $('<tr></tr>').appendTo(tbody);
+            var td1 = $('<td class="center"></td>').appendTo(tr);
+            var a = $('<a href="javascript:void(0)" class="btn btn-sm"></a>')
+                .click(function () { return removeItem(this); })
+                .appendTo(td1);
+            $('<input type="hidden" />')
+                .attr('id', 'Schools_' + schoolCount + '__Id')
+                .attr('name', 'Schools[' + schoolCount + '].Id')
+                .val(item.Id)
+                .appendTo(td1);
+            $('<i class="fa fa-trash-o"></i>').appendTo(a);
+            $('<td></td>').text(item.Name).appendTo(tr);
+        }
+        function addFood(item) {
+            var tbody = $('#FoodTable');
+            var foodCount = tbody.children().length;
+            var tr = $('<tr></tr>').appendTo(tbody);
+            var td1 = $('<td class="center"></td>').appendTo(tr);
+            var a = $('<a href="javascript:void(0)" class="btn btn-sm"></a>')
+                .click(function () { return removeItem(this); })
+                .appendTo(td1);
+            $('<input type="hidden" />')
+                .attr('id', 'Foods_' + foodCount + '__Id')
+                .attr('name', 'Foods[' + foodCount + '].Id')
+                .val(item.Id)
+                .appendTo(td1);
+            $('<i class="fa fa-trash-o"></i>').appendTo(a);
+            $('<td></td>').text(item.Name).appendTo(tr);
+        }
+        function removeItem(a) {
+            $(a).closest('tr').remove();
+        }
+    </script>

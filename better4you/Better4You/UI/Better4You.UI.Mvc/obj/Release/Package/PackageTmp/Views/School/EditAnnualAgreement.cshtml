@@ -1,0 +1,73 @@
+﻿@model SchoolAnnualAgreementRequest
+
+@{
+    ViewBag.Title = "Edit Annual Agreement";
+    Layout = null;
+}
+<form class="form-horizontal" id="modalAnnaulAgreement" method="POST" action="@Url.Action("EditAnnualAgreement", "School")">
+    <div class="modal-header">
+        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+        <h3>Edit Annual Agreement</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="SchoolAnnualAgreement_ItemType_Id">
+                        Item Type
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("SchoolAnnualAgreement.ItemType.Id", (List<SelectListItem>) ViewBag.AnnualItemTypes, new {id = "SchoolAnnualAgreement_ItemType_Id", @class = "form-control"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="SchoolAnnualAgreement_Year">
+                        Annual Year
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(m => m.SchoolAnnualAgreement.Year, new {@class = "form-control", type = "number", placeholder = "Annual Year"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="SchoolAnnualAgreement_Price">
+                        Agreement Price ($)
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(m => m.SchoolAnnualAgreement.Price, new {@class = "form-control currency", placeholder = "Agreement Price"})
+                    </div>
+                </div>
+
+                @Html.HiddenFor(d => d.SchoolAnnualAgreement.Id)
+                @Html.HiddenFor(d => d.SchoolAnnualAgreement.RecordStatus.Id)
+                @Html.HiddenFor(d => d.SchoolId)
+                @Html.Hidden("actionParam", Request["actionParam"],new{id="actionParam"})
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+
+        @if (Model.SchoolAnnualAgreement.Id > 0 && Model.SchoolAnnualAgreement.RecordStatus.Id == (long)Better4You.UserManagement.Config.RecordStatuses.Active)
+        {
+            <a href="#" onclick="submitAnnaulAgreementPopup('D');" class="btn btn-md btn-primary">
+                <i class="fa fa-trash-o"></i> Delete
+            </a>
+        }
+        <a href="#" onclick="submitAnnaulAgreementPopup('S');" class="btn btn-md btn-primary">
+            <i class="fa fa-save"></i> @string.Format("{0}", Model.SchoolAnnualAgreement.Id == 0 ? "Create" : "Save")
+        </a>
+    </div>
+</form>
+
+<script>
+    function submitAnnaulAgreementPopup(actionParam) {
+        $("#actionParam").val(actionParam);
+        $("#modalAnnaulAgreement")[0].submit();
+
+    }
+</script>

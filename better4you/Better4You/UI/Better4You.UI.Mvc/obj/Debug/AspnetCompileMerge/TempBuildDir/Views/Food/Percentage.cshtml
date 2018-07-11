@@ -1,0 +1,77 @@
+﻿@model IList<FoodPercentageView>
+@{
+    ViewBag.Title ="Fruit Vegetable Percentages";
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">
+			        Home
+			    </a>
+			</li>
+		    <li class="active">
+		        @ViewBag.Title
+		    </li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @ViewBag.Title
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	            <div class="buttons-widget pull-right">
+	                <a href="#" onclick="$('form')[0].submit();" class="btn btn-md btn-primary">
+	                    <i class="fa fa-save"></i> Save
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-horizontal" method="POST">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed">
+                    <thead>
+                    <tr>
+                        <th class="center col-sm-5">Meal</th>
+                        <th class="center col-sm-2">Fruit (%)</th>
+                        <th class="center col-sm-2">Vegetable (%)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model[i].MealType.Text
+                            </td>
+                            <td>
+                                @Html.TextBox(string.Format("FoodPercentages[{0}].Fruit", i), Model[i].Fruit, new {id = string.Format("FoodPercentages_{0}__Fruit", i), @class = "form-control", type = "number", min="0",max="100",placeholder = "Value"})
+                            </td>
+                            <td>
+                                @Html.TextBox(string.Format("FoodPercentages[{0}].Vegetable", i), Model[i].Vegetable, new {id = string.Format("FoodPercentages_{0}__Vegetable", i), @class = "form-control", type = "number", min="0",max="100",placeholder = "Value"})
+                            </td>
+                        </tr>
+                        @Html.Hidden(string.Format("FoodPercentages[{0}].MealType", i), Model[i].MealType.Id, new {id = string.Format("FoodPercentages_{0}__MealType", i)})
+                        @Html.Hidden(string.Format("FoodPercentages[{0}].Id", i), Model[i].Id, new {id = string.Format("FoodPercentages_{0}__Id", i)})
+
+                    }
+                    <input type="hidden" name="foodPercentageCount" id="foodPercentageCount" value="@Model.Count()"/>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

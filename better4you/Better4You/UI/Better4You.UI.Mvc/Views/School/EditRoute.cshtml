@@ -1,0 +1,66 @@
+﻿@model SchoolRouteRequest
+
+@{
+    ViewBag.Title = "Edit Route";
+    Layout = null;
+}
+<form class="form-horizontal" id="modalRoute" method="POST" action="@Url.Action("EditRoute", "School")">
+    <div class="modal-header">
+        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+        <h3>Edit Route</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="SchoolRoute_MealType_Id">
+                        Meal Type
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("SchoolRoute.MealType.Id", (List<SelectListItem>) ViewBag.MealTypes, new {id = "SchoolRoute_MealType_Id", @class = "form-control"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="SchoolRoute_Route">
+                        Route
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(m => m.SchoolRoute.Route, new {@class = "form-control", type = "number", placeholder = "Route",id="SchoolRoute_Route"})
+                    </div>
+                </div>
+
+                @Html.HiddenFor(d => d.SchoolRoute.Id)
+                @Html.Hidden("SchoolRoute.RecordStatus.Id",Model.SchoolRoute.RecordStatus.Id,new{id="SchoolRoute_RecordStatus_Id"})
+                @Html.HiddenFor(d => d.SchoolId)
+                @Html.Hidden("actionParam", Request["actionParam"],new{id="actionParam"})
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+
+        @if (Model.SchoolRoute.Id > 0 && Model.SchoolRoute.RecordStatus.Id == (long)Better4You.UserManagement.Config.RecordStatuses.Active)
+        {
+            <a href="#" onclick="submitRoutePopup('D');" class="btn btn-md btn-primary">
+                <i class="fa fa-trash-o"></i> Delete
+            </a>
+        }
+        <a href="#" onclick="submitRoutePopup('S');" class="btn btn-md btn-primary">
+            <i class="fa fa-save"></i> @string.Format("{0}", Model.SchoolRoute.Id == 0 ? "Create" : "Save")
+        </a>
+    </div>
+</form>
+
+<script>
+    function submitRoutePopup(actionParam) {
+        $("#actionParam").val(actionParam);
+        $("#modalRoute")[0].submit();
+
+    }
+</script>
+
+

@@ -1,0 +1,64 @@
+﻿@model List<KeyValuePair<long,List<InvoiceSummaryView>>>
+
+@{
+    ViewBag.Title = "Invoice Summary";
+}
+<section id="no-more-tables" class="view">
+    <div class="row-fluid">
+        @Html.Partial("_MealTypePartial", (List<Tar.ViewModel.GeneralItemView>)ViewBag.MealTypes)
+    </div>
+    <div class="container span12" style="overflow: auto">
+                <table class="table-bordered table-striped table-condensed cf">
+                <thead class="cf">
+                    <tr>
+                        <th>Month</th>
+                        @{
+                            foreach (var year in Model)
+                            {
+                                    @:<th class="numeric">@year.Key</th>
+                            }
+                        }                       
+                    </tr>    
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var month in (List<KeyValuePair<long,string>>)ViewBag.Month)
+                        {
+                            <tr>
+                                <td data-title="@month.Value">@month.Value</td>                    
+                                @foreach (var year in Model)
+                                {
+                                    var monthInvoice = year.Value.Select(d => d.InvoiceItems.FirstOrDefault(k => k.Month == month.Key));   
+
+                                    <td class="numeric" data-title="month">
+                                        @if (monthInvoice.FirstOrDefault()!= null)
+                                        {
+                                            <small class="badge badge-info muted">@monthInvoice.FirstOrDefault().OrderStatus.Text</small>
+                                                if (monthInvoice.FirstOrDefault().SchoolInvoiceDocumentGuid != null && monthInvoice.FirstOrDefault().SchoolInvoiceDocumentGuid != Guid.Empty)
+                                                {
+                                                    <a href="@(Url.Action("DownloadDocument", "Invoice") + "?id=" + monthInvoice.FirstOrDefault().SchoolInvoiceDocumentGuid)" target="_blank">&nbsp;<i class="icon-download" title="Download Invoice"></i></a>
+                                                }
+                                        }
+                                        else
+                                        {
+                                            @:&nbsp;
+                                        }
+                                    </td>
+                                }
+
+                            </tr>
+                        }                                               
+                    }
+                </tbody>
+            </table> 
+        </div>
+</section>
+@section documentReady {
+    $(".selectpicker").selectpicker(); 
+    updateMenuTypeHeader();
+}
+<script>
+    function changeMealType() {
+        tar.goTo("SchoolInvoice", "Invoice", { MealTypeId: $("#MealTypeId").val() });
+    }
+</script>

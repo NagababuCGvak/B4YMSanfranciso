@@ -1,0 +1,229 @@
+﻿@model UpdateUserRequest
+
+@{
+    ViewBag.Title = string.Format("{0} User", Model.User.UserId == 0 ? "Create" : "Edit");
+    var pageTitle = Model.User.UserId == 0 ? "Create User" : string.Format("{0}, {1}", Model.User.LastName.ToUpper(), Model.User.FirstName);
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+    <div class="col-sm-12">
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li>
+                <i class="clip-home-3"></i>
+                <a href="#">Home
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "User")">Users
+                </a>
+            </li>
+            <li class="active">
+                @ViewBag.Title
+            </li>
+        </ol>
+        <div class="row page-header">
+            <div class="col-sm-6">
+                <h1>
+                    @pageTitle
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="buttons-widget pull-right">
+                    <a href="#" onclick="submitForm();" class="btn btn-md btn-primary">
+                        <i class="fa fa-save"></i>@string.Format("{0}", Model.User.UserId == 0 ? "Create" : "Save")
+                    </a>
+                    @if (Model.User.UserId > 0)
+                    {
+                        if (Model.User.IsLocked)
+                        {
+                        <a data-toggle="modal" href="#changeStatus" class="btn btn-md btn-primary">
+                            <i class="fa fa-unlock"></i>UnLock
+                        </a>
+                        }
+                        else
+                        {
+                        <a data-toggle="modal" href="#changeStatus" class="btn btn-md btn-primary">
+                            <i class="fa fa-lock"></i>Lock
+                        </a>
+                        }
+                        <a data-toggle="modal" href="#resetPassword" class="btn btn-md btn-primary">
+                            <i class="fa fa-refresh"></i>Reset Password
+                        </a>
+                        <a data-toggle="modal" href="#assignRole" class="btn btn-md btn-primary">
+                            <i class="fa fa-plus"></i>Add Role
+                        </a>                        
+                    }
+
+                    <a class="btn btn-md btn-primary" href="#" onclick="resetForm();">
+                        <i class="fa fa-eraser"></i>Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end: PAGE TITLE & BREADCRUMB -->
+    </div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" method="POST">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    @ViewBag.Title
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="User_UserName">
+                                    User Name
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        @Html.TextBox("User.UserName", Model.User.UserName, new { @class = "form-control", placeholder = "User Name", id = "User_UserName" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="UserTypeId">
+                                    User Type
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("User.UserTypeId", (List<SelectListItem>)ViewBag.UserTypes, new { id = "User_UserTypeId", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="User_FirstName">
+                                    First Name
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("User.FirstName", Model.User.FirstName, new { @class = "form-control limited", maxlength = 30, placeholder = "First Name", id = "User_FirstName" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="User_LastName">
+                                    Last Name
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.TextBox("User.LastName", Model.User.LastName, new { @class = "form-control limited", maxlength = 30, placeholder = "Last Name", id = "User_LastName" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="User_Phone">
+                                    Phone
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                        @Html.TextBox("User.Phone", Model.User.Phone, new { @class = "form-control input-mask-phone", placeholder = "Phone", id = "User_Phone" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @Html.HiddenFor(user => user.ApplicationId)
+                        @Html.HiddenFor(k => k.User.UserId)
+                        @Html.HiddenFor(k => k.User.IsLocked)
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="changeStatus" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <form action="@Url.Action("ChangeStatus", new {id = Model.User.UserId, isLocked = Model.User.IsLocked})" method="POST">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">@string.Format("{0} User", Model.User.IsLocked ? "Unlock" : "Lock")</h4>
+        </div>
+        <div class="modal-body">
+            <p>
+                @string.Format("{0} will be {1}ed...", @pageTitle, Model.User.IsLocked ? "Unlock" : "Lock")
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn btn-default">
+                Close
+            </button>
+            <button class="btn btn-default" type="submit">
+                Confirm
+            </button>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+
+    <form action="@Url.Action("ResetPassword", "Account", new {id = Model.User.UserId})" method="POST">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Reset Password</h4>
+        </div>
+        <div class="modal-body">
+            <p>
+                Password will be reseted, please confirm action.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn btn-default">
+                Close
+            </button>
+            <button class="btn btn-default" type="submit">
+                Confirm
+            </button>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="assignRole" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <form class="form" action="@Url.Action("AssignRole", "User", new { id = Model.User.UserId })" method="POST">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Assign Role</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="UserRole">
+                                    Role
+                                    <span class="symbol required"></span>
+                                </label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownList("roleId", (List<SelectListItem>)TempData["Roles"], new { id = "roleId", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button aria-hidden="true" data-dismiss="modal" class="btn btn-default">
+                        Close
+                    </button>
+                    <button class="btn btn-default" type="submit">
+                        Confirm
+                    </button>
+                </div>
+            </form>
+</div>
+<script>
+    function submitForm() {
+        $('form')[0].submit();
+    }
+    function resetForm() {
+        $('form')[0].reset();
+    }
+</script>
+

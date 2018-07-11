@@ -1,0 +1,83 @@
+﻿IF OBJECT_ID('dbo.GeneralLog')>0
+	DROP TABLE dbo.GeneralLog
+GO
+IF OBJECT_ID('dbo.GeneralLogLevel')>0
+	DROP TABLE dbo.GeneralLogLevel
+Go
+
+CREATE TABLE [dbo].[GeneralLogLevel]
+(
+	[GeneralLogLevelId] [int] NOT NULL,
+	[Level] [varchar] (50) NOT NULL,
+	[IsActive] [bit] NOT NULL
+)
+GO
+ALTER TABLE [dbo].[GeneralLogLevel] 
+	ADD CONSTRAINT [PK_GeneralLogLevel] 
+		PRIMARY KEY CLUSTERED  ([GeneralLogLevelId])
+GO
+
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(0,'Scope',0)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(1,'Trace',1)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(2,'Debug',1)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(3,'Info',1)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(4,'Warn',1)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(5,'Error',1)
+INSERT INTO [GeneralLogLevel] ([GeneralLogLevelId],[Level],[IsActive])VALUES(6,'Fatal',1)
+
+CREATE TABLE [dbo].[GeneralLog]
+(
+	[GeneralLogId] [int] NOT NULL IDENTITY(1, 1),
+	[Process] [nvarchar] (255) NULL,
+	[BuildMode] [varchar] (10) NULL,
+	[ActiveUserName] [varchar] (50) NULL,
+	[GeneralLogLevelId] [int] NULL,
+	[Class] [varchar] (50) NULL,
+	[Assembly] [varchar] (50) NULL,
+	[DateTime] [datetime] NULL,
+	[Message] [xml] NULL,
+	[IsWebApplication] [bit] NULL,
+	[ApplicationName] [varchar] (500) NULL,
+	[ApplicationFolder] [varchar] (500) NULL,
+	[ProcessCode] [varchar] (40) NULL,
+	[ScopeLevel] [int] NULL,
+	[IpAddress] VARCHAR(20)
+)
+GO
+ALTER TABLE [dbo].[GeneralLog] ADD CONSTRAINT [PK_GeneralLog] PRIMARY KEY CLUSTERED  ([GeneralLogId]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[GeneralLog] ADD CONSTRAINT [FK_GeneralLog_GeneralLogLevelId] FOREIGN KEY ([GeneralLogLevelId])
+	REFERENCES [dbo].[GeneralLogLevel] ([GeneralLogLevelId])
+GO
+  
+IF OBJECT_ID('[dbo].[GeneralLogInsert]')>0
+	DROP PROCEDURE [dbo].[GeneralLogInsert]
+GO
+
+CREATE PROCEDURE [dbo].[GeneralLogInsert]
+(      
+ @GeneralLogId INT OUTPUT,      
+ @Process NVARCHAR(255),      
+ @BuildMode VARCHAR(10),      
+ @ActiveUserName VARCHAR(50),      
+ @Level VARCHAR(50),      
+ @Class VARCHAR(50),      
+ @Assembly VARCHAR(50),      
+ @DateTime Datetime,      
+ @Message XML,      
+ @IsWebApplication BIT,      
+ @ApplicationName VARCHAR(500),      
+ @ApplicationFolder VARCHAR(500),      
+ @ProcessCode VARCHAR(40),      
+ @ScopeLevel INT,
+ @IpAddress VARCHAR(20)
+)      
+AS  
+Declare @GeneralLogLevelId INT    
+Select @GeneralLogLevelId=GeneralLogLevelId from dbo.GeneralLogLevel where Level=@Level      
+Insert Into dbo.GeneralLog(Process,BuildMode,ActiveUserName,GeneralLogLevelId,Class,Assembly,DateTime,Message      
+ ,IsWebApplication,ApplicationName,ApplicationFolder,ProcessCode,ScopeLevel,IpAddress)      
+VALUES(@Process,@BuildMode,@ActiveUserName,@GeneralLogLevelId,@Class,@Assembly,@DateTime,@Message      
+ ,@IsWebApplication,@ApplicationName,@ApplicationFolder,@ProcessCode,@ScopeLevel,@IpAddress)
+select @GeneralLogId=SCOPE_IDENTITY();      
+GO

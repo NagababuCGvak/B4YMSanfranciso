@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84BEFAAB-EC33-4F97-8B77-5A2E0BB61128}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tar.Core</RootNamespace>
+    <AssemblyName>Tar.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\SharedLibs\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\SharedLibs\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\SharedLibs\ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\SharedLibs\Ionic.Zip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\SharedLibs\NewtonSoft\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\SharedLibs\NVelocity\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tar.Globalization">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.ViewModel">
+      <HintPath>..\..\SharedLibs\Tar\Tar.ViewModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\CacheItem.cs" />
+    <Compile Include="Caching\CacheItemCollection.cs" />
+    <Compile Include="Caching\CacheManager.cs" />
+    <Compile Include="Caching\CacheManagerBootStrapper.cs" />
+    <Compile Include="Caching\CacheValidator.cs" />
+    <Compile Include="Caching\ICacheItem.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\ICacheValidator.cs" />
+    <Compile Include="Caching\NullCacheValidator.cs" />
+    <Compile Include="Caching\TimeSpanCacheValidator.cs" />
+    <Compile Include="ComponentModel\EntityNameAttribute.cs" />
+    <Compile Include="ComponentModel\FieldNameAttribute.cs" />
+    <Compile Include="Compression\DotNetZipComponent.cs" />
+    <Compile Include="Compression\FastZipComponent.cs" />
+    <Compile Include="Compression\IZipComponent.cs" />
+    <Compile Include="Compression\ZipComponentFactory.cs" />
+    <Compile Include="Compression\ZipComponentType.cs" />
+    <Compile Include="Compression\ZLibComponent.cs" />
+    <Compile Include="Configuration\ApplicationSettings.cs" />
+    <Compile Include="Configuration\ConnectionStringSettings.cs" />
+    <Compile Include="Configuration\IApplicationSettings.cs" />
+    <Compile Include="Configuration\IConnectionStringSettings.cs" />
+    <Compile Include="Configuration\ISettings.cs" />
+    <Compile Include="Configuration\ISettingsRepository.cs" />
+    <Compile Include="Configuration\Settings.cs" />
+    <Compile Include="Configuration\StaticSettingsRepository.cs" />
+    <Compile Include="Cryptography\BaseCryptography.cs" />
+    <Compile Include="Cryptography\CryptographyEnum.cs" />
+    <Compile Include="Cryptography\EncryptionTripleDes.cs" />
+    <Compile Include="Cryptography\HashCryptography.cs" />
+    <Compile Include="Cryptography\ICryptography.cs" />
+    <Compile Include="Cryptography\IEncryption.cs" />
+    <Compile Include="Cryptography\IHashing.cs" />
+    <Compile Include="Cryptography\NullEncryption.cs" />
+    <Compile Include="Cryptography\SaltedHash.cs" />
+    <Compile Include="DataAnnotations\CompareAttribute.cs" />
+    <Compile Include="DataAnnotations\DataAnnotationsValidatorManager.cs" />
+    <Compile Include="DataAnnotations\DataTypeAttribute.cs" />
+    <Compile Include="DataAnnotations\DisplayNameAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanBaseAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanDecimalAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanDoubleAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanIntAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanLongAttribute.cs" />
+    <Compile Include="DataAnnotations\IDataAnnotationsValidatorManager.cs" />
+    <Compile Include="DataAnnotations\LessThanBaseAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanDecimalAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanDoubleAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanIntAttribute.cs" />
+    <Compile Include="DataAnnotations\LessThanLongAttribute.cs" />
+    <Compile Include="DataAnnotations\MailValidationAttribute.cs" />
+    <Compile Include="DataAnnotations\MultipleMailValidationAttribute.cs" />
+    <Compile Include="DataAnnotations\RangeAttribute.cs" />
+    <Compile Include="DataAnnotations\RequiredAttribute.cs" />
+    <Compile Include="DataAnnotations\ValidationErrorInfo.cs" />
+    <Compile Include="Exceptions\ErrorException.cs" />
+    <Compile Include="Exceptions\TarException.cs" />
+    <Compile Include="Exceptions\WarningException.cs" />
+    <Compile Include="Extensions\CompressExtensions.cs" />
+    <Compile Include="Extensions\ConvertExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IBootStrapper.cs" />
+    <Compile Include="IServiceLocator.cs" />
+    <Compile Include="Mail\ConsoleMailService.cs" />
+    <Compile Include="Mail\GmailService.cs" />
+    <Compile Include="Mail\IMailService.cs" />
+    <Compile Include="Mail\LocalhostMailService.cs" />
+    <Compile Include="Mail\MailServiceFactory.cs" />
+    <Compile Include="Mail\SmtpMailService.cs" />
+    <Compile Include="Mail\StandartMailService.cs" />
+    <Compile Include="Mail\Template\DynamicSourceDefinition.cs" />
+    <Compile Include="Mail\Template\DynamicSourceDefinitionCollection.cs" />
+    <Compile Include="Mail\Template\DynamicSourceDefinitionNotFoundException.cs" />
+    <Compile Include="Mail\Template\IMailTemplateBuilder.cs" />
+    <Compile Include="Mail\Template\IMailTemplateManager.cs" />
+    <Compile Include="Mail\Template\IMailTemplateRepository.cs" />
+    <Compile Include="Mail\Template\MailTemplate.cs" />
+    <Compile Include="Mail\Template\MailTemplateBuilder.cs" />
+    <Compile Include="Mail\Template\MailTemplateManager.cs" />
+    <Compile Include="Mail\Template\MailTemplateRepositoryInMemory.cs" />
+    <Compile Include="Mail\Template\SendMailParameter.cs" />
+    <Compile Include="Mail\Template\TypeNotFoundException.cs" />
+    <Compile Include="ObjectContainers\EnvironmentObjectContainer.cs" />
+    <Compile Include="ObjectContainers\IObjectContainer.cs" />
+    <Compile Include="ObjectContainers\ObjectContainer.cs" />
+    <Compile Include="ObjectContainers\ObjectContainerBase.cs" />
+    <Compile Include="ObjectContainers\ObjectContainerFactory.cs" />
+    <Compile Include="ObjectContainers\ObjectContainerType.cs" />
+    <Compile Include="ObjectContainers\StaticObjectContainer.cs" />
+    <Compile Include="ObjectContainers\ThreadObjectContainer.cs" />
+    <Compile Include="ObjectContainers\WcfRequestObjectContainer.cs" />
+    <Compile Include="ObjectContainers\WebRequestObjectContainer.cs" />
+    <Compile Include="Pagination\IPaginatedList.cs" />
+    <Compile Include="Pagination\PaginatedList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduling\ScheduleManager.cs" />
+    <Compile Include="Serialization\ExceptionConverter.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="Serialization\SoapManagement\BindingType.cs" />
+    <Compile Include="Serialization\SoapManagement\DefaultSoapMessageConverter.cs" />
+    <Compile Include="Serialization\SoapManagement\ISoapMessageConverter.cs" />
+    <Compile Include="Serialization\SoapManagement\JObjectSoapMessageConverter.cs" />
+    <Compile Include="Serialization\SoapManagement\PureJson.cs" />
+    <Compile Include="Serialization\SoapManagement\PureJsonSoapMessageConverter.cs" />
+    <Compile Include="Serialization\SoapManagement\PureXml.cs" />
+    <Compile Include="Serialization\SoapManagement\PureXmlSoapMessageConverter.cs" />
+    <Compile Include="Serialization\SoapManagement\SerializationHelper.cs" />
+    <Compile Include="Serialization\SoapManagement\SoapHelper.cs" />
+    <Compile Include="Serialization\SoapManagement\SoapParameter.cs" />
+    <Compile Include="Serialization\SoapManagement\XmlDocumentSoapMessageConverter.cs" />
+    <Compile Include="ServiceLocationExtensions.cs" />
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="ServiceLocatorBase.cs" />
+    <Compile Include="SessionManagement\ISessionStorage.cs" />
+    <Compile Include="SessionManagement\SessionManager.cs" />
+    <Compile Include="SessionManagement\WebSessionStorage.cs" />
+    <Compile Include="TarPerSessionLifestyle.cs" />
+    <Compile Include="TarWebRequestLifestyle.cs" />
+    <Compile Include="Template\ITemplateEngine.cs" />
+    <Compile Include="Template\NVelocityTemplateEngine.cs" />
+    <Compile Include="Template\NVelocityTemplateEngineFormatter.cs" />
+    <Compile Include="Template\ReturnTemplateNameAsTemplateStreamResourceLoader.cs" />
+    <Compile Include="Utils\ArgumentValidation.cs" />
+    <Compile Include="WcfObjectContainerExtension.cs" />
+    <Compile Include="Wcf\WcfServiceHostConfigureEventArgs.cs" />
+    <Compile Include="Wcf\TarServiceRoute.cs" />
+    <Compile Include="Wcf\TarWebServiceHostFactory.cs" />
+    <Compile Include="Wcf\WcfServiceHostFactory.cs" />
+    <Compile Include="Wcf\WcfServiceHostInstanceProvider.cs" />
+    <Compile Include="Wcf\WcfServiceHostServiceBehavior.cs" />
+    <Compile Include="WindsorServiceLocator.cs" />
+    <Compile Include="Windsor\ComponentActivator\BuildUpComponentActivator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Caching\Caching.cd" />
+    <None Include="Mail\Template\Windsor.Mail.Template.config" />
+    <None Include="Mail\Windsor.Mail.config" />
+    <None Include="Template\Windsor.Template.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\NVelocitySyntaxReference.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if '$(TeamBuild)'=='True' exit 0
+copy $(TargetName).* ..\..\..\..\SharedLibs\Tar\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

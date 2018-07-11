@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="MealType : Breakfast, Brunch, Lunch, AfterSchool">
+    <Position X="12.833" Y="0.5" Height="0.347" Width="3.075" />
+  </Comment>
+  <Comment CommentText="MenuType : Standart, Vegetarian, Special, Singular">
+    <Position X="12.847" Y="1.042" Height="0.347" Width="3.922" />
+  </Comment>
+  <Class Name="Better4You.Meal.EntityModel.MealMenu">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>MealMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Menu" />
+      <Property Name="MealType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.Menu">
+    <Position X="7.75" Y="3.5" Width="2.25" />
+    <AssociationLine Name="Foods" Type="Better4You.Meal.EntityModel.Food">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.749" Y="-0.301" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQCEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MenuType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Foods" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.Food">
+    <Position X="11.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAABAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Food.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FoodIngredients" />
+      <Property Name="Menus" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.FoodIngredient">
+    <Position X="15" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAIAAAAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>FoodIngredient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Food" />
+      <Property Name="IngredientType" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.MealMenuOrder">
+    <Position X="0.5" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAASAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>MealMenuOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="MealMenuOrderItems" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.MealMenuOrderItem">
+    <Position X="4.25" Y="3.5" Width="2.25" />
+    <AssociationLine Name="MealMenu" Type="Better4You.Meal.EntityModel.MealMenu" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="3.5" />
+        <Point X="6.25" Y="1.04" />
+        <Point X="6.5" Y="1.04" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAQCAAAAAAAQBAAAAAAAAAAAAAAARAAAAAAAQAAAAAA=</HashCode>
+      <FileName>MealMenuOrderItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MealMenu" />
+      <Property Name="MealMenuOrder" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.IngredientType">
+    <Position X="15" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IngredientType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.MealMenuRule">
+    <Position X="10" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAgAAAAACAAAAQAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>MealMenuRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.MealType" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MealType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Better4You.Meal.EntityModel.MenuType" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

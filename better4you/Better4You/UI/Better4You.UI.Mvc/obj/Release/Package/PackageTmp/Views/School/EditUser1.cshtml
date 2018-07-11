@@ -1,0 +1,41 @@
+﻿@model Better4You.UserManagment.Service.Messages.SchoolUserRequest
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_PopupLayout.cshtml";
+}
+
+<form method="post" action="/School/EditUser">
+    <fieldset>
+        <legend>@Html.Partial("_PopupButtonsPartial")</legend>
+        <div class="controls">
+            @*@Html.BootstrapTextBoxFor(m=>m.UserId.FirstAdminDivision.Value,new {@class="span4",controlType="typehead",display="Type LastName,FirstName"})*@
+            <input class="span4" id="UserName" title="Type LastName,FirstName" placeholder="Type LastName,FirstName" autocomplete="off"/>            
+            @Html.HiddenFor(d=>d.UserId)
+        </div>
+        <div class="controls">
+            <span class="span1"></span>
+        </div>
+
+    </fieldset>
+    
+    @Html.HiddenFor(d=>d.SchoolId)
+</form>
+    @section documentPopupReady
+    {
+
+        $('#UserName').typeahead(
+            tarControls.autoComplete({
+                action: "GetUsers",
+                controller: "School",
+                filter: {
+                    query: { varName: "filter" },
+                    cascade: [{ varName: "id", varControl: "SchoolId" }]
+                },
+                model:{primaryKey:"Id",columns:["UserName","LastName","FirstName"]},
+                id: "UserName",
+                idHidden: "UserId",
+            })
+        );
+        tar.prepareModalActions("create","Add User");
+    }

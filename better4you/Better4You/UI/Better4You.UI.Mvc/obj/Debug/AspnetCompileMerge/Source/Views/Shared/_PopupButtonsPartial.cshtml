@@ -1,0 +1,6 @@
+﻿<div class="navbar navbar-form">
+    @*<button class="pull-right btn btn-danger" id="btnClose" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-white"></i> Close</button>                                              *@
+    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Edit, "Edit","button",new {@id="btnEdit",@onclick="return tar.prepareModalActions(\"edit\");" })
+    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Save, "Save","submit",new{@id="btnSave"})
+    @Html.BootstrapCustomButton(BootstrapExtensions.ButtonType.Remove, "Delete","button",new {@id="btnDelete",@onclick="return deleteAction();" })
+</div>

@@ -1,0 +1,173 @@
+﻿@model IEnumerable<InvoiceSummaryView>
+@{
+    ViewBag.Title = "Invoice Summary";
+    
+    var reqYear = DateTime.Now.Year;
+    if (Request["OrderYear"] != null)
+    {
+        reqYear = Int32.Parse(Request["OrderYear"].ToString(CultureInfo.InvariantCulture));
+    }
+    int mealTypeId = 1;
+    if (Request["MealTypeId"] != null && !string.IsNullOrWhiteSpace(Request["MealTypeId"]))
+    {
+        mealTypeId = int.Parse(Request["MealTypeId"]);
+    }
+}
+
+<!-- start: PAGE HEADER -->
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">Home</a>
+			</li>
+			<li class="active">Billing Report</li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @ViewBag.Title
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	            <div class="buttons-widget pull-right">
+	                
+	                <a class="btn btn-md btn-danger" href="#" onclick="return exportClick();">
+	                    <i class="fa fa-file-excel-o"></i> Export
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form" method="POST">
+            <!-- start: RESPONSIVE TABLE PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Search Criteria
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td class="col-sm-2">Meal Type</td>
+                                        <td class="col-sm-3">
+                                            @Html.DropDownList("MealTypeId", ((List<Tar.ViewModel.GeneralItemView>) ViewBag.MealTypes).Select(d => new SelectListItem {Selected = d.Id == mealTypeId ? true : false, Text = d.Text, Value = d.Id.ToString()}).ToList(), new {id = "MealTypeId", @class = "form-control"})
+                                        </td>
+                                        <td class="col-sm-2">
+                                            Order Year
+                                        </td>
+                                        <td class="col-sm-3">
+                                            <select class="form-control" name="OrderYear" id="OrderYear" title="Order Year">
+                                                @foreach (var year in (int[]) ViewBag.Year)
+                                                {
+                                                    <option value="@year" @if (reqYear == year)
+                                                                          {
+                                                                              @:selected="selected"
+                                                                          }>@year</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <span class="pull-right">
+                                                <button type="submit" class="btn btn-md btn-blue"><i class="clip-search"></i>  Search</button>
+                                            </span>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- start: RESPONSIVE TABLE PANEL -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-external-link-square"></i>
+                Search Result
+                <div class="panel-tools">
+                    <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th class="center">School</th>
+                            @{
+                                foreach (var month in (List<KeyValuePair<long, string>>) ViewBag.Month)
+                                {
+                                    @:<th class="center">@month.Value</th>
+                                }
+                            }
+                            <th class="center">Year</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @{
+                            foreach (var invoice in Model)
+                            {
+                                <tr>
+                                    <td>@invoice.SchoolName, #@invoice.SchoolType</td>
+                                    @{
+                                        foreach (var month in (List<KeyValuePair<long, string>>) ViewBag.Month)
+                                        {
+                                            <td>
+                                                @{
+                                                    var monthInvoice = invoice.InvoiceItems.FirstOrDefault(d => d.Month == month.Key);
+                                                    if (monthInvoice == null)
+                                                    {
+                                                        @:&nbsp;
+                                                    }
+                                                    else
+                                                    {
+                                                        <span  class="pull-right">@string.Format("{0}", monthInvoice.TotalAmount.HasValue?monthInvoice.TotalAmount.Value.ToString("C2"):"0.00")</span>
+                                                    }
+                                                }
+                                            </td>
+                                        }
+                                    }
+                                    <td>
+                                        <span class="pull-right">@string.Format("{0}", invoice.TotalAmount.HasValue?invoice.TotalAmount.Value.ToString("C2"):"0.00")</span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: PAGE CONTENT -->
+
+<script>
+    function exportClick() {
+        var orderStartDate = tar.toDateString(new Date($('#OrderYear').val(), 0, 1), "YYYY-MM-DD");
+        var orderEndDate = tar.toDateString(new Date($('#OrderYear').val(), 11, 31), "YYYY-MM-DD");
+        var schoolNameStartsWith = "";
+        tar.openNewForm('DateRangeBillingExport', 'Invoice', { url: { OrderStartDate: orderStartDate, OrderEndDate: orderEndDate, SchoolNameStartsWith: schoolNameStartsWith }, label: 'Export' });
+        return false;
+    }
+</script>

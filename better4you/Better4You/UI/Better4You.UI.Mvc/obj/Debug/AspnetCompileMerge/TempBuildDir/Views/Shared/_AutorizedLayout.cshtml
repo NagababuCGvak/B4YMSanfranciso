@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "_BetterForYouMealsLayout";
+    var activeControllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var activeActionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+
+    Func<string, string[], MvcHtmlString> isActive = (controllerName, actionNames) =>
+    {
+        var sameController = activeControllerName.Equals(controllerName, StringComparison.InvariantCultureIgnoreCase);
+        if (!sameController) return new MvcHtmlString("");
+
+        if (actionNames.Length == 0)
+        {
+            return new MvcHtmlString("class='active open'");
+        }
+        if (actionNames.Any(x => (activeActionName.Equals(x, StringComparison.InvariantCultureIgnoreCase))))
+        {
+            return new MvcHtmlString("class='active open'");
+        }
+        return new MvcHtmlString("");
+    };
+}
+<!DOCTYPE html>
+<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.4 Author: ClipTheme -->
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+	<!--<![endif]-->
+	<!-- start: HEAD -->
+	<head>
+		<title>Better For You Meals</title>
+		<!-- start: META -->
+		<meta charset="utf-8" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<!-- end: META -->
+		<!-- start: MAIN CSS -->
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap/css/bootstrap.min.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/font-awesome/css/font-awesome.min.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/fonts/style.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/css/main.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/css/main-responsive.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/iCheck/skins/all.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css")'>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css")'>
+@*		<link rel="stylesheet" href='@Url.Content("~/assets/css/theme_black_and_white.css")' type="text/css" id="skin_color">*@
+		<link rel="stylesheet" href='@Url.Content("~/assets/css/theme_b4ym.css")' type="text/css" id="skin_color">
+	    <link rel="stylesheet" href='@Url.Content("~/assets/css/print.css")' type="text/css" media="print"/>
+	    <link rel="stylesheet" href='@Url.Content("~/assets/plugins/fullcalendar/fullcalendar.css")' type="text/css"/>
+        <link rel="stylesheet" href='@Url.Content("~/assets/plugins/fullcalendar/fullcalendar.print.css")' type="text/css" media="print"/>
+        <link rel="stylesheet" href='@Url.Content("~/Content/bootstrap-select.css")' type="text/css"/>
+        <link rel="stylesheet" href='@Url.Content("~/Content/datepicker.css")' type="text/css"/>
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="../../assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+
+        <link rel="stylesheet" href='@Url.Content("~/assets/plugins/select2/select2.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/datepicker/css/datepicker.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/jQuery-Tags-Input/jquery.tagsinput.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/summernote/build/summernote.css")' type="text/css"/>
+        <link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css")' type="text/css"/>
+		<link rel="stylesheet" href='@Url.Content("~/assets/plugins/bootstrap-modal/css/bootstrap-modal.css")' type="text/css"/>
+	    <!-- end: MAIN CSS -->
+        @*<link rel="shortcut icon" href="favicon.ico" />*@
+
+        <!-- start: MAIN JAVASCRIPTS -->
+		<!--[if lt IE 9]>
+		<script src='@Url.Content("~/assets/plugins/respond.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/excanvas.min.js")'></script>		
+		<script type="text/javascript" src='@Url.Content("~/assets/plugins/jQuery-lib/1.10.2/jquery.min.js")'></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src='@Url.Content("~/assets/plugins/jQuery-lib/2.0.3/jquery.min.js")'></script>
+		<!--<![endif]-->
+		<script src='@Url.Content("~/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap/js/bootstrap.min.js")'></script>
+
+		<script src='@Url.Content("~/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/blockUI/jquery.blockUI.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/iCheck/jquery.icheck.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/less/less-1.5.0.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/jquery-cookie/jquery.cookie.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js")'></script>
+
+        
+		<script src='@Url.Content("~/Scripts/moment.js")'></script>
+        <script src='@Url.Content("~/assets/plugins/fullcalendar/fullcalendar.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/fullcalendar/gcal.js")'></script>
+		<script src='@Url.Content("~/Scripts/bootstrap-select.js")'></script>
+		<script src='@Url.Content("~/Scripts/bootstrap-datepicker.js")'></script>
+	    <script src='@Url.Content("~/Scripts/bootstrap-typeahead.js")'></script>
+
+
+        <script src='@Url.Content("~/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/autosize/jquery.autosize.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/select2/select2.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/jquery-maskmoney/jquery.maskMoney.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-daterangepicker/moment.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-daterangepicker/daterangepicker.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/summernote/build/summernote.min.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/ckeditor/ckeditor.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/ckeditor/adapters/jquery.js")'></script>
+
+	    <script src='@Url.Content("~/assets/plugins/knockout/knockout-v3.3.0-debug.js")'></script>
+        <script src='@Url.Content("~/assets/plugins/handlebars/handlebars-v2.0.0.js")'></script>
+
+
+        <script src='@Url.Content("~/assets/plugins/bootstrap-modal/js/bootstrap-modal.js")'></script>
+		<script src='@Url.Content("~/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js")'></script>
+
+	    <script src='@Url.Content("~/assets/js/form-elements.js")'></script>
+	    <script src='@Url.Content("~/assets/js/main.js")'></script>
+        <script src='@Url.Content("~/Scripts/site.js")'></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+	</head>
+	<!-- end: HEAD -->
+	<!-- start: BODY -->
+	<body>
+		<!-- start: HEADER -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<!-- start: TOP NAVIGATION CONTAINER -->
+			<div class="container">
+				<div class="navbar-header">
+					<!-- start: RESPONSIVE MENU TOGGLER -->
+					<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+						<span class="clip-list-2"></span>
+					</button>
+					<!-- end: RESPONSIVE MENU TOGGLER -->
+					<!-- start: LOGO -->
+					<a class="navbar-brand" href="@Url.Content("~")">
+						BETTER 4 YOU
+					</a>
+					<!-- end: LOGO -->
+				</div>
+				<div class="navbar-tools">
+					<!-- start: TOP NAVIGATION MENU -->
+				    <ul class="nav navbar-right">
+				        <li class="dropdown current-user">
+				            <a class="dropdown-toggle" href="#">
+				                <span class="username">@Html.CurrentUser().CurrentSchoolName()</span>
+				            </a>
+				        </li>
+				        <!-- start: USER DROPDOWN -->
+				        <li class="dropdown current-user">
+				            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+				                @*<img src='@Url.Content("~/assets/images/9127f42-small.jpg")' class="circle-img" alt="">*@
+				                <span class="username">@Html.CurrentUser().FullName</span>
+				                <i class="clip-chevron-down"></i>
+				            </a>
+				            <ul class="dropdown-menu">
+				                @*<li class="divider"></li>*@
+				                <li>
+				                    <a href='@Url.Action("LogOut", "Account")'>
+				                        <i class="clip-exit"></i>
+				                        &nbsp;Log Out
+				                    </a>
+				                </li>
+				            </ul>
+				        </li>
+				        <!-- end: USER DROPDOWN -->
+				    </ul>
+					<!-- end: TOP NAVIGATION MENU -->
+				</div>
+			</div>
+			<!-- end: TOP NAVIGATION CONTAINER -->
+		</div>
+		<!-- end: HEADER -->
+		<!-- start: MAIN CONTAINER -->
+		<div class="main-container">
+		    <div class="navbar-content">
+		        <!-- start: SIDEBAR -->
+		        <div class="main-navigation navbar-collapse collapse">
+		            <!-- start: MAIN MENU TOGGLER BUTTON -->
+		            <div class="navigation-toggler">
+		                <i class="clip-chevron-left"></i>
+		                <i class="clip-chevron-right"></i>
+		            </div>
+		            <!-- end: MAIN MENU TOGGLER BUTTON -->
+		            <!-- start: MAIN NAVIGATION MENU -->
+		            <ul class="main-navigation-menu">
+		                @foreach (var navItem in NavigationManager.GetNavItems(Html.CurrentUser().UserTypeId()))
+                  {
+		                    <li @isActive(navItem.ControllerName, navItem.Actions) ><a href="@Url.Action(navItem.ActionName, navItem.ControllerName)"><i class="@navItem.IconClass"></i><span class="title">@navItem.Title</span><span class="selected"></span></a></li>
+                  }
+		            </ul>
+		            <!-- end: MAIN NAVIGATION MENU -->
+		        </div>
+		        <!-- end: SIDEBAR -->
+		    </div>
+                       
+		    <!-- start: PAGE -->
+			<div class="main-content">
+			    <div class="container" style="min-height: 760px;">
+                    @RenderBody()
+			    </div>
+			</div>
+
+			<!-- end: PAGE -->
+		</div>
+		<!-- end: MAIN CONTAINER -->
+		<!-- start: FOOTER -->
+		<div class="footer clearfix">
+			<div class="footer-inner">
+				2015 &copy; Better 4 You Meals.
+			</div>
+			<div class="footer-items">
+				<span class="go-top"><i class="clip-chevron-up"></i></span>
+			</div>
+		</div>
+	<!-- end: FOOTER -->
+	<script>
+	    jQuery(document).ready(function() {
+	        Main.init();
+	        FormElements.init();
+
+	        $.fn.modalmanager.defaults.resize = true;
+	        $.fn.modal.defaults.spinner = $.fn.modalmanager.defaults.spinner =
+                '<div class="loading-spinner" style="width: 200px; margin-left: -100px;">' +
+                '<div class="progress progress-striped active">' +
+                '<div class="progress-bar" style="width: 100%;"></div>' +
+                '</div>' +
+                '</div>';
+
+            @RenderSection("documentReady", false)
+
+
+	    });
+        
+	</script>
+    
+	</body>
+	<!-- end: BODY -->
+</html>

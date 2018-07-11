@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="betterforyoumealssanfrancisco" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Nagendra\\SanFranciscoB4YM\\DATABASE\ \(Shared\ by\ israel\.galindo@anwsol\.com\)\\better4you\\Better4You\\UI\\Better4You\.UI\.Mvc\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Nagendra\\SanFranciscoB4YM\\DATABASE\ \(Shared\ by\ israel\.galindo@anwsol\.com\)\\better4you\\Better4You\\UI\\Better4You\.UI\.Mvc\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>

@@ -1,0 +1,81 @@
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.pdb
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.csprojResolveAssemblyReference.cache
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.dll
+D:\TFS\Better4You\Main\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.pdb
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.csprojResolveAssemblyReference.cache
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.dll
+D:\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.Implementation.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Business.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Service.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.EntityModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Repository.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Globalization.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.ViewModel.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Better4You.Core.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\bin\Debug\Tar.Model.pdb
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.csprojResolveAssemblyReference.cache
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.dll
+D:\Nagendra\SanFranciscoB4YM\DATABASE (Shared by israel.galindo@anwsol.com)\better4you\Better4You\Common\Better4You.Service.Implementation\obj\Debug\Better4You.Service.Implementation.pdb

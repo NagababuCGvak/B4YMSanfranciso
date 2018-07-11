@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BD1C8A7-00D5-4957-9ADA-7D1FEF7A354A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Better4You.Meal.Service</RootNamespace>
+    <AssemblyName>Better4You.Meal.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Better4You.Meal.ViewModel">
+      <HintPath>..\..\..\..\SharedLibs\Better4You\Meal\Better4You.Meal.ViewModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="Tar.Service">
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.ViewModel">
+      <HintPath>..\..\..\..\SharedLibs\Tar\Tar.ViewModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Messages\OrderDayPropItemRequest.cs" />
+    <Compile Include="Messages\SchoolOrderGetRequest.cs" />
+    <Compile Include="Messages\SchoolOrderGetResponse.cs" />
+    <Compile Include="Messages\FoodPercentagesRequest.cs" />
+    <Compile Include="Messages\FoodPercentagesSaveRequest.cs" />
+    <Compile Include="Messages\FoodPercentagesResponse.cs" />
+    <Compile Include="Messages\MontlyMilkExportRequest.cs" />
+    <Compile Include="Messages\DateRangeOrderItemResponse.cs" />
+    <Compile Include="Messages\DateRangeOrderItemRequest.cs" />
+    <Compile Include="IMealMenuOrderService.cs" />
+    <Compile Include="IMealMenuService.cs" />
+    <Compile Include="IMenuService.cs" />
+    <Compile Include="IFoodService.cs" />
+    <Compile Include="IReportService.cs" />
+    <Compile Include="Messages\GetSupplementaryListRequest.cs" />
+    <Compile Include="Messages\GetSupplementaryListResponse.cs" />
+    <Compile Include="Messages\MonthlyExportRequest.cs" />
+    <Compile Include="Messages\FoodCreateRequest.cs" />
+    <Compile Include="Messages\FoodCreateResponse.cs" />
+    <Compile Include="Messages\FoodDeleteRequest.cs" />
+    <Compile Include="Messages\FoodGetAllRequest.cs" />
+    <Compile Include="Messages\FoodGetAllResponse.cs" />
+    <Compile Include="Messages\FoodGetRequest.cs" />
+    <Compile Include="Messages\FoodGetResponse.cs" />
+    <Compile Include="Messages\FoodUpdateRequest.cs" />
+    <Compile Include="Messages\FoodUpdateResponse.cs" />
+    <Compile Include="Messages\InvoiceGetAllRequest.cs" />
+    <Compile Include="Messages\InvoiceGetAllResponse.cs" />
+    <Compile Include="Messages\InvoiceSummaryGetAllRequest.cs" />
+    <Compile Include="Messages\InvoiceSummaryGetAllResponse.cs" />
+    <Compile Include="Messages\InvoiceUpdateRequest.cs" />
+    <Compile Include="Messages\InvoiceUpdateResponse.cs" />
+    <Compile Include="Messages\MealMenuCreateRequest.cs" />
+    <Compile Include="Messages\MealMenuCreateResponse.cs" />
+    <Compile Include="Messages\MealMenuDeleteRequest.cs" />
+    <Compile Include="Messages\MealMenuGetAllRequest.cs" />
+    <Compile Include="Messages\MealMenuGetAllResponse.cs" />
+    <Compile Include="Messages\MealMenuGetRequest.cs" />
+    <Compile Include="Messages\MealMenuGetResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderDailyChangesRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderDailyChangesResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderGetAllRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderGetAllResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderGetRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderGetResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderItemGetAllRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderItemGetAllResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderItemGetHistoryRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderItemGetHistoryResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderItemSaveRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderItemSaveResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderMenuItemsRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderMenuItemsResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderReportRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderReportResponse.cs" />
+    <Compile Include="Messages\MealMenuOrderSubmitOrderRequest.cs" />
+    <Compile Include="Messages\MealMenuOrderSubmitOrderResponse.cs" />
+    <Compile Include="Messages\MealMenuSaveRequest.cs" />
+    <Compile Include="Messages\MealMenuSaveResponse.cs" />
+    <Compile Include="Messages\MealMenuUpdateRequest.cs" />
+    <Compile Include="Messages\MealMenuUpdateResponse.cs" />
+    <Compile Include="Messages\MenuCreateRequest.cs" />
+    <Compile Include="Messages\MenuCreateResponse.cs" />
+    <Compile Include="Messages\MenuDeleteRequest.cs" />
+    <Compile Include="Messages\MenuGetAllRequest.cs" />
+    <Compile Include="Messages\MenuGetAllResponse.cs" />
+    <Compile Include="Messages\MenuGetRequest.cs" />
+    <Compile Include="Messages\MenuGetResponse.cs" />
+    <Compile Include="Messages\MenuUpdateRequest.cs" />
+    <Compile Include="Messages\MenuUpdateResponse.cs" />
+    <Compile Include="Messages\ReportResponse.cs" />
+    <Compile Include="Messages\SaveOrderForDayRequest.cs" />
+    <Compile Include="Messages\SaveOrderForDayResponse.cs" />
+    <Compile Include="Messages\SaveSupplementaryListRequest.cs" />
+    <Compile Include="Messages\SaveSupplementaryListResponse.cs" />
+    <Compile Include="Messages\SchoolInvoiceDocumentGetByIdRequest.cs" />
+    <Compile Include="Messages\SchoolInvoiceDocumentGetByIdResponse.cs" />
+    <Compile Include="Messages\SchoolInvoiceDocumentSaveRequest.cs" />
+    <Compile Include="Messages\SchoolInvoiceDocumentSaveResponse.cs" />
+    <Compile Include="Messages\SchoolMenuExportRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetName).* ..\..\..\..\..\..\SharedLibs\Better4You\Meal\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

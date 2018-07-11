@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D6A0BBC-9081-4F29-8119-86D453624E7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tar.Tests</RootNamespace>
+    <AssemblyName>Tar.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\SharedLibs\Castle.Windsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\..\SharedLibs\Castle.Windsor\Castle.Facilities.FactorySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\SharedLibs\Castle.Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Core">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Cryptography">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Globalization">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Logging">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Model">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Repository">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Repository.Ef">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Repository.Ef.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Repository.General">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Repository.General.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Repository.Nh">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Repository.Nh.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Service">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Service.Messages">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Service.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="Tar.Service.Proxy">
+      <HintPath>..\..\SharedLibs\Tar\Tar.Service.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\SharedLibs\EntityFramework\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\SharedLibs\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\SharedLibs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\SharedLibs\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\SharedLibs\NVelocity\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Caching\CacheManagerTestFixture.cs" />
+    <Compile Include="Core\Configuration\ConfigurationTestFixture.cs" />
+    <Compile Include="Core\DataAnnotations\DataAnnotationTestFixture.cs" />
+    <Compile Include="Core\DataAnnotations\GeneralItemViewValidationSampleObject.cs" />
+    <Compile Include="Core\DataAnnotations\XChild1.cs" />
+    <Compile Include="Core\DataAnnotations\XChild2.cs" />
+    <Compile Include="Core\DataAnnotations\XChild3.cs" />
+    <Compile Include="Core\DataAnnotations\XChild4.cs" />
+    <Compile Include="Core\DataAnnotations\XChild5.cs" />
+    <Compile Include="Core\DataAnnotations\XChild6.cs" />
+    <Compile Include="Core\DataAnnotations\XRequest.cs" />
+    <Compile Include="Core\FactoryMethodTestFixture.cs" />
+    <Compile Include="Core\IInterface.cs" />
+    <Compile Include="Core\InterfaceImpl.cs" />
+    <Compile Include="Core\ServiceLocationTestFixture.cs" />
+    <Compile Include="Cryptography\EncryptionTestFixture.cs" />
+    <Compile Include="Cryptography\HashingTestFixture.cs" />
+    <Compile Include="Globalization\ResourcesTestCase.cs" />
+    <Compile Include="Globalization\ResourcesWithWindsorTestCase.cs" />
+    <Compile Include="Logging\LoggerTestFixture.cs" />
+    <Compile Include="Mail\MailTests.cs" />
+    <Compile Include="Mail\Template\TemplateTestFixture.cs" />
+    <Compile Include="Mail\Template\TestTemplateClass.cs" />
+    <Compile Include="Mail\Template\TestUserClass.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ITestRepository.cs" />
+    <Compile Include="Repository\Mapping\Code\CategoryMap.cs" />
+    <Compile Include="Repository\Multiple\Mappings\AccountMap.cs" />
+    <Compile Include="Repository\Multiple\Mappings\UserMap.cs" />
+    <Compile Include="Repository\Multiple\Model\Account.cs" />
+    <Compile Include="Repository\Multiple\Model\User.cs" />
+    <Compile Include="Repository\Multiple\Repository\ConfigRepository.cs" />
+    <Compile Include="Repository\Multiple\Repository\IConfigEntity.cs" />
+    <Compile Include="Repository\Multiple\Repository\ITenantEntity.cs" />
+    <Compile Include="Repository\Multiple\Repository\TenantRepository.cs" />
+    <Compile Include="Repository\NhMappingTestFixture.cs" />
+    <Compile Include="Repository\RepositoryTestFixture.cs" />
+    <Compile Include="Repository\TestRepository.cs" />
+    <Compile Include="Repository\TestRepositoryModelBuilder.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\Component.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\Factory.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\IComponent.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\IFactory.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\IService.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\Service.cs" />
+    <Compile Include="ServiceLocation\Windsor\Facilities\FactorySupport\TestFixture.cs" />
+    <Compile Include="ServiceLocation\Windsor\MultipleConfig\MultipleConfigTestFixture.cs" />
+    <Compile Include="ServiceLocation\Windsor\MultipleConfig\MultipleConfigComponent.cs" />
+    <Compile Include="Service\ImplementationTestFixture.cs" />
+    <Compile Include="Service\ITest.cs" />
+    <Compile Include="Service\Test.cs" />
+    <Compile Include="Service\TestProxy.cs" />
+    <Compile Include="Repository\Multiple\ConfigRepositoryTestCase.cs" />
+    <Compile Include="Repository\Multiple\MultipleRepositoryTestCase.cs" />
+    <Compile Include="Repository\Multiple\TenantRepositoryTestCase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Repository\Mapping\Xml\Product.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Globalization\Windsor.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Repository\Multiple\ConfigRepository.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Repository\Multiple\MultipleRepository.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Repository\Multiple\TenantRepository.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ServiceLocation\Windsor\MultipleConfig\Windsor.Config3.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ServiceLocation\Windsor\MultipleConfig\Windsor.Config2.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ServiceLocation\Windsor\MultipleConfig\Windsor.Config1.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Cryptography.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ServiceLocation\Windsor\Facilities\FactorySupport\Windsor.FactoryMethod.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Mail.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Windsor.Mail.Template.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Repository.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Repository.Ef.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Repository.Nh.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Service.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Settings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Windsor.Template.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Repository\Mapping\Xml\MailTemplateDefinition.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\Mappings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Caching\Caching.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tar.ViewModel\Tar.ViewModel.csproj">
+      <Project>{D07FF54A-C05E-4FA2-8388-3D9B917E7CEB}</Project>
+      <Name>Tar.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

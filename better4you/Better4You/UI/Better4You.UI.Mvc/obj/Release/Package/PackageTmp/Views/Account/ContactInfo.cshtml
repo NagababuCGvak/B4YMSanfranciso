@@ -1,0 +1,114 @@
+﻿@model Better4You.UserManagment.ViewModel.ContactInfoView
+
+@{
+    ViewBag.Title = "Contact B4YM";
+}
+
+<form method="post" class="form-horizontal">
+    <!-- start: PAGE HEADER -->
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- start: PAGE TITLE & BREADCRUMB -->
+            <ol class="breadcrumb">
+                 <li>
+                    <i class="clip-home-3"></i>
+                    @Html.ActionLink("Home","Index","Home")
+                </li>
+                <li class="active">@ViewBag.Title</li>
+            </ol>
+            <div class="row page-header">
+                <div class="col-sm-6">
+                    <h1>
+                        @ViewBag.Title
+                    </h1>
+                </div>
+                <div class="col-sm-6">
+                    <div class="buttons-widget pull-right">
+                        <button class="btn btn-md btn-danger" type="reset">
+                            <i class="fa fa-trash-o"></i>&nbsp; Cancel
+                        </button>
+
+                        <button class="btn btn-md btn-primary" type="submit">
+                            Send Message &nbsp; <i class="clip-arrow-right"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end: PAGE TITLE & BREADCRUMB -->
+        </div>
+    </div>
+    <!-- end: PAGE HEADER -->
+
+    <section>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="clip-users-2"></i>
+                    @ViewBag.Title
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="Email">
+												Email
+											</label>
+											<div class="col-sm-9">
+												<input type="text" id="Email" class="form-control" disabled="disabled" value="@string.Format("{0},{1} <{2}>", Model.LastName.ToUpperInvariant(), Model.FirstName, Model.Email)">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="ContactRegard_Key">
+												What is this in regard to?
+											</label>
+											<div class="col-sm-9">
+												 <select id="ContactRegard_Key" class="form-control">
+											         @foreach (var contactRegard in ((List<KeyValuePair<long, string>>)ViewBag.ContactRegards))
+                                                     {
+                                                        <option value="@contactRegard.Key">@contactRegard.Value </option>
+                                                     }
+										        </select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="Message">
+												Message
+											</label>
+											<div class="col-sm-9">
+												<textarea class="form-control" id="Message" style="overflow: hidden; word-wrap: break-word; height: 150px; margin-left: 0px; margin-right: -0.5px;"></textarea>
+											</div>
+										</div>
+								</div>
+@*                <div class="panel-body">
+                    <div class="view">
+                        <div class="control-group">
+                            <label class="control-label">Email</label>
+                            <div class="controls">
+                                <label>@string.Format("{0},{1} <{2}>", Model.LastName.ToUpperInvariant(), Model.FirstName, Model.Email)</label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">What is this in regard to?</label>
+                            <div class="controls">
+                                <select class="selectpicker span4 form-control" name="ContactRegard.Key" id="ContactRegard_Key" title="What is this in regard to?">
+                                    @foreach (var contactRegard in ((List<KeyValuePair<long, string>>)ViewBag.ContactRegards))
+                                    {
+                                        <option value="@contactRegard.Key">@contactRegard.Value </option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Message">Message</label>
+                            <div class="controls">
+                                <textarea rows="3" name="Message" id="Message" class="span4 form-control autosize form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </section>
+</form>

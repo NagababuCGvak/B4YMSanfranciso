@@ -1,0 +1,413 @@
+﻿@using NHibernate.Criterion
+@using Tar.Core.Extensions
+@using Better4You.Meal.ViewModel
+@using Better4You.Meal.Service.Implementation
+@using Better4You.Meal.Business.Implementation
+@using Better4You.UI.Mvc.Controllers
+@model List<OrderReportView>
+@{
+    ViewBag.Title = "School Orders";  
+    var reqYear = DateTime.Now.Year;
+    var reqMonth = DateTime.Now.Month;
+
+    var orderStartDate = DateTime.Now.AddDays(-6);
+
+    var orderEndDate = DateTime.Now;
+    if (Request["OrderStartDate"] != null && !string.IsNullOrWhiteSpace(Request["OrderStartDate"]))
+    {
+        orderStartDate = DateTime.Parse(Request["OrderStartDate"]);
+    }
+    if (Request["OrderEndDate"] != null && !string.IsNullOrWhiteSpace(Request["OrderEndDate"]))
+    {
+        orderEndDate = DateTime.Parse(Request["OrderEndDate"]);
+    }
+
+    var daysInMonth = Math.Min(DateTime.DaysInMonth(orderStartDate.Year, orderStartDate.Month), orderEndDate.Day);
+    var isAllowMealOrdering = Html.CurrentUser().IsInRole("comp_mealordering");
+    var selectedMealTypeId = ((List<SelectListItem>) ViewBag.MealTypes).First(x => x.Selected).Value.ToInt64();
+}
+@Html.HiddenFor(m=>isAllowMealOrdering)
+<!-- start: PAGE HEADER -->
+ 
+<script>
+    function PrepareDayModel(app, day, index)
+    {
+        day.Items = ko.observableArray(day.Items);
+        day.HasAdditionalFruit = ko.observable(day.Items().filter(function (item) { return item.HasAdditionalFruit; }).length > 0);
+        day.HasAdditionalVegetable = ko.observable(day.Items().filter(function (item) { return item.HasAdditionalVegetable; }).length > 0);
+        day.FruitCount = ko.observable(day.FruitCount);
+        day.VegetableCount = ko.observable(day.VegetableCount);
+    }
+</script>
+
+<div class="row">
+	<div class="col-sm-12">
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			    <i class="clip-home-3"></i>
+			    <a href="#">Home</a>
+			</li>
+			<li class="active">@ViewBag.Title</li>
+		</ol>
+	    <div class="row page-header">
+	        <div class="col-sm-6">
+	            <h1>
+	                @ViewBag.Title
+	            </h1>
+	        </div>
+	        <div class="col-sm-6">
+	            <div class="buttons-widget pull-right">
+	                <a class="btn btn-md btn-danger" href="javascript:void()" onclick="tar.openNewForm('MonthlyExport', 'MealOrder', { url: { OrderStartDate: $('#OrderStartDate').val(),MealTypeId:$('#MealTypeId').val()}, label: 'Monthly Export' });">
+	                    <i class="fa fa-file-excel-o"></i> Export
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end: PAGE TITLE & BREADCRUMB -->
+	</div>
+</div>
+<!-- end: PAGE HEADER -->
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form" method="POST">
+            <!-- start: RESPONSIVE TABLE PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Search Criteria
+                    <div class="panel-tools">
+                        <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td class="col-sm-3">
+                                            Date Range
+                                        </td>
+                                        <td class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control date-range">
+                                                <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                                                @Html.Hidden("OrderStartDate",orderStartDate.ToString("yyyy/MM/dd"),new{id="OrderStartDate"})
+                                                @Html.Hidden("OrderEndDate",orderEndDate.ToString("yyyy/MM/dd"),new{id="OrderEndDate"})
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-3">
+                                            School Name
+                                        </td>
+                                        <td class="col-sm-9">
+                                             @Html.TextBox("SchoolNameStartsWith", Request["SchoolNameStartsWith"], new { @class = "form-control limited",  maxlength="50", placeholder = "School name starts with", id = "SchoolNameStartsWith" })
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td class="col-sm-3">Meal Type</td>
+                                        <td class="col-sm-9">
+                                            @Html.DropDownList("MealTypeId", (List<SelectListItem>) ViewBag.MealTypes, new {id = "MealTypeId", @class = "form-control"})
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-3">School Type</td>
+                                        <td class="col-sm-9">
+                                            @Html.DropDownList("SchoolTypeId", (List<SelectListItem>) ViewBag.SchoolTypes, new {id = "SchoolTypeId", @class = "form-control"})
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td class="col-sm-3">Record Count</td>
+                                        <td class="col-sm-9">
+                                            @Html.DropDownList("RecordCount", (List<SelectListItem>) ViewBag.RecordCounts, new {id = "RecordCount", @class = "form-control"})
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span class="pull-right">
+                                                <button type="submit" class="btn btn-md btn-blue"><i class="clip-search"></i>  Search</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- start: RESPONSIVE TABLE PANEL -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-external-link-square"></i>
+                Search Result
+                <div class="panel-tools">
+                    <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th class="center col-sm-2">School</th>
+                            @{
+                                for (var i = orderStartDate.Day; i <= daysInMonth; i++)
+                                {
+                                    var curDate = (new DateTime(orderStartDate.Year,orderStartDate.Month, i));
+                                    if (curDate.DayOfWeek == DayOfWeek.Saturday || curDate.DayOfWeek == DayOfWeek.Sunday)
+                                    {
+                                        continue;
+                                    }
+                                    <th class="center">@i</th>
+                                }
+                            }
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @{
+                            var rowId = 0;
+                            foreach (var school in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="pull-left">
+                                            <a class="tooltips" href="#" data-original-title="@string.Format("{0}, #{1}", school.SchoolName, school.SchoolType)">
+											    @string.Format("{0}, #{1}", school.SchoolName.Length > 50 ? school.SchoolName.Substring(0, 50) : school.SchoolName, school.SchoolType)
+										    </a>
+                                        </span>
+
+                                        @if (isAllowMealOrdering)
+                                        {
+                                            <span class="pull-right">
+                                            @Html.ActionLink("Edit Order", "Manage",
+                                                new
+                                                {
+                                                    year = school.OrderDate.Year,
+                                                    month = school.OrderDate.Month,
+                                                    mealTypeId = selectedMealTypeId,
+                                                    schoolId = school.SchoolId
+                                                })
+    
+                                            </span>
+                                        }
+                                        <span class="pull-right">
+                                          @Html.ActionLink("Generate Menu ","SchoolMenuExport",
+                                new
+                                {
+                                    orderDate = school.OrderDate,
+                                    MealTypeId = selectedMealTypeId,
+                                    school.SchoolId,
+                                    SchoolType = school.SchoolTypeId
+                                }) &nbsp;&nbsp;||&nbsp;&nbsp; 
+                                        </span>
+                                    </td>
+                                    @{
+                                        //MealOrderManageDayView fvcount = new MealOrderManageDayView();nage
+
+                                        //var fruitCount = fvcount.FruitCount;
+                                        //var vegetableCount = fvcount.VegetableCount;
+
+                                        //MealMenuOrderFacade count = new MealMenuOrderFacade();
+                                        //var test = new MealOrderManageView();
+
+
+                                        var colId = 1;
+                                        for (var i = orderStartDate.Day; i <= daysInMonth; i++)
+                                        {
+                                            var curDate = (new DateTime(orderStartDate.Year,orderStartDate.Month, i));
+                                            if (curDate.DayOfWeek == DayOfWeek.Saturday || curDate.DayOfWeek == DayOfWeek.Sunday)
+                                            {
+                                                continue;
+                                            }
+                                            @:<td>
+                                            var item = school.Items.FirstOrDefault(d => d.Date == curDate);
+                                            if(item==null)
+                                            {
+                                                @:&nbsp;
+                                            }
+                                            else
+                                            {
+                                                if(item.Menus.Count==0)
+                                                {
+                                                    @:&nbsp;
+                                                }
+
+                                                foreach (var menu in item.Menus)
+                                                {
+                                                    <div>
+                                                        @if (menu.RefId.HasValue)
+                                                        {
+                                                            <a id="@string.Format("history{0}", menu.Id)" data-popover="1" data-menuid="@menu.Id" data-refid="@menu.RefId" class="control-label tooltips" href="javascript:void(0);">@menu.TotalCount</a>
+                                                        }
+                                                        else 
+                                                        {
+                                                            <span>@menu.TotalCount</span>   
+                                                        }
+                                                        - <span class="control-label tooltips" data-original-title="@string.Format("{0}", menu.Name)" style="cursor:default"> @string.Format("{0}", menu.Name.Length > 20 ? menu.Name.Substring(0, 20) : menu.Name)</span>  
+                                                                                                
+                                                    </div>
+                                                }
+                                                @*if(item.Menus.Count==0)
+                                                {
+                                                    @:&nbsp;
+                                                }*@
+                                                foreach (var menu in item.Menus)
+                                                {
+                                                    if (menu.fruitCount >= 0)
+                                                    {
+                                                        @*<a id="@string.Format("history{0}", menu.Id)" data-popover="1" data-menuid="@menu.Id" data-refid="@menu.RefId" class="control-label tooltips" href="javascript:void(0);">@menu.fruitCount</a>
+                                                        <a id="@string.Format("history{0}", menu.Id)" data-popover="1" data-menuid="@menu.Id" data-refid="@menu.RefId" class="control-label tooltips" href="javascript:void(0);">@menu.vegetableCount</a>*@
+                                                        <div><a id="@string.Format("history{0}", menu.Id)" data-popover="1" data-menuid="@menu.Id" data-refid="@menu.RefId" class="control-label tooltips" href="javascript:void(0);">@menu.fruitCount</a> - Fruit</div>
+                                                        <div><a id="@string.Format("history{0}", menu.Id)" data-popover="1" data-menuid="@menu.Id" data-refid="@menu.RefId" class="control-label tooltips" href="javascript:void(0);">@menu.vegetableCount</a> - Vegetable</div>
+                                                        @*<div><span>@menu.fruitCount</span> -Fruit</div>
+                                                        <div><span>@menu.vegetableCount</span> -Vegetable</div>*@
+                                                        break;
+                                                    }
+                                                }
+                                            }
+
+                                            @:</td> 
+                                            colId++;
+                                        }
+                                    }
+                                </tr>
+                                        rowId++;
+                            }
+                        }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: PAGE CONTENT -->
+@section documentReady {
+    $.each($("a[data-popover=1]"),
+        function()
+        {
+            var menuId = $(this).data('menuid');
+            var refId = $(this).data('refid');
+            historyPopover(menuId, refId);
+        });
+
+    $('.date-range').daterangepicker(
+    {
+    startDate: moment('@orderStartDate','MM/D/YYYY'),
+    endDate: moment('@orderEndDate','MM/D/YYYY'),
+    minDate: '2012/01/01',
+    maxDate: '2020/31/01',
+    dateLimit: { days: 7 },
+    showDropdowns: true,
+    showWeekNumbers: false,
+    timePicker: false,
+    timePickerIncrement: 1,
+    timePicker12Hour: true,
+    ranges: {
+    //'Today': [moment(), moment()],
+    //'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 Days': [moment().subtract('days', 6), moment()],
+    'Last 14 Days': [moment().subtract('days', 13), moment()],
+    //'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+    },
+    opens: 'left',
+    buttonClasses: ['btn btn-default'],
+    applyClass: 'btn-small btn-primary',
+    cancelClass: 'btn-small',
+    format: 'YYYY/MM/DD',
+    separator: ' - ',
+    locale: {
+    applyLabel: 'Apply',
+    fromLabel: 'From',
+    toLabel: 'To',
+    customRangeLabel: 'Custom Range',
+    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    firstDay: 1
+    }
+    },
+    function(start, end) {
+    $('#OrderStartDate').val(start.format('YYYY/MM/DD'));
+    $('#OrderEndDate').val(end.format('YYYY/MM/DD'));
+    $('.date-range').val(start.format('YYYY/MM/DD') + ' - ' + end.format('YYYY/MM/DD'));
+    }
+    );
+    $('.date-range').val(moment('@orderStartDate','MM/D/YYYY').format('YYYY/MM/DD') + ' - ' + moment('@orderEndDate','MM/D/YYYY').format('YYYY/MM/DD'));
+}
+<script>
+    function historyPopover(menuId, refId) {
+        $("#history" + menuId).popover({
+            html: true,
+            trigger: 'hover',
+            title: 'Order Item History',
+            container: $(this).attr('id'),
+            placement: 'top',
+            delay: { show: 500, hide: 100 },
+            content: function () {
+                var hoverControl = $(this);
+                if (hoverControl.attr('data-content') == null) {
+                    var popupContent = "";
+                    tar.callAction(
+                        "MealOrder",
+                        "OrderItemHistory",
+                        { OrderItemId: refId },
+                        {
+                            async: false,
+                            success: function(d) {
+                                if (d.Result != tar.constants.responseResult.Success) alert(d.Message);
+                                else {
+                                    var trPart = "";
+                                    $.each(d.OrderItems, function(index, orderItem) {
+                                        trPart += '<tr>' +
+                                            '<td class="center"><span>' + tar.toDateString(orderItem.ModifiedAt, 'YY/MM/DD') + '</span></td>' +
+                                            '<td><span class="pull-right">' + orderItem.TotalCount + '</span></td>' +
+                                            '<td><span>' + orderItem.ModifiedByFullName + '</span></td>' +
+                                            //'<td><span>' + orderItem.RecordStatus + '</span></td>' +
+                                            '</tr>';
+                                    });
+                                    var table = '<table class="table table-condensed">' +
+                                        //'<thead><th>Date</th><th>Count</th><th>User</th><th>Status</th></thead>' +
+                                        '<thead><th class="center">Date</th><th class="center">Count</th><th class="center">User</th></thead>' +
+                                        '<tbody>' +
+                                        trPart +
+                                        '</tbody>' +
+                                        '</table>';
+                                    //popupContent = '<div class="hover-hovercard">' + table + '</div>';
+                                    //popupContent = table;
+                                    hoverControl.attr('data-content',table);
+                                }
+                                return false;
+                            }
+                        });
+                    
+                    //return popupContent;
+                }
+                return $(this).attr('data-content');
+            }
+
+        });
+    }
+
+</script>
